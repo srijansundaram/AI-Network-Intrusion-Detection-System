@@ -1,0 +1,31 @@
+# Datasets — too large for GitHub
+data/raw/
+data/processed/
+*.csv
+*.pcap
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+env/
+.venv/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# NOTE: model files (.pkl .pt) are NOT ignored
+# They are tracked via Git LFS in .gitattributes
