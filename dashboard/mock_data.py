@@ -1,5 +1,4 @@
 from datetime import datetime, timedelta
-import random
 
 def get_mock_alerts():
     now = datetime.now()
@@ -33,7 +32,7 @@ def get_mock_alerts():
             "src_ip":      "203.0.113.10",
             "dst_ip":      "10.0.0.2",
             "port":        22,
-            "explanation": "Flagged because: 84 failed SSH login attempts from same IP in 60 seconds, inter-arrival time is uniform (automated tool pattern), destination port 22 (SSH)."
+            "explanation": "Flagged because: 84 failed SSH login attempts from same IP in 60 seconds, inter-arrival time is uniform (automated tool pattern)."
         },
         {
             "timestamp":   (now - timedelta(minutes=8)).strftime("%H:%M:%S"),
@@ -43,13 +42,53 @@ def get_mock_alerts():
             "src_ip":      "198.51.100.7",
             "dst_ip":      "10.0.0.8",
             "port":        443,
-            "explanation": "Flagged because: traffic pattern matches known botnet C2 communication, periodic beaconing every 30 seconds, unusual User-Agent string detected."
+            "explanation": "Flagged because: periodic beaconing every 30 seconds, traffic pattern matches known C2 communication, unusual User-Agent string."
         },
         {
-            "timestamp":   (now - timedelta(minutes=12)).strftime("%H:%M:%S"),
+            "timestamp":   (now - timedelta(minutes=10)).strftime("%H:%M:%S"),
+            "attack_type": "Web Attack",
+            "severity":    "Critical",
+            "confidence":  0.91,
+            "src_ip":      "185.220.101.5",
+            "dst_ip":      "10.0.0.3",
+            "port":        80,
+            "explanation": "Flagged because: SQL injection pattern detected in payload, abnormal POST request size, repeated 400/500 HTTP error responses from server."
+        },
+        {
+            "timestamp":   (now - timedelta(minutes=13)).strftime("%H:%M:%S"),
+            "attack_type": "Infiltration",
+            "severity":    "Critical",
+            "confidence":  0.83,
+            "src_ip":      "10.0.0.99",
+            "dst_ip":      "10.0.0.15",
+            "port":        445,
+            "explanation": "Flagged because: internal lateral movement detected, SMB protocol used to access multiple internal hosts, behaviour consistent with post-exploitation."
+        },
+        {
+            "timestamp":   (now - timedelta(minutes=16)).strftime("%H:%M:%S"),
+            "attack_type": "DoS Slowloris",
+            "severity":    "Warning",
+            "confidence":  0.72,
+            "src_ip":      "91.108.4.10",
+            "dst_ip":      "10.0.0.1",
+            "port":        80,
+            "explanation": "Flagged because: HTTP connections kept open with incomplete requests, server threads exhausted slowly, inter-arrival time unusually long (Slowloris pattern)."
+        },
+        {
+            "timestamp":   (now - timedelta(minutes=20)).strftime("%H:%M:%S"),
+            "attack_type": "Heartbleed",
+            "severity":    "Critical",
+            "confidence":  0.97,
+            "src_ip":      "45.33.32.156",
+            "dst_ip":      "10.0.0.4",
+            "port":        443,
+            "explanation": "Flagged because: malformed TLS heartbeat request detected, payload length exceeds actual data length, OpenSSL memory leak exploit pattern matched."
+        },
+        {
+            "timestamp":   (now - timedelta(minutes=25)).strftime("%H:%M:%S"),
             "attack_type": "Normal",
             "severity":    "Normal",
-            "confidence":  0.97,
+            "confidence":  0.98,
             "src_ip":      "192.168.1.10",
             "dst_ip":      "8.8.8.8",
             "port":        53,
