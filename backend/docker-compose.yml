@@ -1,0 +1,27 @@
+services:
+  nids-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nids-backend
+    # NOTE: with network_mode: host (below), port mapping is ignored by Docker —
+    # the app is reachable directly at http://<host>:8000
+    environment:
+      - NIDS_DEFAULT_INTERFACE=eth0
+      - NIDS_MODEL_PATH=/app/app/models/nids_model.joblib
+      - NIDS_SCALER_PATH=/app/app/models/scaler.joblib
+      - NIDS_LABEL_ENCODER_PATH=/app/app/models/label_encoder.joblib
+    volumes:
+      # Drop your trained model artifacts here (host ./models -> container /app/app/models)
+      - ./models:/app/app/models
+      - ./uploads:/app/app/uploads
+      - ./pcaps:/app/app/pcaps
+    # Live packet capture needs raw-socket access. NET_ADMIN/NET_RAW is the
+    # minimal-privilege way to do this instead of `privileged: true`.
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    # host networking lets Scapy see the host's real interfaces (e.g. eth0/wlan0)
+    # instead of only the container's virtual bridge interface.
+    network_mode: host
+    restart: unless-stopped
