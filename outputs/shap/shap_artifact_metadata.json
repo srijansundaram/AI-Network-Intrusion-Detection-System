@@ -1,0 +1,22 @@
+{
+    "artifact_type": "SHAP explainability artifacts",
+    "model_type": "Random Forest",
+    "dataset": "CICIDS-2017",
+    "samples_analyzed": 500,
+    "features_analyzed": 63,
+    "classes_analyzed": 15,
+    "shap_array_shape": [
+        500,
+        63,
+        15
+    ],
+    "feature_names_file": "shap_feature_metadata.json",
+    "shap_values_file": "shap_values_multiclass.npz",
+    "input_samples_file": "shap_input_samples.csv",
+    "global_importance_file": "global_shap_feature_importance.csv",
+    "classwise_importance_file": "classwise_shap_feature_importance.csv",
+    "dependence_analysis_file": "shap_dependence_data.csv",
+    "local_explanations_directory": "local_explanations",
+    "local_explanations_file": "local_explanations/local_shap_explanations.csv",
+    "local_prediction_summary_file": "local_explanations/local_shap_prediction_summary.csv"
+}
