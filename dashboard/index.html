@@ -65,27 +65,6 @@ body {
 .logo-text { font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
 .logo-sub  { font-size: 8.5px; color: var(--t3); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; }
 
-.nav { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-.nav-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 9px 10px; border-radius: 10px;
-    font-size: 12.5px; color: var(--t2);
-    cursor: pointer;
-    transition: all 0.15s; position: relative;
-}
-.nav-item:hover { background: rgba(255,130,40,0.08); color: var(--t1); }
-.nav-item.active {
-    background: rgba(224,112,32,0.18);
-    color: var(--t1);
-    border: 1px solid rgba(224,112,32,0.3);
-}
-.nav-dot {
-    width: 6px; height: 6px;
-    background: var(--accent); border-radius: 50%;
-    margin-left: auto;
-}
-.nav-icon { font-size: 14px; width: 18px; text-align: center; }
-
 .sidebar-footer {
     padding-top: 10px;
     border-top: 1px solid rgba(255,170,110,0.12);
@@ -763,23 +742,6 @@ function resizeMap() {
 }
 window.addEventListener('resize', resizeMap);
 setTimeout(resizeMap, 120);
-
-// ── NAV ────────────────────────────────────────────────────────────────────
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', function() {
-        document.querySelectorAll('.nav-item').forEach(i => {
-            i.classList.remove('active');
-            const d = i.querySelector('.nav-dot');
-            if (d) d.remove();
-        });
-        this.classList.add('active');
-        if (!this.querySelector('.nav-dot')) {
-            const d = document.createElement('span');
-            d.className = 'nav-dot';
-            this.appendChild(d);
-        }
-    });
-});
 
 // ── SIDEBAR: MODE TOGGLE ────────────────────────────────────────────────────
 document.querySelectorAll('.mode-btn').forEach(btn => {
