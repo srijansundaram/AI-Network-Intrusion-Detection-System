@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+app/uploads/*
+app/pcaps/*
+!app/uploads/.gitkeep
+!app/pcaps/.gitkeep
+app/models/*.joblib
