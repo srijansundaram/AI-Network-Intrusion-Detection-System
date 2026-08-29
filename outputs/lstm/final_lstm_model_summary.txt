@@ -1,0 +1,40 @@
+===========================================================================
+FINAL LSTM MODEL SUMMARY
+===========================================================================
+
+Model type              : LSTM
+Input sequence length   : 5
+Input feature count     : 63
+Output class count      : 15
+Optimizer               : Adam
+Learning rate           : 3.125000148429535e-05
+Loss function           : sparse_categorical_crossentropy
+Total parameters        : 33,743
+
+Independent Test Performance
+----------------------------------------
+Test sequences          : 113,229
+Test loss               : 0.098224
+Test accuracy           : 0.967376
+Test accuracy (%)       : 96.7376%
+
+Preprocessing Artifacts
+----------------------------------------
+Scaler                  : /content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation/standard_scaler.joblib
+Feature metadata        : /content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation/feature_metadata.json
+
+Model: "sequential"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ lstm (LSTM)                     │ (None, 64)             │        32,768 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout (Dropout)               │ (None, 64)             │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (None, 15)             │           975 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 101,231 (395.44 KB)
+ Trainable params: 33,743 (131.81 KB)
+ Non-trainable params: 0 (0.00 B)
+ Optimizer params: 67,488 (263.63 KB)
+
