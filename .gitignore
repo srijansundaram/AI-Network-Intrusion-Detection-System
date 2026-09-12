@@ -29,3 +29,7 @@ logs/
 
 # NOTE: model files (.pkl .pt) are NOT ignored
 # They are tracked via Git LFS in .gitattributes
+
+# Final ensemble evaluation outputs
+!outputs/ensemble/
+!outputs/ensemble/*.csv
