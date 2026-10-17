@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NIDS — Threat Intelligence Dashboard</title>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -45,6 +46,12 @@
             <label class="sev-check"><input type="checkbox" class="sev-cb" value="Warning" checked><span class="sev-dot" style="background:var(--orange)"></span> Warning</label>
             <label class="sev-check"><input type="checkbox" class="sev-cb" value="Normal" checked><span class="sev-dot" style="background:var(--green)"></span> Normal</label>
         </div>
+
+        <div class="ctrl-section" style="border-bottom: none; margin-bottom: 0; padding-top: 14px; border-top: 1px solid rgba(255,170,110,0.12);">
+            <div class="ctrl-label">Export</div>
+            <button class="export-btn" id="export-btn">⬇ Download PDF Report</button>
+            <div class="slider-hint">Summary, statistics, charts and recent alerts</div>
+        </div>
     </div>
 
     <div class="sidebar-footer">
@@ -65,60 +72,40 @@
     <div class="top-bar">
         <div class="page-info">
             <span class="live-dot"></span>
-            <div class="page-title"><b>Dashboard</b> — Live Monitoring</div>
+            <div class="page-title"><b>Dashboard</b> — <span id="page-mode">Live Monitoring</span></div>
         </div>
         <div class="metrics">
             <div class="metric-card">
                 <div>
                     <div class="m-label">Critical Alerts</div>
-                    <div class="m-value" style="color:#FF2D2D">235</div>
-                    <div class="m-delta">↑ 4% this hour</div>
+                    <div class="m-value" id="m-critical" style="color:#FF2D2D">0</div>
+                    <div class="m-delta" id="m-critical-d">—</div>
                 </div>
-                <svg width="68" height="30" viewBox="0 0 68 30">
-                    <polyline points="0,26 12,20 22,23 34,14 46,18 56,10 68,7"
-                        fill="none" stroke="#E07020" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="68" cy="7" r="2.5" fill="#E07020"/>
-                </svg>
+                <svg width="68" height="30" viewBox="0 0 68 30"><polyline points="0,26 12,20 22,23 34,14 46,18 56,10 68,7" fill="none" stroke="#E07020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="7" r="2.5" fill="#E07020"/></svg>
             </div>
             <div class="metric-card">
                 <div>
                     <div class="m-label">Active Threats</div>
-                    <div class="m-value" style="color:#FF8C42">7</div>
-                    <div class="m-delta dn">↓ 8% mitigated</div>
+                    <div class="m-value" id="m-threats" style="color:#FF8C42">0</div>
+                    <div class="m-delta dn" id="m-threats-d">unique sources, 5 min</div>
                 </div>
-                <svg width="68" height="30" viewBox="0 0 68 30">
-                    <polyline points="0,8 12,14 22,11 34,19 46,16 56,21 68,25"
-                        fill="none" stroke="#FF2D2D" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="68" cy="25" r="2.5" fill="#FF2D2D"/>
-                </svg>
+                <svg width="68" height="30" viewBox="0 0 68 30"><polyline points="0,8 12,14 22,11 34,19 46,16 56,21 68,25" fill="none" stroke="#FF2D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="25" r="2.5" fill="#FF2D2D"/></svg>
             </div>
             <div class="metric-card">
                 <div>
-                    <div class="m-label">Detection Rate</div>
-                    <div class="m-value" style="color:#00D084">94%</div>
-                    <div class="m-delta">↑ 2% this week</div>
+                    <div class="m-label">Flows Analysed</div>
+                    <div class="m-value" id="m-flows" style="color:#00D084">0</div>
+                    <div class="m-delta" id="m-flows-d">—</div>
                 </div>
-                <svg width="68" height="30" viewBox="0 0 68 30">
-                    <polyline points="0,24 12,20 22,18 34,13 46,15 56,9 68,6"
-                        fill="none" stroke="#00D084" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="68" cy="6" r="2.5" fill="#00D084"/>
-                </svg>
+                <svg width="68" height="30" viewBox="0 0 68 30"><polyline points="0,24 12,20 22,18 34,13 46,15 56,9 68,6" fill="none" stroke="#00D084" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="6" r="2.5" fill="#00D084"/></svg>
             </div>
             <div class="metric-card">
                 <div>
-                    <div class="m-label">Avg Response</div>
-                    <div class="m-value" style="color:#4A9EFF">8.4<span style="font-size:12px;font-weight:400;color:var(--t2)">ms</span></div>
-                    <div class="m-delta">↑ 4% faster</div>
+                    <div class="m-label">Avg Latency</div>
+                    <div class="m-value" id="m-latency" style="color:#4A9EFF">—</div>
+                    <div class="m-delta" id="m-latency-d">per flow</div>
                 </div>
-                <svg width="68" height="30" viewBox="0 0 68 30">
-                    <polyline points="0,22 12,18 22,20 34,14 46,11 56,9 68,5"
-                        fill="none" stroke="#4A9EFF" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="68" cy="5" r="2.5" fill="#4A9EFF"/>
-                </svg>
+                <svg width="68" height="30" viewBox="0 0 68 30"><polyline points="0,22 12,18 22,20 34,14 46,11 56,9 68,5" fill="none" stroke="#4A9EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="5" r="2.5" fill="#4A9EFF"/></svg>
             </div>
         </div>
     </div>
@@ -176,173 +163,92 @@
         </div>
 
         <!-- ACTIVITY PANEL -->
-<div class="panel activity-panel">
-    <div class="panel-header">
-        <div>
-            <div class="panel-title">Alerts</div>
-            <div class="panel-sub">Updated just now</div>
-        </div>
-        <button class="sort-btn">Sort ↕</button>
-    </div>
-
-    <div class="tab-bar">
-        <button class="tab-btn active" data-tab="feed">🚨 Alert Feed</button>
-        <button class="tab-btn" data-tab="timeline">📈 Timeline</button>
-        <button class="tab-btn" data-tab="compare">🔬 Model Comparison</button>
-    </div>
-
-    <!-- TAB 1: ALERT FEED -->
-    <div class="tab-panel active" id="tab-feed">
-        <div class="activity-list" id="activity-list">
-
-            <div class="activity-item" data-severity="Critical" data-confidence="94"
-                 data-attack="DDoS" data-src="192.168.1.45" data-dst="10.0.0.1" data-port="80" data-time="23:52:04"
-                 data-explanation="Flagged because: packet rate is 6x above baseline, SYN flag repeated 312 times in 3 seconds, destination port 80 (HTTP flood pattern).">
-                <div class="a-dot d-red"></div>
-                <div style="flex:1">
-                    <div class="a-text">DDoS attack detected — 312 pkt/s from 192.168.1.45</div>
-                    <div class="a-time">Just now</div>
+        <div class="panel activity-panel">
+            <div class="panel-header">
+                <div>
+                    <div class="panel-title">Alerts</div>
+                    <div class="panel-sub" id="feed-sub">Waiting for data…</div>
                 </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
+                <button class="sort-btn" id="sort-btn">Sort: Time ↕</button>
             </div>
 
-            <div class="activity-item" data-severity="Warning" data-confidence="71"
-                 data-attack="Port Scan" data-src="172.16.0.22" data-dst="10.0.0.5" data-port="1-1024" data-time="23:50:11"
-                 data-explanation="Flagged because: 47 distinct destination ports probed within 4 seconds, low payload size, sequential port pattern typical of scanning tools.">
-                <div class="a-dot d-org"></div>
-                <div style="flex:1">
-                    <div class="a-text">Port scan blocked — 47 ports from 172.16.0.22</div>
-                    <div class="a-time">2 min ago</div>
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="feed">🚨 Feed</button>
+                <button class="tab-btn" data-tab="timeline">📈 Timeline</button>
+                <button class="tab-btn" data-tab="compare">🔬 Models</button>
+                <button class="tab-btn" data-tab="errors">⚠️ Errors</button>
+                <button class="tab-btn" data-tab="explain">🧠 Explain</button>
+            </div>
+
+            <!-- TAB 1: ALERT FEED -->
+            <div class="tab-panel active" id="tab-feed">
+                <div class="activity-list" id="activity-list"></div>
+            </div>
+
+            <!-- TAB 2: TIMELINE -->
+            <div class="tab-panel" id="tab-timeline">
+                <div class="toolbar">
+                    <div class="chips" id="tl-chips"></div>
+                    <div class="tool-btns">
+                        <button class="mini-btn" id="tl-all">All</button>
+                        <button class="mini-btn" id="tl-none">None</button>
+                        <button class="mini-btn on" id="tl-live">● Live</button>
+                    </div>
                 </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
+                <div id="timeline-chart"></div>
             </div>
 
-            <div class="activity-item" data-severity="Critical" data-confidence="88"
-                 data-attack="Brute Force" data-src="203.0.113.10" data-dst="10.0.0.9" data-port="22" data-time="23:47:02"
-                 data-explanation="Flagged because: 84 failed SSH auth attempts in 60 seconds from a single source, consistent inter-attempt timing.">
-                <div class="a-dot d-red"></div>
-                <div style="flex:1">
-                    <div class="a-text">Brute force SSH — 84 attempts from 203.0.113.10</div>
-                    <div class="a-time">5 min ago</div>
+            <!-- TAB 3: MODEL COMPARISON -->
+            <div class="tab-panel" id="tab-compare">
+                <div class="scroll-pane">
+                    <div class="sec-title">Select models</div>
+                    <div class="chips" id="mdl-chips"></div>
+                    <div class="sec-title">Independent-test metrics</div>
+                    <div id="mdl-table"></div>
+                    <div id="mdl-chart"></div>
+                    <div class="note" id="mdl-note"></div>
+                    <div class="sec-title">Latest alert — prediction by each model</div>
+                    <div id="mdl-live"></div>
                 </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
             </div>
 
-            <div class="activity-item" data-severity="Normal" data-confidence="52"
-                 data-attack="Bot" data-src="198.51.100.7" data-dst="10.0.0.2" data-port="443" data-time="23:44:15"
-                 data-explanation="Flagged because: periodic beacon-like traffic every ~30s, small fixed payload size, low variance in timing.">
-                <div class="a-dot d-blu"></div>
-                <div style="flex:1">
-                    <div class="a-text">Bot C2 beacon — periodic traffic from 198.51.100.7</div>
-                    <div class="a-time">8 min ago</div>
+            <!-- TAB 4: ERROR ANALYSIS -->
+            <div class="tab-panel" id="tab-errors">
+                <div class="scroll-pane">
+                    <div class="toolbar flat">
+                        <div class="chips" id="err-chips"></div>
+                        <select class="sel" id="err-cat"></select>
+                    </div>
+                    <div class="toolbar flat">
+                        <div class="chips" id="err-metric">
+                            <button class="chip on" data-m="fp">False positives</button>
+                            <button class="chip" data-m="fn">False negatives</button>
+                        </div>
+                    </div>
+                    <div id="err-chart"></div>
+                    <div id="err-cards"></div>
+                    <div class="note">False positive = benign traffic flagged as an attack. False negative = an attack classified as benign. Source: confusion matrices on 113,229 independent-test sequences.</div>
                 </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
             </div>
 
-            <div class="activity-item" data-severity="Critical" data-confidence="91"
-                 data-attack="Heartbleed" data-src="203.0.113.44" data-dst="10.0.0.3" data-port="443" data-time="23:41:00"
-                 data-explanation="Flagged because: malformed TLS heartbeat request with oversized payload length field, matches CVE-2014-0160 signature.">
-                <div class="a-dot d-red"></div>
-                <div style="flex:1">
-                    <div class="a-text">Heartbleed exploit — TLS abuse on port 443</div>
-                    <div class="a-time">11 min ago</div>
+            <!-- TAB 5: EXPLAINABILITY (SHAP + LIME) -->
+            <div class="tab-panel" id="tab-explain">
+                <div class="scroll-pane">
+                    <div class="sec-title">Global feature importance (SHAP, Random Forest)</div>
+                    <div id="ex-global"></div>
+                    <div class="sec-title">Explain a single alert</div>
+                    <select class="sel wide" id="ex-alert"></select>
+                    <div id="ex-detail"></div>
                 </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
-            </div>
-
-            <div class="activity-item" data-severity="Normal" data-confidence="63"
-                 data-attack="Web Attack" data-src="192.0.2.15" data-dst="10.0.0.4" data-port="80" data-time="23:38:20"
-                 data-explanation="Flagged because: SQL syntax tokens detected in URL query parameters, request blocked before execution.">
-                <div class="a-dot d-grn"></div>
-                <div style="flex:1">
-                    <div class="a-text">Web attack mitigated — SQL injection blocked port 80</div>
-                    <div class="a-time">14 min ago</div>
-                </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
-            </div>
-
-            <div class="activity-item" data-severity="Warning" data-confidence="76"
-                 data-attack="DoS Slowloris" data-src="198.51.100.20" data-dst="10.0.0.6" data-port="80" data-time="23:34:41"
-                 data-explanation="Flagged because: many partial HTTP requests held open simultaneously, connection count 8x above baseline, server thread pool near saturation.">
-                <div class="a-dot d-org"></div>
-                <div style="flex:1">
-                    <div class="a-text">DoS Slowloris — server threads at 89% capacity</div>
-                    <div class="a-time">18 min ago</div>
-                </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
-            </div>
-
-            <div class="activity-item" data-severity="Normal" data-confidence="40"
-                 data-attack="Info" data-src="—" data-dst="—" data-port="—" data-time="23:31:10"
-                 data-explanation="System event — no traffic classification involved.">
-                <div class="a-dot d-blu"></div>
-                <div style="flex:1">
-                    <div class="a-text">Model retrained — CICIDS-2017 batch complete</div>
-                    <div class="a-time">22 min ago</div>
-                </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
-            </div>
-
-            <div class="activity-item" data-severity="Normal" data-confidence="85"
-                 data-attack="Infiltration" data-src="10.0.0.55" data-dst="10.0.0.60" data-port="445" data-time="23:22:50"
-                 data-explanation="Flagged because: SMB lateral movement pattern detected — unusual internal host-to-host connection with admin share access.">
-                <div class="a-dot d-grn"></div>
-                <div style="flex:1">
-                    <div class="a-text">Infiltration blocked — lateral movement on SMB 445</div>
-                    <div class="a-time">30 min ago</div>
-                </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
-            </div>
-
-            <div class="activity-item" data-severity="Critical" data-confidence="97"
-                 data-attack="Port Scan" data-src="203.0.113.99" data-dst="10.0.0.0/24" data-port="1-65535" data-time="23:07:33"
-                 data-explanation="Flagged because: full port range scan detected across subnet, 235 open ports enumerated in under 2 minutes.">
-                <div class="a-dot d-red"></div>
-                <div style="flex:1">
-                    <div class="a-text">Critical scan complete — 235 open ports found</div>
-                    <div class="a-time">45 min ago</div>
-                </div>
-                <span class="a-arr">›</span>
-                <div class="a-detail"></div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- TAB 2: TIMELINE -->
-    <div class="tab-panel" id="tab-timeline">
-        <div id="timeline-chart"></div>
-    </div>
-
-    <!-- TAB 3: MODEL COMPARISON -->
-    <div class="tab-panel" id="tab-compare">
-        <div class="cmp-table">
-            <div class="cmp-row cmp-head">
-                <span>Model</span><span>Accuracy</span><span>F1 Score</span><span>False Pos. Rate</span>
-            </div>
-            <div class="cmp-row">
-                <span class="cmp-model">Random Forest</span><span>96.1%</span><span>0.94</span><span>2.3%</span>
-            </div>
-            <div class="cmp-row">
-                <span class="cmp-model">LSTM</span><span>93.8%</span><span>0.91</span><span>3.1%</span>
-            </div>
-            <div class="cmp-row">
-                <span class="cmp-model cmp-best">Ensemble (RF+LSTM)</span><span class="cmp-best">97.4%</span><span class="cmp-best">0.96</span><span class="cmp-best">1.6%</span>
             </div>
         </div>
+
     </div>
 </div>
 
+<script src="config.js"></script>
+<script src="api.js"></script>
 <script src="script.js"></script>
+<script src="app.js"></script>
 </body>
-</html>
 </html>
