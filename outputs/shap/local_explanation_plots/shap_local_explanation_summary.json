@@ -1,0 +1,13 @@
+{
+  "method": "Existing class-specific SHAP contributions for selected cases",
+  "explanation_partition": "original_n04_validation",
+  "selected_case_count": 5,
+  "feature_count_per_case": 32,
+  "contribution_record_count": 160,
+  "visualization_count": 5,
+  "top_features_per_visualization": 12,
+  "maximum_absolute_additivity_error": 1.21122285534625e-08,
+  "independent_test_accessed": false,
+  "shap_recalculated": false,
+  "artifacts_persisted": false
+}

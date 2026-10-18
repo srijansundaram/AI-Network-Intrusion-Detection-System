@@ -1,0 +1,223 @@
+{
+    "manifest_type": "Random Forest Final Handoff Manifest",
+    "manifest_version": "1.0",
+    "notebook": "N05",
+    "project": "AI-Network-Intrusion-Detection-System",
+    "handoff_stage": "5.15 \u2014 Final Random Forest Handoff and Validation",
+    "manifest_creation_subsection": "5.15.2 \u2014 Final RF Handoff Manifest Creation",
+    "selected_strategy": {
+        "strategy_id": "RF-3",
+        "strategy_name": "Controlled Random Oversampling",
+        "training_partition": "Training",
+        "selection_partition": "Validation",
+        "independent_test_used_for_selection": false
+    },
+    "final_model": {
+        "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/trained_models/random_forest/final_random_forest.joblib",
+        "artifact_type": "joblib",
+        "metadata_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/final_model/rf_final_model_metadata.json"
+    },
+    "consumer_input_contract": {
+        "input_representation": "N04 model-ready feature representation",
+        "feature_count": 32,
+        "feature_dtype": "float32",
+        "feature_order": [
+            "ECE Flag Count",
+            "FIN Flag Count",
+            "Fwd PSH Flags",
+            "URG Flag Count",
+            "Down/Up Ratio",
+            "PSH Flag Count",
+            "ACK Flag Count",
+            "act_data_pkt_fwd",
+            "Fwd Header Length",
+            "Avg Fwd Segment Size",
+            "Fwd Packet Length Min",
+            "Bwd Header Length",
+            "Average Packet Size",
+            "Bwd Packet Length Min",
+            "Fwd Packet Length Std",
+            "Bwd Packet Length Std",
+            "Active Std",
+            "Bwd IAT Min",
+            "Idle Std",
+            "Flow IAT Min",
+            "Fwd IAT Min",
+            "Bwd Packets/s",
+            "Active Max",
+            "Flow Bytes/s",
+            "Flow Duration",
+            "Bwd IAT Mean",
+            "Bwd IAT Std",
+            "Fwd IAT Mean",
+            "Flow IAT Std",
+            "min_seg_size_forward",
+            "Fwd IAT Std",
+            "Destination Port"
+        ],
+        "preprocessing_authority": "Notebook 04 model-preparation pipeline",
+        "feature_selection_authority": "Notebook 04 finalized feature-selection contract",
+        "scaling_authority": "Notebook 04 training-only scaler and partition-wise transformation",
+        "independent_test_policy": "Independent Test is reserved for final evaluation only"
+    },
+    "consumer_output_contract": {
+        "output_type": "Random Forest class prediction",
+        "class_count": 9,
+        "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+        ],
+        "class_mapping": {
+            "0": "BENIGN",
+            "1": "DDoS",
+            "2": "Port Scan",
+            "3": "Brute Force",
+            "4": "Bot",
+            "5": "Web Attack",
+            "6": "Infiltration",
+            "7": "DoS",
+            "8": "Heartbleed"
+        },
+        "selected_strategy": "RF-3",
+        "selected_strategy_name": "Controlled Random Oversampling"
+    },
+    "model_contract": {
+        "n_estimators": 100,
+        "max_features": "sqrt",
+        "max_depth": null,
+        "bootstrap": true,
+        "n_jobs": -1,
+        "random_state": 42,
+        "class_weight": null
+    },
+    "n04_dependencies": {
+        "model_ready_feature_metadata": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation_v2/feature_scaling/model_ready_feature_artifacts.json",
+        "final_n04_handoff_manifest": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation_v2/final_n04_handoff_manifest.json",
+        "dependency_policy": "Notebook 04 model-preparation artifacts are authoritative and immutable."
+    },
+    "evaluation_artifacts": {
+        "strategy_selection": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/strategy_selection/rf_strategy_selection.json",
+        "validation_results": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/validation_results.csv",
+        "experiment_results": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/rf_experiment_results.csv",
+        "test_results": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/test_results.csv",
+        "confusion_matrix": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/confusion_matrix.csv",
+        "classification_report": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/classification_report.csv"
+    },
+    "interpretation_artifacts": {
+        "feature_importance": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_feature_importance.csv",
+        "class_wise_error_analysis": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_class_wise_error_analysis.csv",
+        "confusion_pattern_analysis": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_confusion_pattern_analysis.csv",
+        "dominant_error_analysis": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_dominant_error_analysis.csv",
+        "minority_class_analysis": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_minority_class_analysis.csv",
+        "error_analysis_summary": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_error_analysis_summary.json"
+    },
+    "artifact_integrity": {
+        "final_model": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/trained_models/random_forest/final_random_forest.joblib",
+            "size_bytes": 103237377,
+            "sha256": "50bb5ec9eb3a02fc9bb265079ed5a0f2484646e87c4c009c659920bbe315a280"
+        },
+        "final_model_metadata": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/final_model/rf_final_model_metadata.json",
+            "size_bytes": 3839,
+            "sha256": "b69399c2cfb13de60579d2916dde392164539a989abd7b1a3ed7f75170a490f5"
+        },
+        "n04_model_ready_feature_metadata": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation_v2/feature_scaling/model_ready_feature_artifacts.json",
+            "size_bytes": 3064,
+            "sha256": "51f9d9a0a2ed03779ae405692869490d93d6e5e509b8b9d099b100bd49284c8f"
+        },
+        "n04_final_handoff_manifest": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation_v2/final_n04_handoff_manifest.json",
+            "size_bytes": 4435,
+            "sha256": "41a94b4961c1a7abf5d4888da1969290ed156c626f95222bd67b88c18e1d294a"
+        },
+        "strategy_selection": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/strategy_selection/rf_strategy_selection.json",
+            "size_bytes": 1466,
+            "sha256": "e4fedad798f8c3f4df429eed79e55b1b36527b21a6d9aa47cc7b1ceb822e1720"
+        },
+        "validation_results": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/validation_results.csv",
+            "size_bytes": 1153,
+            "sha256": "2724cb37893720b7152205a0b0ac6dbad8cd8bdb56b70fc8b31b96c25ae6e861"
+        },
+        "experiment_results": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/rf_experiment_results.csv",
+            "size_bytes": 1153,
+            "sha256": "2724cb37893720b7152205a0b0ac6dbad8cd8bdb56b70fc8b31b96c25ae6e861"
+        },
+        "test_results": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/test_results.csv",
+            "size_bytes": 615,
+            "sha256": "a9c692e5273351bca2101c51c6dab34d13438563f12082f2d36a869427995094"
+        },
+        "confusion_matrix": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/confusion_matrix.csv",
+            "size_bytes": 362,
+            "sha256": "4f7cf7126934e2b2001e0d1bd583ae95e4b78c553dacd490c4e0fc6361050cd0"
+        },
+        "classification_report": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/classification_report.csv",
+            "size_bytes": 622,
+            "sha256": "16edda8f69484b2f370b0baf5cfbf012ad6ace02f68d529c51ec7e98526eaff4"
+        },
+        "feature_importance": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_feature_importance.csv",
+            "size_bytes": 1171,
+            "sha256": "c233845d6f29908903f70c33ede92b39460ed3e9fc1c631ad22d0bc023253d66"
+        },
+        "rf_class_wise_error_analysis": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_class_wise_error_analysis.csv",
+            "size_bytes": 1122,
+            "sha256": "f85a921bc7dc00a5a3595419287c9cb0fbaf01f51765b23f175a9a7e3f21d500"
+        },
+        "rf_confusion_pattern_analysis": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_confusion_pattern_analysis.csv",
+            "size_bytes": 454,
+            "sha256": "8af8ef464e5ef2ef2356d373efa9f84a7e3bf361c3e254b41665abf2d2232f5f"
+        },
+        "rf_dominant_error_analysis": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_dominant_error_analysis.csv",
+            "size_bytes": 297,
+            "sha256": "630c9306465d88c8ec11271f4c4c40ffdf968e9de022260a77da59822775b6d8"
+        },
+        "rf_minority_class_analysis": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_minority_class_analysis.csv",
+            "size_bytes": 318,
+            "sha256": "fe5056a128cf759d7ef597d47508760d4cac0527d67f5a51fa238f0f81be4ddc"
+        },
+        "rf_error_analysis_summary": {
+            "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/interpretation/rf_error_analysis_summary.json",
+            "size_bytes": 1263,
+            "sha256": "9f43a35bd452e84f60d80c337c64e9e362cf12041baba7211642db0224e95f3c"
+        }
+    },
+    "artifact_mapping_observations": {
+        "historical_model_configuration_mapping": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/experiment_configuration/rf_model_configuration.json",
+        "historical_model_configuration_mapping_status": "Historical mapping retained; mapped file was not persisted at that location.",
+        "actual_artifact_output_configuration": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/experiment_configuration/rf_artifact_output_configuration.json",
+        "historical_experiment_results_mapping": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/strategy_experiments/rf_experiment_results.csv",
+        "actual_experiment_results": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/random_forest_model_development/evaluation/rf_experiment_results.csv",
+        "mapping_policy": "Historical mappings are documented and are not silently rewritten."
+    },
+    "protection_contract": {
+        "n04_immutable": true,
+        "model_modification_in_handoff": false,
+        "test_inference_in_manifest_creation": false,
+        "new_test_metric_calculation": false,
+        "new_model_fitting": false,
+        "new_resampling": false,
+        "new_strategy_selection": false,
+        "new_hyperparameter_selection": false
+    },
+    "handoff_status": "ready_for_validation",
+    "manifest_self_reference": "Excluded from artifact integrity records to avoid self-referential hashing."
+}

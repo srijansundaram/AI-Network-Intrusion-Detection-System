@@ -1,0 +1,100 @@
+{
+  "candidate_count": 8,
+  "checks": [
+    {
+      "check": "required_upstream_artifacts_exist",
+      "details": "required=2; missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "comparison_status",
+      "details": "status=PASS_FINAL_CANDIDATE_COMPARISON",
+      "status": "PASS"
+    },
+    {
+      "check": "comparison_report_status",
+      "details": "status=PASS_FINAL_CANDIDATE_COMPARISON",
+      "status": "PASS"
+    },
+    {
+      "check": "comparison_report_has_zero_failures",
+      "details": "checks_failed=0",
+      "status": "PASS"
+    },
+    {
+      "check": "validation_partition",
+      "details": "partition=Validation",
+      "status": "PASS"
+    },
+    {
+      "check": "validation_observation_count",
+      "details": "observations=451206; expected=451206",
+      "status": "PASS"
+    },
+    {
+      "check": "nine_class_contract",
+      "details": "class_ids=[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+      "status": "PASS"
+    },
+    {
+      "check": "primary_metric_contract",
+      "details": "primary_metric=macro_f1",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate_results_is_list",
+      "details": "type=list",
+      "status": "PASS"
+    },
+    {
+      "check": "exact_eight_candidate_set",
+      "details": "candidate_count=8; actual=['equal_weight', 'lstm_baseline', 'rf_0.25_lstm_0.75', 'rf_0.40_lstm_0.60', 'rf_0.60_lstm_0.40', 'rf_0.75_lstm_0.25', 'rf_baseline', 'stacking_meta_model']",
+      "status": "PASS"
+    },
+    {
+      "check": "all_candidate_metrics_valid",
+      "details": "validated_metrics=['macro_f1', 'macro_precision', 'macro_recall', 'balanced_accuracy', 'weighted_f1', 'accuracy']",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_is_deterministic",
+      "details": "selected=rf_baseline; primary_metric=macro_f1; near_tied_candidates=1",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_artifact_reload_integrity",
+      "details": "path=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_strategy_selection.json; write_mode=CREATED_NEW; selected=rf_baseline",
+      "status": "PASS"
+    }
+  ],
+  "checks_failed": 0,
+  "checks_passed": 13,
+  "created_at_utc": "2026-10-17T15:59:29.128527+00:00",
+  "execution_constraints": {
+    "configuration_frozen": false,
+    "models_fitted_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "test_arrays_loaded": false,
+    "upstream_artifacts_modified": false
+  },
+  "observation_count": 451206,
+  "output_write_modes": {
+    "selection_json": "CREATED_NEW"
+  },
+  "outputs": {
+    "selection_json": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_strategy_selection.json"
+  },
+  "partition": "Validation",
+  "primary_metric": "macro_f1",
+  "report_id": "n08_validation_final_strategy_selection_report_v1",
+  "section": "8.6.2",
+  "selected_candidate_id": "rf_baseline",
+  "selected_primary_metric_value": 0.8834704173472481,
+  "source_artifact_sha256": {
+    "voting/final_candidate_comparison.json": "fc1923f9944bc5e1757492a287720fb667805e35d0f38c66aaca077adfb8e44a",
+    "voting/final_candidate_comparison_report.json": "3ab57b7aeaaebb381c251a02a8bdb7883dbdfcb10c25e7d0fc45e979a2c26c35"
+  },
+  "status": "PASS_VALIDATION_BASED_STRATEGY_SELECTION",
+  "verdict": "PASS_SELECTION_AND_RELOAD_INTEGRITY"
+}

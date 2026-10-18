@@ -1,0 +1,103 @@
+{
+  "artifact_id": "n08_final_ensemble_package_manifest_validation_report_v1",
+  "candidate_id": "rf_0.75_lstm_0.25",
+  "checks": [
+    {
+      "check": "package_directory_exists",
+      "details": "path=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1",
+      "status": "PASS"
+    },
+    {
+      "check": "required_package_artifacts_exist",
+      "details": "required=20; missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_validation_passed",
+      "details": "status=PASS_ENSEMBLE_INFERENCE_CONTRACT_VALIDATION; checks_failed=0",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_inventory_covers_required_files",
+      "details": "inventory_files=20; missing_required=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_candidate_matches_expected",
+      "details": "candidate=rf_0.75_lstm_0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_weights_match_expected",
+      "details": "RF=0.75; LSTM=0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_weights_sum_to_one",
+      "details": "sum=1.0",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_reload_matches_payload",
+      "details": "artifact_id=n08_final_ensemble_package_manifest_v1",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_artifact_hashes_match",
+      "details": "All recorded SHA-256 hashes match.",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_artifact_sizes_match",
+      "details": "All 20 recorded file sizes match.",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_candidate_and_weights",
+      "details": "candidate=rf_0.75_lstm_0.25; RF=0.75; LSTM=0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_class_order_and_probability_status",
+      "details": "class_order=[0, 1, 2, 3, 4, 5, 6, 7, 8]; probability_status=uncalibrated",
+      "status": "PASS"
+    },
+    {
+      "check": "source_artifacts_unchanged",
+      "details": "All inventoried package artifacts retain their original SHA-256 hashes.",
+      "status": "PASS"
+    }
+  ],
+  "checks_failed_before_report_persistence": 0,
+  "checks_passed_before_report_persistence": 13,
+  "class_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "execution_boundaries": {
+    "evaluation_metrics_recalculated": false,
+    "frozen_configuration_modified": false,
+    "inventoried_source_artifacts_modified": false,
+    "manifest_self_hash_included": false,
+    "models_trained_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "test_arrays_loaded": false,
+    "validation_report_self_hash_included": false
+  },
+  "lstm_weight": 0.25,
+  "manifest_artifact_count": 20,
+  "manifest_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/final_ensemble_package_manifest_v1.json",
+  "manifest_persistence_mode": "CREATED_NEW",
+  "manifest_sha256": "4c4075714b8a403bf18c1c4f3ba580513fc0ea956350469eef6c1a201cdcf12b",
+  "probability_status": "uncalibrated",
+  "rf_weight": 0.75,
+  "status": "PASS_FINAL_ENSEMBLE_PACKAGE_MANIFEST_VALIDATION"
+}

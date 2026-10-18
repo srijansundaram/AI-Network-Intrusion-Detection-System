@@ -1,0 +1,102 @@
+{
+  "contract_name": "Final LSTM Consumer Input/Output Contract",
+  "contract_version": "1.0",
+  "section": "7.10.1",
+  "created_at_utc": "2026-10-12T18:22:05.848582+00:00",
+  "status": "VALIDATED",
+  "model": {
+    "model_family": "LSTM",
+    "selected_experiment": "LSTM-3",
+    "checkpoint_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_model.pt",
+    "configuration_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_training_config.json",
+    "training_status_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_training_status.json",
+    "final_refit_epochs": 4,
+    "model_retraining_required_for_inference": false
+  },
+  "input_contract": {
+    "tensor_shape": [
+      "batch_size",
+      10,
+      32
+    ],
+    "sequence_length": 10,
+    "stride": 1,
+    "target_assignment": "last_observation",
+    "feature_count": 32,
+    "feature_order": [
+      "ECE Flag Count",
+      "FIN Flag Count",
+      "Fwd PSH Flags",
+      "URG Flag Count",
+      "Down/Up Ratio",
+      "PSH Flag Count",
+      "ACK Flag Count",
+      "act_data_pkt_fwd",
+      "Fwd Header Length",
+      "Avg Fwd Segment Size",
+      "Fwd Packet Length Min",
+      "Bwd Header Length",
+      "Average Packet Size",
+      "Bwd Packet Length Min",
+      "Fwd Packet Length Std",
+      "Bwd Packet Length Std",
+      "Active Std",
+      "Bwd IAT Min",
+      "Idle Std",
+      "Flow IAT Min",
+      "Fwd IAT Min",
+      "Bwd Packets/s",
+      "Active Max",
+      "Flow Bytes/s",
+      "Flow Duration",
+      "Bwd IAT Mean",
+      "Bwd IAT Std",
+      "Fwd IAT Mean",
+      "Flow IAT Std",
+      "min_seg_size_forward",
+      "Fwd IAT Std",
+      "Destination Port"
+    ],
+    "expected_input_dtype": "float32",
+    "expected_preprocessing": "N04 feature preparation, feature selection, authoritative feature ordering, and the same fitted scaling transformation used to produce the persisted scaled features.",
+    "raw_records_accepted_directly": false,
+    "pre_scaled_sequence_input_required": true,
+    "feature_metadata_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation_v2/feature_scaling/model_ready_feature_artifacts.json",
+    "n04_handoff_manifest_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation_v2/final_n04_handoff_manifest.json",
+    "feature_scaling_source_note": "This contract records the scaled-input requirement. The consumer must recover the authoritative N04 preprocessing implementation and fitted scaling parameters; it must not fit a new scaler on inference or Test data."
+  },
+  "output_contract": {
+    "tensor_shape": [
+      "batch_size",
+      9
+    ],
+    "output_type": "raw_logits",
+    "output_semantics": "raw_logits",
+    "predicted_class_rule": "argmax over the nine output logits",
+    "class_mapping": {
+      "0": "BENIGN",
+      "1": "DDoS",
+      "2": "Port Scan",
+      "3": "Brute Force",
+      "4": "Bot",
+      "5": "Web Attack",
+      "6": "Infiltration",
+      "7": "DoS",
+      "8": "Heartbleed"
+    },
+    "probabilities_returned_directly": false,
+    "probability_calibration_guaranteed": false
+  },
+  "evaluation_context": {
+    "selection_metric": "Validation macro-F1",
+    "independent_test_used_for_strategy_selection": false,
+    "temporal_or_session_continuity_verified": false
+  },
+  "limitations": [
+    "The model expects 10-observation windows with 32 features in the authoritative N04 order.",
+    "Raw input records require the correct N04 preprocessing before inference.",
+    "Output logits are not calibrated probabilities.",
+    "Chronological and session continuity were not established; the model must not be represented as a verified temporal or session-aware detector.",
+    "Per-class Test metrics for classes with very low support require cautious interpretation."
+  ]
+}

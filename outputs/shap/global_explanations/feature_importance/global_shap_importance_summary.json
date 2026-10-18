@@ -1,0 +1,15 @@
+{
+  "method": "Mean absolute SHAP across observations and classes",
+  "explanation_observations": 500,
+  "feature_count": 32,
+  "output_class_count": 9,
+  "mean_feature_importance": 0.0033617005397453877,
+  "median_feature_importance": 0.0028890386685541877,
+  "maximum_feature_importance": 0.013046371197071737,
+  "minimum_feature_importance": 5.123456785279107e-07,
+  "zero_importance_feature_count": 0,
+  "total_mean_absolute_shap": 0.10757441727185241,
+  "independent_test_accessed": false,
+  "shap_recalculated": false,
+  "artifacts_persisted": false
+}
