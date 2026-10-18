@@ -1,0 +1,328 @@
+{
+  "report_name": "Independent Test Detailed Metrics and Error Analysis",
+  "section": "7.9.6",
+  "created_at_utc": "2026-10-12T18:11:19.147709+00:00",
+  "status": "COMPLETED",
+  "selected_experiment": "LSTM-3",
+  "source_evaluation_report": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_evaluation.json",
+  "source_predictions": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_predictions.npy",
+  "source_targets": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_targets.npy",
+  "source_confusion_matrix": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_confusion_matrix.npy",
+  "test_sequence_count": 565501,
+  "metric_consistency_check": "PASSED",
+  "confusion_matrix_consistency_check": "PASSED",
+  "recomputed_overall_metrics": {
+    "accuracy": 0.9983660506347469,
+    "macro_precision": 0.9413955867811024,
+    "macro_recall": 0.90680258350013,
+    "macro_f1": 0.9137342508128012,
+    "weighted_f1": 0.9983998348481631
+  },
+  "class_wise_analysis": {
+    "BENIGN": {
+      "class_id": 0,
+      "support": 455390,
+      "predicted_count": 455204,
+      "true_positive": 454847,
+      "false_positive": 357,
+      "false_negative": 543,
+      "true_negative": 109754,
+      "precision": 0.9992157362413335,
+      "recall": 0.998807615450493,
+      "f1_score": 0.9990116341640731
+    },
+    "DDoS": {
+      "class_id": 1,
+      "support": 25601,
+      "predicted_count": 25602,
+      "true_positive": 25598,
+      "false_positive": 4,
+      "false_negative": 3,
+      "true_negative": 539896,
+      "precision": 0.9998437622060776,
+      "recall": 0.999882817077458,
+      "f1_score": 0.9998632892603949
+    },
+    "Port Scan": {
+      "class_id": 2,
+      "support": 31946,
+      "predicted_count": 31924,
+      "true_positive": 31798,
+      "false_positive": 126,
+      "false_negative": 148,
+      "true_negative": 533429,
+      "precision": 0.9960531261746648,
+      "recall": 0.9953671821198272,
+      "f1_score": 0.9957100360106467
+    },
+    "Brute Force": {
+      "class_id": 3,
+      "support": 2648,
+      "predicted_count": 2726,
+      "true_positive": 2627,
+      "false_positive": 99,
+      "false_negative": 21,
+      "true_negative": 562754,
+      "precision": 0.9636830520909758,
+      "recall": 0.9920694864048338,
+      "f1_score": 0.9776702642352065
+    },
+    "Bot": {
+      "class_id": 4,
+      "support": 399,
+      "predicted_count": 509,
+      "true_positive": 297,
+      "false_positive": 212,
+      "false_negative": 102,
+      "true_negative": 564890,
+      "precision": 0.5834970530451866,
+      "recall": 0.7443609022556391,
+      "f1_score": 0.6541850220264317
+    },
+    "Web Attack": {
+      "class_id": 5,
+      "support": 428,
+      "predicted_count": 428,
+      "true_positive": 399,
+      "false_positive": 29,
+      "false_negative": 29,
+      "true_negative": 565044,
+      "precision": 0.9322429906542056,
+      "recall": 0.9322429906542056,
+      "f1_score": 0.9322429906542056
+    },
+    "Infiltration": {
+      "class_id": 6,
+      "support": 8,
+      "predicted_count": 4,
+      "true_positive": 4,
+      "false_positive": 0,
+      "false_negative": 4,
+      "true_negative": 565493,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1_score": 0.6666666666666666
+    },
+    "DoS": {
+      "class_id": 7,
+      "support": 49080,
+      "predicted_count": 49103,
+      "true_positive": 49006,
+      "false_positive": 97,
+      "false_negative": 74,
+      "true_negative": 516324,
+      "precision": 0.9980245606174776,
+      "recall": 0.9984922575387123,
+      "f1_score": 0.9982583542975871
+    },
+    "Heartbleed": {
+      "class_id": 8,
+      "support": 1,
+      "predicted_count": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "true_negative": 565500,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      454847,
+      4,
+      126,
+      86,
+      211,
+      25,
+      0,
+      91,
+      0
+    ],
+    [
+      2,
+      25598,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      142,
+      0,
+      31798,
+      0,
+      1,
+      3,
+      0,
+      2,
+      0
+    ],
+    [
+      21,
+      0,
+      0,
+      2627,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      102,
+      0,
+      0,
+      0,
+      297,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      13,
+      0,
+      0,
+      13,
+      0,
+      399,
+      0,
+      3,
+      0
+    ],
+    [
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      73,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      49006,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "confusion_matrix_axis_convention": {
+    "rows": "true class",
+    "columns": "predicted class"
+  },
+  "intrusion_detection_errors": {
+    "attacks_predicted_as_benign": 357,
+    "benign_predicted_as_attacks": 543,
+    "attack_to_attack_confusions": [
+      {
+        "true_class": "Web Attack",
+        "predicted_class": "Brute Force",
+        "count": 13
+      },
+      {
+        "true_class": "Port Scan",
+        "predicted_class": "Web Attack",
+        "count": 3
+      },
+      {
+        "true_class": "Web Attack",
+        "predicted_class": "DoS",
+        "count": 3
+      },
+      {
+        "true_class": "Port Scan",
+        "predicted_class": "DoS",
+        "count": 2
+      },
+      {
+        "true_class": "DDoS",
+        "predicted_class": "DoS",
+        "count": 1
+      },
+      {
+        "true_class": "Port Scan",
+        "predicted_class": "Bot",
+        "count": 1
+      },
+      {
+        "true_class": "DoS",
+        "predicted_class": "Web Attack",
+        "count": 1
+      }
+    ]
+  },
+  "low_support_threshold": 30,
+  "low_support_classes": [
+    {
+      "class_name": "Infiltration",
+      "support": 8,
+      "recall": 0.5,
+      "f1_score": 0.6666666666666666,
+      "interpretation": "Very limited Test support; per-class metrics are unstable and should not be treated as strong generalization evidence."
+    },
+    {
+      "class_name": "Heartbleed",
+      "support": 1,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "interpretation": "Very limited Test support; per-class metrics are unstable and should not be treated as strong generalization evidence."
+    }
+  ],
+  "three_lowest_f1_classes": [
+    {
+      "class_name": "Bot",
+      "f1_score": 0.6541850220264317,
+      "recall": 0.7443609022556391,
+      "support": 399
+    },
+    {
+      "class_name": "Infiltration",
+      "f1_score": 0.6666666666666666,
+      "recall": 0.5,
+      "support": 8
+    },
+    {
+      "class_name": "Web Attack",
+      "f1_score": 0.9322429906542056,
+      "recall": 0.9322429906542056,
+      "support": 428
+    }
+  ],
+  "limitations": [
+    "The dataset is imbalanced; accuracy alone does not represent performance on every class.",
+    "Metrics from classes with very low Test support are uncertain.",
+    "Overlapping windows are not independent network sessions.",
+    "Chronological and session continuity were not established.",
+    "Test metrics are for final reporting only and must not be used to retrospectively select or tune the model."
+  ],
+  "boundaries": {
+    "model_retrained": false,
+    "inference_rerun": false,
+    "independent_test_used_for_model_selection": false,
+    "source_evaluation_artifacts_modified": false,
+    "previous_experiment_artifacts_modified": false
+  }
+}

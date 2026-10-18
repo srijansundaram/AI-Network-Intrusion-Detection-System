@@ -1,0 +1,133 @@
+{
+  "report_name": "Independent Test Evaluation",
+  "section": "7.9.5",
+  "created_at_utc": "2026-10-12T18:06:29.535617+00:00",
+  "status": "COMPLETED",
+  "selected_experiment": "LSTM-3",
+  "model_checkpoint": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_model.pt",
+  "configuration_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_training_config.json",
+  "test_features_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation_v2/feature_scaling/X_test_scaled.npy",
+  "test_targets_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/model_preparation_v2/model_ready_targets/y_test.npy",
+  "sequence_construction": {
+    "sequence_length": 10,
+    "stride": 1,
+    "target_assignment": "last_observation",
+    "test_source_rows": 565510,
+    "test_sequences_evaluated": 565501,
+    "feature_count": 32,
+    "class_count": 9,
+    "batch_size": 2048
+  },
+  "evaluation_policy": {
+    "retraining": false,
+    "resampling": false,
+    "synthetic_generation": false,
+    "class_weighted_evaluation": false,
+    "independent_test_used_for_selection": false,
+    "chronological_or_session_continuity_verified": false
+  },
+  "metrics": {
+    "accuracy": 0.9983660506347469,
+    "balanced_accuracy": 0.90680258350013,
+    "macro_precision": 0.9413955867811024,
+    "macro_recall": 0.90680258350013,
+    "macro_f1": 0.9137342508128012,
+    "weighted_f1": 0.9983998348481631
+  },
+  "per_class_metrics": {
+    "BENIGN": {
+      "precision": 0.9992157362413335,
+      "recall": 0.998807615450493,
+      "f1-score": 0.9990116341640731,
+      "support": 455390.0
+    },
+    "DDoS": {
+      "precision": 0.9998437622060776,
+      "recall": 0.999882817077458,
+      "f1-score": 0.9998632892603949,
+      "support": 25601.0
+    },
+    "Port Scan": {
+      "precision": 0.9960531261746648,
+      "recall": 0.9953671821198272,
+      "f1-score": 0.9957100360106467,
+      "support": 31946.0
+    },
+    "Brute Force": {
+      "precision": 0.9636830520909758,
+      "recall": 0.9920694864048338,
+      "f1-score": 0.9776702642352065,
+      "support": 2648.0
+    },
+    "Bot": {
+      "precision": 0.5834970530451866,
+      "recall": 0.7443609022556391,
+      "f1-score": 0.6541850220264317,
+      "support": 399.0
+    },
+    "Web Attack": {
+      "precision": 0.9322429906542056,
+      "recall": 0.9322429906542056,
+      "f1-score": 0.9322429906542056,
+      "support": 428.0
+    },
+    "Infiltration": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 8.0
+    },
+    "DoS": {
+      "precision": 0.9980245606174776,
+      "recall": 0.9984922575387123,
+      "f1-score": 0.9982583542975871,
+      "support": 49080.0
+    },
+    "Heartbleed": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1.0
+    },
+    "accuracy": 0.9983660506347469,
+    "macro avg": {
+      "precision": 0.9413955867811024,
+      "recall": 0.90680258350013,
+      "f1-score": 0.9137342508128012,
+      "support": 565501.0
+    },
+    "weighted avg": {
+      "precision": 0.9984517462094006,
+      "recall": 0.9983660506347469,
+      "f1-score": 0.9983998348481631,
+      "support": 565501.0
+    }
+  },
+  "test_class_support": {
+    "BENIGN": 455390,
+    "DDoS": 25601,
+    "Port Scan": 31946,
+    "Brute Force": 2648,
+    "Bot": 399,
+    "Web Attack": 428,
+    "Infiltration": 8,
+    "DoS": 49080,
+    "Heartbleed": 1
+  },
+  "confusion_matrix_labels": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ],
+  "artifacts": {
+    "predictions": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_predictions.npy",
+    "targets": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_targets.npy",
+    "confusion_matrix": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_confusion_matrix.npy"
+  }
+}

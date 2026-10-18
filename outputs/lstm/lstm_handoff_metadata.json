@@ -1,0 +1,142 @@
+{
+  "package_name": "AI-NIDS Final LSTM Handoff",
+  "metadata_version": "1.0",
+  "created_at_utc": "2026-10-12T18:24:34.495582+00:00",
+  "section": "7.10.2",
+  "status": "CREATED_PENDING_VALIDATION",
+  "selected_model": {
+    "model_family": "LSTM",
+    "experiment_id": "LSTM-3",
+    "selection_metric": "Validation macro-F1",
+    "validation_macro_f1": 0.8582408817808249,
+    "selection_report": "outputs/lstm_model_development/strategy_comparison/validation_strategy_selection.json",
+    "checkpoint": "outputs/lstm_model_development/final_model/final_model.pt",
+    "configuration": "outputs/lstm_model_development/final_model/final_training_config.json",
+    "training_history": "outputs/lstm_model_development/final_model/final_training_history.json",
+    "training_status": "outputs/lstm_model_development/final_model/final_training_status.json",
+    "final_refit_epochs": 4,
+    "architecture": {
+      "model_type": "LSTM",
+      "input_sequence_length": 10,
+      "input_features": 32,
+      "lstm_layers": 1,
+      "hidden_size": 64,
+      "recurrent_dropout": 0.0,
+      "classifier_dropout": 0.2,
+      "classifier_input_features": 64,
+      "output_classes": 9,
+      "output_type": "raw_logits",
+      "target_assignment": "last_observation",
+      "class_ids": {
+        "0": "BENIGN",
+        "1": "DDoS",
+        "2": "Port Scan",
+        "3": "Brute Force",
+        "4": "Bot",
+        "5": "Web Attack",
+        "6": "Infiltration",
+        "7": "DoS",
+        "8": "Heartbleed"
+      }
+    }
+  },
+  "consumer_contract": {
+    "path": "outputs/lstm_model_development/final_model/lstm_consumer_contract.json",
+    "input_shape": [
+      "batch_size",
+      10,
+      32
+    ],
+    "input_dtype": "float32",
+    "sequence_length": 10,
+    "feature_count": 32,
+    "feature_order": [
+      "ECE Flag Count",
+      "FIN Flag Count",
+      "Fwd PSH Flags",
+      "URG Flag Count",
+      "Down/Up Ratio",
+      "PSH Flag Count",
+      "ACK Flag Count",
+      "act_data_pkt_fwd",
+      "Fwd Header Length",
+      "Avg Fwd Segment Size",
+      "Fwd Packet Length Min",
+      "Bwd Header Length",
+      "Average Packet Size",
+      "Bwd Packet Length Min",
+      "Fwd Packet Length Std",
+      "Bwd Packet Length Std",
+      "Active Std",
+      "Bwd IAT Min",
+      "Idle Std",
+      "Flow IAT Min",
+      "Fwd IAT Min",
+      "Bwd Packets/s",
+      "Active Max",
+      "Flow Bytes/s",
+      "Flow Duration",
+      "Bwd IAT Mean",
+      "Bwd IAT Std",
+      "Fwd IAT Mean",
+      "Flow IAT Std",
+      "min_seg_size_forward",
+      "Fwd IAT Std",
+      "Destination Port"
+    ],
+    "output_shape": [
+      "batch_size",
+      9
+    ],
+    "output_type": "raw_logits",
+    "class_mapping": {
+      "0": "BENIGN",
+      "1": "DDoS",
+      "2": "Port Scan",
+      "3": "Brute Force",
+      "4": "Bot",
+      "5": "Web Attack",
+      "6": "Infiltration",
+      "7": "DoS",
+      "8": "Heartbleed"
+    }
+  },
+  "independent_test_evaluation": {
+    "report": "outputs/lstm_model_development/final_model/independent_test_evaluation.json",
+    "error_analysis": "outputs/lstm_model_development/final_model/independent_test_error_analysis.json",
+    "predictions": "outputs/lstm_model_development/final_model/independent_test_predictions.npy",
+    "targets": "outputs/lstm_model_development/final_model/independent_test_targets.npy",
+    "confusion_matrix": "outputs/lstm_model_development/final_model/independent_test_confusion_matrix.npy",
+    "test_sequence_count": 565501,
+    "metrics": {
+      "accuracy": 0.9983660506347469,
+      "balanced_accuracy": 0.90680258350013,
+      "macro_precision": 0.9413955867811024,
+      "macro_recall": 0.90680258350013,
+      "macro_f1": 0.9137342508128012,
+      "weighted_f1": 0.9983998348481631
+    },
+    "test_used_for_strategy_selection": false
+  },
+  "validation_evidence": {
+    "final_model_reload_validation": "outputs/lstm_model_development/final_model/final_model_reload_validation.json",
+    "original_final_model_manifest": "outputs/lstm_model_development/final_model/final_artifact_manifest.json",
+    "classwise_error_analysis": "outputs/lstm_model_development/final_model/independent_test_error_analysis.json"
+  },
+  "distribution_notes": [
+    "Use the authoritative N04 feature order and fitted preprocessing.",
+    "The model expects scaled float32 sequences shaped (batch_size, 10, 32).",
+    "The model returns raw logits shaped (batch_size, 9).",
+    "The Independent Test partition was not used for strategy selection.",
+    "Chronological and session continuity were not verified.",
+    "Large binary artifacts may require Git LFS or GitHub Releases."
+  ],
+  "limitations": [
+    "The model expects 10-observation windows with 32 features in the authoritative N04 order.",
+    "Raw input records require the correct N04 preprocessing before inference.",
+    "Output logits are not calibrated probabilities.",
+    "Chronological and session continuity were not established; the model must not be represented as a verified temporal or session-aware detector.",
+    "Per-class Test metrics for classes with very low support require cautious interpretation."
+  ],
+  "manifest_path": "outputs/lstm_model_development/final_model/lstm_handoff_manifest.json"
+}

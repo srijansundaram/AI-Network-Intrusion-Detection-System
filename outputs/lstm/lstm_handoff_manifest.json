@@ -1,0 +1,487 @@
+{
+  "manifest_name": "LSTM Handoff Artifact Manifest",
+  "manifest_version": "1.0",
+  "created_at_utc": "2026-10-12T18:24:56.646462+00:00",
+  "section": "7.10.2",
+  "status": "CREATED_PENDING_VALIDATION",
+  "metadata_path": "outputs/lstm_model_development/final_model/lstm_handoff_metadata.json",
+  "project_relative_paths": true,
+  "artifact_count": 58,
+  "required_artifact_count": 14,
+  "optional_artifact_count": 44,
+  "artifacts": [
+    {
+      "artifact_name": "final_model_checkpoint",
+      "category": "model",
+      "path": "outputs/lstm_model_development/final_model/final_model.pt",
+      "size_bytes": 316513,
+      "sha256": "5342a301822fe59ba4453ea6ee89793d2e678129dbd71cb5d4532ec54a26e1f3",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "final_training_configuration",
+      "category": "configuration",
+      "path": "outputs/lstm_model_development/final_model/final_training_config.json",
+      "size_bytes": 2291,
+      "sha256": "106743283975d1705f26494761226ced33422e418ec598707136b355460878ab",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "final_training_history",
+      "category": "training_record",
+      "path": "outputs/lstm_model_development/final_model/final_training_history.json",
+      "size_bytes": 1360,
+      "sha256": "9104eca59acae33efd4626c13cee661a31a3a3cc8c76afb77dac6da33e8fd034",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "final_training_status",
+      "category": "training_record",
+      "path": "outputs/lstm_model_development/final_model/final_training_status.json",
+      "size_bytes": 411,
+      "sha256": "846534ee707e16f90b1db00ad9e23d3a573c9f41a40b3544515c22194d56ca07",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "original_final_model_manifest",
+      "category": "integrity",
+      "path": "outputs/lstm_model_development/final_model/final_artifact_manifest.json",
+      "size_bytes": 1427,
+      "sha256": "017b319e8f31e0b756695458f4e21b861b1629679570471bb95efa57b4366b6f",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "consumer_input_output_contract",
+      "category": "contract",
+      "path": "outputs/lstm_model_development/final_model/lstm_consumer_contract.json",
+      "size_bytes": 4007,
+      "sha256": "5d123a066aac50fe94bf7ebe2abd9cf7c45c9e44b9319523a74b24964b22dc27",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "final_model_reload_validation",
+      "category": "validation",
+      "path": "outputs/lstm_model_development/final_model/final_model_reload_validation.json",
+      "size_bytes": 2393,
+      "sha256": "96381cbedd35765908c5c879a34190909acfc6db89ea649bcec0ed6303a8123a",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "validation_strategy_selection",
+      "category": "selection",
+      "path": "outputs/lstm_model_development/strategy_comparison/validation_strategy_selection.json",
+      "size_bytes": 2460,
+      "sha256": "c1f6652d3a6e2cc7c6c85be112e4dd4fa5b26198616b9c5e6282b23215fe0eab",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "independent_test_evaluation",
+      "category": "evaluation",
+      "path": "outputs/lstm_model_development/final_model/independent_test_evaluation.json",
+      "size_bytes": 4236,
+      "sha256": "bc1db7be8882e8198b6de85ae3fc2920fd1c0436b1a10710ab48048331261972",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "independent_test_error_analysis",
+      "category": "evaluation",
+      "path": "outputs/lstm_model_development/final_model/independent_test_error_analysis.json",
+      "size_bytes": 7748,
+      "sha256": "c234baa6f747ddde50bdcd0aceb5ccbd73015b246c6358fd38a1644a92099dd8",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "independent_test_predictions",
+      "category": "evaluation_data",
+      "path": "outputs/lstm_model_development/final_model/independent_test_predictions.npy",
+      "size_bytes": 4524136,
+      "sha256": "3cf019c0ce1e91c1f9830cb92deddaddcac594452e4abeac70fa1faf59b52573",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "independent_test_targets",
+      "category": "evaluation_data",
+      "path": "outputs/lstm_model_development/final_model/independent_test_targets.npy",
+      "size_bytes": 4524136,
+      "sha256": "07b6def0319183a01224b4119a126fa38e8ca11fda18b72d6da7d4e96153e80f",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "independent_test_confusion_matrix",
+      "category": "evaluation_data",
+      "path": "outputs/lstm_model_development/final_model/independent_test_confusion_matrix.npy",
+      "size_bytes": 776,
+      "sha256": "43a99c7df62974bf4d4f4fbc54cab7ecd4daa278453ab92521fb917491c08245",
+      "required_for_core_handoff": true
+    },
+    {
+      "artifact_name": "common_architecture_configuration",
+      "category": "configuration",
+      "path": "outputs/lstm_model_development/configuration/n07_common_lstm_architecture_training_config.json",
+      "size_bytes": 1884,
+      "sha256": "c19dff92e6d0a11c86e0549a62562bba2776767788d692cdeb4f21c5fe736495",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "loss_sampling_reproducibility_configuration",
+      "category": "configuration",
+      "path": "outputs/lstm_model_development/configuration/n07_loss_sampling_reproducibility_config.json",
+      "size_bytes": 3799,
+      "sha256": "8aad79170aa2cf4bc29b0e7573e2a9207c1b1b414f2114f768f89ded73832511",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "strategy_comparison_report",
+      "category": "selection_evidence",
+      "path": "outputs/lstm_model_development/strategy_comparison/strategy_comparison.json",
+      "size_bytes": 6454,
+      "sha256": "2bddf0a0bfd9baa6956082deedafcb92476fac78f9d5786776fd9c16fc7490c5",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "strategy_comparison_verification",
+      "category": "validation_evidence",
+      "path": "outputs/lstm_model_development/strategy_comparison/strategy_comparison_verification.json",
+      "size_bytes": 968,
+      "sha256": "f226476cd6e95f9ba9dd665033bf42ba3d8285b45d255a09a29bf6ba061e7d43",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-0_baseline_artifact_verification",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-0/baseline_artifact_verification.json",
+      "size_bytes": 1660,
+      "sha256": "063ea228f466e5d519800151897123606abb6a10c29add1c8db077b8de232d73",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-0_baseline_integrity_validation",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-0/baseline_integrity_validation.json",
+      "size_bytes": 4311,
+      "sha256": "eb82e37b9120e63abd02f6f3984a261a1060e40317fb88433eda8625b7068530",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-0_experiment_metadata",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-0/experiment_metadata.json",
+      "size_bytes": 4939,
+      "sha256": "46a5d49cbecfd49550b9e6c4869b3873dd13b587d69a5bb5c895fa0242da31f3",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-0_training_artifact_manifest",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-0/training_artifact_manifest.json",
+      "size_bytes": 4936,
+      "sha256": "4de160280da55fe6a9d8120282db540f31fcc7e8ef19a1c7f79cf20690bc3e32",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-0_training_history",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-0/training_history.json",
+      "size_bytes": 2479,
+      "sha256": "b2f8e9ce07fa58b59fb37a2b46008dc0a334d690212b3c195d4b69f05da54699",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-0_training_pilot_report",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-0/training_pilot_report.json",
+      "size_bytes": 573,
+      "sha256": "20a2b990a268583becbcde4c869d255c1ab35d2f3d4af18c298a0626744f5f45",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-0_training_run_status",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-0/training_run_status.json",
+      "size_bytes": 456,
+      "sha256": "a6eb074f6f6b06f1989a767621d802d12bdaeaa28000cce86c0dacbfaaf317a8",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-0_validation_detailed_metrics",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-0/validation_detailed_metrics.json",
+      "size_bytes": 4073,
+      "sha256": "95babb2adc71a51107bb2b5dd824d7b8cdb4ee9906fb95647b90aee8298ddd28",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-0_validation_metrics",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-0/validation_metrics.json",
+      "size_bytes": 841,
+      "sha256": "86df834d5d7f0efe73f2b8171757115a2e0436b58eb14cd5972aca99a9763a09",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-1_class_weight_strategy",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-1/class_weight_strategy.json",
+      "size_bytes": 3309,
+      "sha256": "99cc75016bd62e3323014a7f0212b84a8257254b24a74f5f1ed8c78b6615d617",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-1_experiment_metadata",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-1/experiment_metadata.json",
+      "size_bytes": 2853,
+      "sha256": "2c8dbf80a13f3b830adfd8f1ed022ad763db2d2904559a0bff88b32eb0a30806",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-1_lstm1_artifact_verification",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-1/lstm1_artifact_verification.json",
+      "size_bytes": 1689,
+      "sha256": "14759cdd46c4cd1cd9c94a7f27cc1794cca3d282c0f65c73d59d0e651e65e3a0",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-1_lstm1_integrity_validation",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-1/lstm1_integrity_validation.json",
+      "size_bytes": 5333,
+      "sha256": "5763c35fba33eb4f2b71a904c71ace89683f0491637ef03f6e43279248c5ef38",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-1_training_artifact_manifest",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-1/training_artifact_manifest.json",
+      "size_bytes": 5826,
+      "sha256": "8ee51e8e80933a2f694a3b3ca87c5b1790b1ba2fc95139dc5b7ec20362294ce6",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-1_training_history",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-1/training_history.json",
+      "size_bytes": 2477,
+      "sha256": "dcffc817102e84deaf5964f99c9a44e6d67216ae0faa8ae6e2a4c195bc959915",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-1_training_run_status",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-1/training_run_status.json",
+      "size_bytes": 619,
+      "sha256": "65d281236fc2de021f41d0419d27c052c0286cec3ea84d79295afee9cac4ebfd",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-1_validation_detailed_metrics",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-1/validation_detailed_metrics.json",
+      "size_bytes": 4503,
+      "sha256": "d38c27d55bd1c11118bdca46bc46c31ea866a13af711dea9bbedf51ed4dd6277",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-1_validation_metrics",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-1/validation_metrics.json",
+      "size_bytes": 1206,
+      "sha256": "bad8acb257258af67227b7e35a5b7cd74fe0a8b20f6178fb9dfa74ce3ace18ac",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-2_class_aware_sampling_strategy",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-2/class_aware_sampling_strategy.json",
+      "size_bytes": 4875,
+      "sha256": "8d61ea6a64df6400272eae86e9efdb71e496183ca6a3b1590686adf201a7de7d",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-2_experiment_metadata",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-2/experiment_metadata.json",
+      "size_bytes": 3197,
+      "sha256": "17b0a11806947cbc7a99aaa6e35143e3e711d051b19cba2c1cc41906c35bc87d",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-2_lstm2_artifact_verification",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-2/lstm2_artifact_verification.json",
+      "size_bytes": 1804,
+      "sha256": "ae1f3d26295815316aba866e73b8f8b4bffa7b44af0c55941038815b9b820d9b",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-2_lstm2_integrity_validation",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-2/lstm2_integrity_validation.json",
+      "size_bytes": 3000,
+      "sha256": "2269a63b9c06be7309e77b540b72b4c08a9dd67cbc2392e18f388dc45e48caae",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-2_training_artifact_manifest",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-2/training_artifact_manifest.json",
+      "size_bytes": 6320,
+      "sha256": "bb21d524c9cea3c5152c198732f1bbba22e3943326461e227f5e25c219bbc890",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-2_training_history",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-2/training_history.json",
+      "size_bytes": 2102,
+      "sha256": "474359f29d8b4046c3f5c7b2cfb1171f27079d856e4c391327fb33b32553f667",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-2_training_run_status",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-2/training_run_status.json",
+      "size_bytes": 292,
+      "sha256": "e771c952a0337649a1b1629244b8dc5b9d35d8fafe29af435f3e14a36a0ca059",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-2_validation_detailed_metrics",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-2/validation_detailed_metrics.json",
+      "size_bytes": 4665,
+      "sha256": "362d8b9b5315664bb9ba54d8751a7c0e06a90c4cbba026fc5b28d61b017e462e",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-2_validation_metrics",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-2/validation_metrics.json",
+      "size_bytes": 763,
+      "sha256": "14b51b086c2f293a1ffb1dd130405826f5af659f67ccfd875c0335aa0dd85cc1",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-3_controlled_sequence_oversampling_rules",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-3/controlled_sequence_oversampling_rules.json",
+      "size_bytes": 5212,
+      "sha256": "b3d8602fdee463cdf1deeb3d915b2a4bb4d65769751884b7c3fa828509cda599",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-3_experiment_metadata",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-3/experiment_metadata.json",
+      "size_bytes": 1680,
+      "sha256": "485a498e41a49f821cd17219fa455b063dd95ae21d983b6e7523b23f5fd65508",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-3_lstm3_artifact_verification",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-3/lstm3_artifact_verification.json",
+      "size_bytes": 1842,
+      "sha256": "9b52ce0e111a3db252e403031fcbe3cdba9bd6e09562c3db70e168dcce0f3d3e",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-3_lstm3_integrity_validation",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-3/lstm3_integrity_validation.json",
+      "size_bytes": 3322,
+      "sha256": "f900e63d664f968486e1884ba8c28c70eff03d781d3391255aeb3fae9bcf8bf5",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-3_training_artifact_manifest",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-3/training_artifact_manifest.json",
+      "size_bytes": 6669,
+      "sha256": "835e250a6a1d401bc7ee52c3ec9a25f501ce4f852de3d48b3c2d41d8687596a3",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-3_training_history",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-3/training_history.json",
+      "size_bytes": 2493,
+      "sha256": "a1deb1449b0951b916e3151cd766a4c4396413bcc1224d8e5f9cb11f4d998a0b",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-3_training_run_status",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-3/training_run_status.json",
+      "size_bytes": 292,
+      "sha256": "d9f65691473f6196b29554b5c3392b7ef61e8f3858a3f91a4dbf116737b63d9d",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-3_validation_detailed_metrics",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-3/validation_detailed_metrics.json",
+      "size_bytes": 7984,
+      "sha256": "ce360aa01ebf0ca44ec6ec51c1fa074d3e457767099cd955b3dbac61ee34147c",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-3_validation_metrics",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-3/validation_metrics.json",
+      "size_bytes": 888,
+      "sha256": "cbf9a99f1ec3825219d26f3be2b7a333f9dcc026a38629d302a1d2865a9bbef7",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-4_lstm4_execution_decision",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-4/lstm4_execution_decision.json",
+      "size_bytes": 1858,
+      "sha256": "0713543c1d3e68ff3730434e98ae3afe9a2eb7dfe1f39f148406a4785d9d5d11",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-4_lstm4_feasibility_safety_gate",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-4/lstm4_feasibility_safety_gate.json",
+      "size_bytes": 4963,
+      "sha256": "dbc2c184a084616bbdf44563b77647b3c44e344ba7d111ecb8746091229cfaed",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-4_lstm4_integrity_validation",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-4/lstm4_integrity_validation.json",
+      "size_bytes": 2165,
+      "sha256": "ea60b440c727b8c5d9f2f138e2aee9242b4b4159fb7ba5fe01a69e52c723b421",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "LSTM-4_lstm4_metrics_artifact_status",
+      "category": "supporting_experiment_evidence",
+      "path": "outputs/lstm_model_development/experiments/LSTM-4/lstm4_metrics_artifact_status.json",
+      "size_bytes": 1971,
+      "sha256": "7d463e31b0bdda9dab0ab50202ae3c25c76acebea49bb001e2e9be164acd4fe2",
+      "required_for_core_handoff": false
+    },
+    {
+      "artifact_name": "lstm_handoff_metadata",
+      "category": "handoff_metadata",
+      "path": "outputs/lstm_model_development/final_model/lstm_handoff_metadata.json",
+      "size_bytes": 5223,
+      "sha256": "9f522d3857b5c48526afe340fadda5d178c112a154a512e109416d3d7282eb7b",
+      "required_for_core_handoff": true
+    }
+  ],
+  "optional_artifacts_not_present": [],
+  "notes": [
+    "The manifest is separate from final_artifact_manifest.json.",
+    "Paths are relative to the project root.",
+    "SHA-256 hashes and sizes support integrity checking.",
+    "The manifest does not include itself.",
+    "No model, N04 source, or prior experiment artifacts are modified.",
+    "Large sequence arrays are not automatically included."
+  ]
+}
