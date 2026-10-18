@@ -7,3 +7,4 @@ models/ensemble/final_stacking_meta_learner.joblib filter=lfs diff=lfs merge=lfs
 *.pth filter=lfs diff=lfs merge=lfs -text
 *.npy filter=lfs diff=lfs merge=lfs -text
 *.joblib filter=lfs diff=lfs merge=lfs -text
+models/ensemble/final_ensemble_model.joblib filter=lfs diff=lfs merge=lfs -text

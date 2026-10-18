@@ -1,0 +1,66 @@
+{
+  "contract_version": "1.0.0",
+  "artifact_type": "RF_LSTM_WEIGHTED_SOFT_VOTING_RUNTIME_CONTRACT",
+  "bundle_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_model.joblib",
+  "bundle_sha256": "1461bd2aa6a379ffccd7c7f3eed2de657c924ff2aaa8b34b41a24881e8b3cfc5",
+  "strategy": "weighted_soft_voting",
+  "weights": {
+    "random_forest": 0.75,
+    "lstm": 0.25
+  },
+  "class_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "class_mapping": {
+    "0": "BENIGN",
+    "1": "DDoS",
+    "2": "Port Scan",
+    "3": "Brute Force",
+    "4": "Bot",
+    "5": "Web Attack",
+    "6": "Infiltration",
+    "7": "DoS",
+    "8": "Heartbleed"
+  },
+  "input_contract": {
+    "shape": [
+      "N",
+      10,
+      32
+    ],
+    "dtype": "float32",
+    "description": "Already-preprocessed, model-ready LSTM sequences. Raw network-flow preprocessing and sequence construction are outside this inference function."
+  },
+  "output_contract": {
+    "predicted_class_ids": "N integer IDs in class_order",
+    "predicted_labels": "N mapped class names",
+    "confidence": "Maximum ensemble class probability; uncalibrated",
+    "ensemble_probabilities": "N x 9 weighted probability matrix"
+  },
+  "probability_status": "UNCALIBRATED",
+  "smoke_test": {
+    "samples": 84,
+    "classes_present": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "selected_sample_agreement": 0.9285714285714286,
+    "not_independent_performance_evaluation": true
+  },
+  "created_utc": "2026-10-18T17:00:50.554877+00:00"
+}

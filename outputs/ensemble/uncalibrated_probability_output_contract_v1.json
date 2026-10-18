@@ -1,0 +1,116 @@
+{
+  "contract_id": "n08_uncalibrated_probability_output_contract_v1",
+  "downstream_interface_requirements": {
+    "backend": [
+      "Preserve the nine-element probability vector and class order.",
+      "Expose the predicted class ID and mapped class name consistently.",
+      "Identify the output as uncalibrated until Issue #9 is completed."
+    ],
+    "calibration_workflow": [
+      "Consume outputs from the frozen RF 75% / LSTM 25% strategy.",
+      "Preserve class order and source-model provenance.",
+      "Evaluate calibration separately under GitHub Issue #9.",
+      "Do not use Test results to change the frozen strategy."
+    ],
+    "frontend_dashboard": [
+      "Associate every displayed probability with the correct class name.",
+      "Do not label uncalibrated probabilities as calibrated confidence.",
+      "Do not assume this notebook step has completed backend/frontend integration."
+    ]
+  },
+  "execution_constraints": {
+    "backend_frontend_integration_claimed": false,
+    "frozen_configuration_modified": false,
+    "models_fitted_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "test_arrays_loaded": false,
+    "upstream_artifacts_modified": false
+  },
+  "frozen_strategy": {
+    "candidate_id": "rf_0.75_lstm_0.25",
+    "combination_rule": "P_ensemble = 0.75 * P_RF + 0.25 * P_LSTM",
+    "configuration_artifact": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze_weighted_voting_v2.json",
+    "display_name": "RF-LSTM weighted soft voting (RF 75%, LSTM 25%)",
+    "lstm_weight": 0.25,
+    "rf_weight": 0.75,
+    "strategy_type": "weighted_soft_voting"
+  },
+  "output_schema": {
+    "class_count": 9,
+    "class_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "class_names": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "data_semantics": "Each vector position corresponds to the class name and class ID at the same index.",
+    "expected_probability_range": [
+      0.0,
+      1.0
+    ],
+    "expected_probability_sum": 1.0,
+    "input_requirements": [
+      "RF probabilities must contain nine values in the established class order.",
+      "LSTM probabilities must contain nine values in the established class order.",
+      "Both component vectors must be finite and within [0, 1].",
+      "Both component vectors must sum to approximately 1 before combination."
+    ],
+    "one_vector_per_observation": true,
+    "predicted_class_derivation": {
+      "class_name_lookup": "Map the predicted class ID through the established class mapping.",
+      "meaning": "The predicted class ID is the zero-based index of the largest value in the ensemble probability vector.",
+      "rule": "argmax(P_ensemble)",
+      "tie_behavior": "Use the first maximum index under standard NumPy argmax semantics unless the serving implementation explicitly defines a different tie policy."
+    },
+    "probability_columns": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "probability_sum_absolute_tolerance": 1e-05,
+    "vector_length": 9
+  },
+  "probability_semantics": {
+    "calibrated": false,
+    "calibration_owner": "GitHub Issue #9",
+    "calibration_parameters_fitted_here": false,
+    "calibration_performed": false,
+    "description": "The values are uncalibrated weighted ensemble probabilities. They must not be presented as calibrated confidence scores or as guaranteed probabilities of correctness."
+  },
+  "provenance": {
+    "class_order_source": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_feature_contract.json",
+    "frozen_configuration_report_source": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze_weighted_voting_v2_report.json",
+    "frozen_configuration_source": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze_weighted_voting_v2.json",
+    "source_artifact_sha256": {
+      "ensemble_feature_contract": "967d217240a93510a256400852c2481475d8e095a529e8d8c1850909263a5103",
+      "frozen_configuration": "34ec70715572dcf4ab92a5bc6f56333cb9e312e443ef742b0ab09d3ef250ef9e",
+      "frozen_configuration_report": "67406412b5e4df4097ff13004122ed22e2546d50f9dd2be0a06077d6084f5067"
+    }
+  },
+  "section": "8.6.4",
+  "status": "PASS_UNCALIBRATED_PROBABILITY_OUTPUT_CONTRACT",
+  "version": 1
+}

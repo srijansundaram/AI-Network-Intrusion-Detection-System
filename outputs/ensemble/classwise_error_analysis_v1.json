@@ -1,0 +1,1128 @@
+{
+  "artifact_id": "n08_classwise_error_analysis_v1",
+  "class_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "class_names_in_order": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ],
+  "classwise_deltas": [
+    {
+      "class_id": 0,
+      "class_name": "BENIGN",
+      "ensemble": {
+        "f1_score": 0.9987619358182117,
+        "false_negative": 421,
+        "false_positive": 494,
+        "precision": 0.9986632933313491,
+        "recall": 0.9988605977937276,
+        "support": 369492
+      },
+      "ensemble_minus_lstm_f1": -6.314783366656584e-05,
+      "ensemble_minus_rf_f1": 0.0004325049885678389,
+      "lstm": {
+        "f1_score": 0.9988250836518783,
+        "false_negative": 538,
+        "false_positive": 330,
+        "precision": 0.9991063788303853,
+        "recall": 0.9985439468242885,
+        "support": 369492
+      },
+      "rf": {
+        "f1_score": 0.9983294308296439,
+        "false_negative": 475,
+        "false_positive": 760,
+        "precision": 0.9979447072154298,
+        "recall": 0.9987144511924481,
+        "support": 369492
+      },
+      "support": 369492
+    },
+    {
+      "class_id": 1,
+      "class_name": "DDoS",
+      "ensemble": {
+        "f1_score": 0.999951116977074,
+        "false_negative": 2,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.999902238733014,
+        "support": 20458
+      },
+      "ensemble_minus_lstm_f1": 0.00034218116048312375,
+      "ensemble_minus_rf_f1": 0.00017108520388553483,
+      "lstm": {
+        "f1_score": 0.9996089358165908,
+        "false_negative": 9,
+        "false_positive": 7,
+        "precision": 0.9996578021118498,
+        "recall": 0.9995600742985629,
+        "support": 20458
+      },
+      "rf": {
+        "f1_score": 0.9997800317731884,
+        "false_negative": 5,
+        "false_positive": 4,
+        "precision": 0.9998044679082955,
+        "recall": 0.9997555968325349,
+        "support": 20458
+      },
+      "support": 20458
+    },
+    {
+      "class_id": 2,
+      "class_name": "Port Scan",
+      "ensemble": {
+        "f1_score": 0.9965441655640909,
+        "false_negative": 29,
+        "false_positive": 146,
+        "precision": 0.9942469855780597,
+        "recall": 0.9988519852737421,
+        "support": 25261
+      },
+      "ensemble_minus_lstm_f1": -0.00015759020783656652,
+      "ensemble_minus_rf_f1": 0.001289499319231724,
+      "lstm": {
+        "f1_score": 0.9967017557719274,
+        "false_negative": 28,
+        "false_positive": 139,
+        "precision": 0.9945215197855904,
+        "recall": 0.9988915719884407,
+        "support": 25261
+      },
+      "rf": {
+        "f1_score": 0.9952546662448591,
+        "false_negative": 93,
+        "false_positive": 147,
+        "precision": 0.9941931661070511,
+        "recall": 0.9963184355330351,
+        "support": 25261
+      },
+      "support": 25261
+    },
+    {
+      "class_id": 3,
+      "class_name": "Brute Force",
+      "ensemble": {
+        "f1_score": 0.9943563558183285,
+        "false_negative": 12,
+        "false_positive": 9,
+        "precision": 0.9951586874663798,
+        "recall": 0.9935553168635876,
+        "support": 1862
+      },
+      "ensemble_minus_lstm_f1": 0.05097946624620442,
+      "ensemble_minus_rf_f1": 0.008181240610955154,
+      "lstm": {
+        "f1_score": 0.9433768895721241,
+        "false_negative": 21,
+        "false_positive": 200,
+        "precision": 0.9020088192062714,
+        "recall": 0.9887218045112782,
+        "support": 1862
+      },
+      "rf": {
+        "f1_score": 0.9861751152073733,
+        "false_negative": 43,
+        "false_positive": 8,
+        "precision": 0.9956212370005474,
+        "recall": 0.976906552094522,
+        "support": 1862
+      },
+      "support": 1862
+    },
+    {
+      "class_id": 4,
+      "class_name": "Bot",
+      "ensemble": {
+        "f1_score": 0.5996758508914101,
+        "false_negative": 112,
+        "false_positive": 135,
+        "precision": 0.578125,
+        "recall": 0.622895622895623,
+        "support": 297
+      },
+      "ensemble_minus_lstm_f1": -0.08198504876256918,
+      "ensemble_minus_rf_f1": 0.020814062273523892,
+      "lstm": {
+        "f1_score": 0.6816608996539792,
+        "false_negative": 100,
+        "false_positive": 84,
+        "precision": 0.701067615658363,
+        "recall": 0.6632996632996633,
+        "support": 297
+      },
+      "rf": {
+        "f1_score": 0.5788617886178862,
+        "false_negative": 119,
+        "false_positive": 140,
+        "precision": 0.559748427672956,
+        "recall": 0.5993265993265994,
+        "support": 297
+      },
+      "support": 297
+    },
+    {
+      "class_id": 5,
+      "class_name": "Web Attack",
+      "ensemble": {
+        "f1_score": 0.9917355371900827,
+        "false_negative": 3,
+        "false_positive": 3,
+        "precision": 0.9917355371900827,
+        "recall": 0.9917355371900827,
+        "support": 363
+      },
+      "ensemble_minus_lstm_f1": 0.04535484013914437,
+      "ensemble_minus_rf_f1": 0.0013907096038756617,
+      "lstm": {
+        "f1_score": 0.9463806970509383,
+        "false_negative": 10,
+        "false_positive": 30,
+        "precision": 0.9216710182767625,
+        "recall": 0.9724517906336089,
+        "support": 363
+      },
+      "rf": {
+        "f1_score": 0.990344827586207,
+        "false_negative": 4,
+        "false_positive": 3,
+        "precision": 0.9917127071823204,
+        "recall": 0.9889807162534435,
+        "support": 363
+      },
+      "support": 363
+    },
+    {
+      "class_id": 6,
+      "class_name": "Infiltration",
+      "ensemble": {
+        "f1_score": 0.5555555555555556,
+        "false_negative": 8,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.38461538461538464,
+        "support": 13
+      },
+      "ensemble_minus_lstm_f1": 0.28888888888888886,
+      "ensemble_minus_rf_f1": 0.0,
+      "lstm": {
+        "f1_score": 0.2666666666666667,
+        "false_negative": 11,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.15384615384615385,
+        "support": 13
+      },
+      "rf": {
+        "f1_score": 0.5555555555555556,
+        "false_negative": 8,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.38461538461538464,
+        "support": 13
+      },
+      "support": 13
+    },
+    {
+      "class_id": 7,
+      "class_name": "DoS",
+      "ensemble": {
+        "f1_score": 0.9929849806637289,
+        "false_negative": 333,
+        "false_positive": 135,
+        "precision": 0.9959408262673642,
+        "recall": 0.9900466284074605,
+        "support": 33456
+      },
+      "ensemble_minus_lstm_f1": -0.0032148996474620217,
+      "ensemble_minus_rf_f1": 0.0031954974960661797,
+      "lstm": {
+        "f1_score": 0.9961998803111909,
+        "false_negative": 163,
+        "false_positive": 91,
+        "precision": 0.9972741433021807,
+        "recall": 0.9951279292204687,
+        "support": 33456
+      },
+      "rf": {
+        "f1_score": 0.9897894831676627,
+        "false_negative": 497,
+        "false_positive": 183,
+        "precision": 0.9944783054734174,
+        "recall": 0.9851446676231468,
+        "support": 33456
+      },
+      "support": 33456
+    },
+    {
+      "class_id": 8,
+      "class_name": "Heartbleed",
+      "ensemble": {
+        "f1_score": 0.6666666666666666,
+        "false_negative": 2,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.5,
+        "support": 4
+      },
+      "ensemble_minus_lstm_f1": -0.19047619047619047,
+      "ensemble_minus_rf_f1": -0.19047619047619047,
+      "lstm": {
+        "f1_score": 0.8571428571428571,
+        "false_negative": 1,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.75,
+        "support": 4
+      },
+      "rf": {
+        "f1_score": 0.8571428571428571,
+        "false_negative": 1,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.75,
+        "support": 4
+      },
+      "support": 4
+    }
+  ],
+  "confusion_matrix_axis_convention": {
+    "columns": "predicted_class",
+    "rows": "true_class"
+  },
+  "evaluation_partition": "Validation",
+  "frozen_ensemble": {
+    "candidate_id": "rf_0.75_lstm_0.25",
+    "lstm_weight": 0.25,
+    "probability_status": "uncalibrated",
+    "rf_weight": 0.75,
+    "strategy": "weighted_soft_voting"
+  },
+  "interpretation_notes": [
+    "Per-class metrics are derived from persisted Validation confusion matrices; no predictions were generated in this subsection.",
+    "Top error patterns are ranked by raw count, so they should be interpreted alongside each true class's support.",
+    "The frozen ensemble is the intended project architecture, not a claim that it beats RF on every metric.",
+    "No Test arrays were loaded and no calibration was performed."
+  ],
+  "model_summaries": {
+    "Frozen RF 75% + LSTM 25% ensemble": {
+      "accuracy_from_confusion_matrix": 0.9979565874567271,
+      "class_metrics": [
+        {
+          "class_id": 0,
+          "class_name": "BENIGN",
+          "f1_score": 0.9987619358182117,
+          "false_negative": 421,
+          "false_positive": 494,
+          "model": "Frozen RF 75% + LSTM 25% ensemble",
+          "precision": 0.9986632933313491,
+          "predicted_count": 369565,
+          "recall": 0.9988605977937276,
+          "support": 369492,
+          "true_positive": 369071
+        },
+        {
+          "class_id": 1,
+          "class_name": "DDoS",
+          "f1_score": 0.999951116977074,
+          "false_negative": 2,
+          "false_positive": 0,
+          "model": "Frozen RF 75% + LSTM 25% ensemble",
+          "precision": 1.0,
+          "predicted_count": 20456,
+          "recall": 0.999902238733014,
+          "support": 20458,
+          "true_positive": 20456
+        },
+        {
+          "class_id": 2,
+          "class_name": "Port Scan",
+          "f1_score": 0.9965441655640909,
+          "false_negative": 29,
+          "false_positive": 146,
+          "model": "Frozen RF 75% + LSTM 25% ensemble",
+          "precision": 0.9942469855780597,
+          "predicted_count": 25378,
+          "recall": 0.9988519852737421,
+          "support": 25261,
+          "true_positive": 25232
+        },
+        {
+          "class_id": 3,
+          "class_name": "Brute Force",
+          "f1_score": 0.9943563558183285,
+          "false_negative": 12,
+          "false_positive": 9,
+          "model": "Frozen RF 75% + LSTM 25% ensemble",
+          "precision": 0.9951586874663798,
+          "predicted_count": 1859,
+          "recall": 0.9935553168635876,
+          "support": 1862,
+          "true_positive": 1850
+        },
+        {
+          "class_id": 4,
+          "class_name": "Bot",
+          "f1_score": 0.5996758508914101,
+          "false_negative": 112,
+          "false_positive": 135,
+          "model": "Frozen RF 75% + LSTM 25% ensemble",
+          "precision": 0.578125,
+          "predicted_count": 320,
+          "recall": 0.622895622895623,
+          "support": 297,
+          "true_positive": 185
+        },
+        {
+          "class_id": 5,
+          "class_name": "Web Attack",
+          "f1_score": 0.9917355371900827,
+          "false_negative": 3,
+          "false_positive": 3,
+          "model": "Frozen RF 75% + LSTM 25% ensemble",
+          "precision": 0.9917355371900827,
+          "predicted_count": 363,
+          "recall": 0.9917355371900827,
+          "support": 363,
+          "true_positive": 360
+        },
+        {
+          "class_id": 6,
+          "class_name": "Infiltration",
+          "f1_score": 0.5555555555555556,
+          "false_negative": 8,
+          "false_positive": 0,
+          "model": "Frozen RF 75% + LSTM 25% ensemble",
+          "precision": 1.0,
+          "predicted_count": 5,
+          "recall": 0.38461538461538464,
+          "support": 13,
+          "true_positive": 5
+        },
+        {
+          "class_id": 7,
+          "class_name": "DoS",
+          "f1_score": 0.9929849806637289,
+          "false_negative": 333,
+          "false_positive": 135,
+          "model": "Frozen RF 75% + LSTM 25% ensemble",
+          "precision": 0.9959408262673642,
+          "predicted_count": 33258,
+          "recall": 0.9900466284074605,
+          "support": 33456,
+          "true_positive": 33123
+        },
+        {
+          "class_id": 8,
+          "class_name": "Heartbleed",
+          "f1_score": 0.6666666666666666,
+          "false_negative": 2,
+          "false_positive": 0,
+          "model": "Frozen RF 75% + LSTM 25% ensemble",
+          "precision": 1.0,
+          "predicted_count": 2,
+          "recall": 0.5,
+          "support": 4,
+          "true_positive": 2
+        }
+      ],
+      "macro_f1_from_confusion_matrix": 0.866248018349461,
+      "macro_precision_from_confusion_matrix": 0.9504300366481372,
+      "macro_recall_from_confusion_matrix": 0.831162590196958,
+      "observations": 451206
+    },
+    "LSTM baseline": {
+      "accuracy_from_confusion_matrix": 0.9980474550427078,
+      "class_metrics": [
+        {
+          "class_id": 0,
+          "class_name": "BENIGN",
+          "f1_score": 0.9988250836518783,
+          "false_negative": 538,
+          "false_positive": 330,
+          "model": "LSTM baseline",
+          "precision": 0.9991063788303853,
+          "predicted_count": 369284,
+          "recall": 0.9985439468242885,
+          "support": 369492,
+          "true_positive": 368954
+        },
+        {
+          "class_id": 1,
+          "class_name": "DDoS",
+          "f1_score": 0.9996089358165908,
+          "false_negative": 9,
+          "false_positive": 7,
+          "model": "LSTM baseline",
+          "precision": 0.9996578021118498,
+          "predicted_count": 20456,
+          "recall": 0.9995600742985629,
+          "support": 20458,
+          "true_positive": 20449
+        },
+        {
+          "class_id": 2,
+          "class_name": "Port Scan",
+          "f1_score": 0.9967017557719274,
+          "false_negative": 28,
+          "false_positive": 139,
+          "model": "LSTM baseline",
+          "precision": 0.9945215197855904,
+          "predicted_count": 25372,
+          "recall": 0.9988915719884407,
+          "support": 25261,
+          "true_positive": 25233
+        },
+        {
+          "class_id": 3,
+          "class_name": "Brute Force",
+          "f1_score": 0.9433768895721241,
+          "false_negative": 21,
+          "false_positive": 200,
+          "model": "LSTM baseline",
+          "precision": 0.9020088192062714,
+          "predicted_count": 2041,
+          "recall": 0.9887218045112782,
+          "support": 1862,
+          "true_positive": 1841
+        },
+        {
+          "class_id": 4,
+          "class_name": "Bot",
+          "f1_score": 0.6816608996539792,
+          "false_negative": 100,
+          "false_positive": 84,
+          "model": "LSTM baseline",
+          "precision": 0.701067615658363,
+          "predicted_count": 281,
+          "recall": 0.6632996632996633,
+          "support": 297,
+          "true_positive": 197
+        },
+        {
+          "class_id": 5,
+          "class_name": "Web Attack",
+          "f1_score": 0.9463806970509383,
+          "false_negative": 10,
+          "false_positive": 30,
+          "model": "LSTM baseline",
+          "precision": 0.9216710182767625,
+          "predicted_count": 383,
+          "recall": 0.9724517906336089,
+          "support": 363,
+          "true_positive": 353
+        },
+        {
+          "class_id": 6,
+          "class_name": "Infiltration",
+          "f1_score": 0.2666666666666667,
+          "false_negative": 11,
+          "false_positive": 0,
+          "model": "LSTM baseline",
+          "precision": 1.0,
+          "predicted_count": 2,
+          "recall": 0.15384615384615385,
+          "support": 13,
+          "true_positive": 2
+        },
+        {
+          "class_id": 7,
+          "class_name": "DoS",
+          "f1_score": 0.9961998803111909,
+          "false_negative": 163,
+          "false_positive": 91,
+          "model": "LSTM baseline",
+          "precision": 0.9972741433021807,
+          "predicted_count": 33384,
+          "recall": 0.9951279292204687,
+          "support": 33456,
+          "true_positive": 33293
+        },
+        {
+          "class_id": 8,
+          "class_name": "Heartbleed",
+          "f1_score": 0.8571428571428571,
+          "false_negative": 1,
+          "false_positive": 0,
+          "model": "LSTM baseline",
+          "precision": 1.0,
+          "predicted_count": 3,
+          "recall": 0.75,
+          "support": 4,
+          "true_positive": 3
+        }
+      ],
+      "macro_f1_from_confusion_matrix": 0.8540626295153504,
+      "macro_precision_from_confusion_matrix": 0.9461452552412671,
+      "macro_recall_from_confusion_matrix": 0.8356047705136073,
+      "observations": 451206
+    },
+    "RF baseline": {
+      "accuracy_from_confusion_matrix": 0.9972407281818061,
+      "class_metrics": [
+        {
+          "class_id": 0,
+          "class_name": "BENIGN",
+          "f1_score": 0.9983294308296439,
+          "false_negative": 475,
+          "false_positive": 760,
+          "model": "RF baseline",
+          "precision": 0.9979447072154298,
+          "predicted_count": 369777,
+          "recall": 0.9987144511924481,
+          "support": 369492,
+          "true_positive": 369017
+        },
+        {
+          "class_id": 1,
+          "class_name": "DDoS",
+          "f1_score": 0.9997800317731884,
+          "false_negative": 5,
+          "false_positive": 4,
+          "model": "RF baseline",
+          "precision": 0.9998044679082955,
+          "predicted_count": 20457,
+          "recall": 0.9997555968325349,
+          "support": 20458,
+          "true_positive": 20453
+        },
+        {
+          "class_id": 2,
+          "class_name": "Port Scan",
+          "f1_score": 0.9952546662448591,
+          "false_negative": 93,
+          "false_positive": 147,
+          "model": "RF baseline",
+          "precision": 0.9941931661070511,
+          "predicted_count": 25315,
+          "recall": 0.9963184355330351,
+          "support": 25261,
+          "true_positive": 25168
+        },
+        {
+          "class_id": 3,
+          "class_name": "Brute Force",
+          "f1_score": 0.9861751152073733,
+          "false_negative": 43,
+          "false_positive": 8,
+          "model": "RF baseline",
+          "precision": 0.9956212370005474,
+          "predicted_count": 1827,
+          "recall": 0.976906552094522,
+          "support": 1862,
+          "true_positive": 1819
+        },
+        {
+          "class_id": 4,
+          "class_name": "Bot",
+          "f1_score": 0.5788617886178862,
+          "false_negative": 119,
+          "false_positive": 140,
+          "model": "RF baseline",
+          "precision": 0.559748427672956,
+          "predicted_count": 318,
+          "recall": 0.5993265993265994,
+          "support": 297,
+          "true_positive": 178
+        },
+        {
+          "class_id": 5,
+          "class_name": "Web Attack",
+          "f1_score": 0.990344827586207,
+          "false_negative": 4,
+          "false_positive": 3,
+          "model": "RF baseline",
+          "precision": 0.9917127071823204,
+          "predicted_count": 362,
+          "recall": 0.9889807162534435,
+          "support": 363,
+          "true_positive": 359
+        },
+        {
+          "class_id": 6,
+          "class_name": "Infiltration",
+          "f1_score": 0.5555555555555556,
+          "false_negative": 8,
+          "false_positive": 0,
+          "model": "RF baseline",
+          "precision": 1.0,
+          "predicted_count": 5,
+          "recall": 0.38461538461538464,
+          "support": 13,
+          "true_positive": 5
+        },
+        {
+          "class_id": 7,
+          "class_name": "DoS",
+          "f1_score": 0.9897894831676627,
+          "false_negative": 497,
+          "false_positive": 183,
+          "model": "RF baseline",
+          "precision": 0.9944783054734174,
+          "predicted_count": 33142,
+          "recall": 0.9851446676231468,
+          "support": 33456,
+          "true_positive": 32959
+        },
+        {
+          "class_id": 8,
+          "class_name": "Heartbleed",
+          "f1_score": 0.8571428571428571,
+          "false_negative": 1,
+          "false_positive": 0,
+          "model": "RF baseline",
+          "precision": 1.0,
+          "predicted_count": 3,
+          "recall": 0.75,
+          "support": 4,
+          "true_positive": 3
+        }
+      ],
+      "macro_f1_from_confusion_matrix": 0.8834704173472481,
+      "macro_precision_from_confusion_matrix": 0.9481670020622244,
+      "macro_recall_from_confusion_matrix": 0.8533069337190127,
+      "observations": 451206
+    }
+  },
+  "source_artifact_sha256": {
+    "baseline_analysis_report": "3782aa1caab45eae655e387d66222d5518a9dfb6bcc8837d2d4c9b43034aed42",
+    "ensemble_confusion_matrix": "0dd08c9dfbf0bec0c5e4c04042defb326213fa85f4d00462d13dda34f6e752ac",
+    "freeze_config": "34ec70715572dcf4ab92a5bc6f56333cb9e312e443ef742b0ab09d3ef250ef9e",
+    "freeze_report": "67406412b5e4df4097ff13004122ed22e2546d50f9dd2be0a06077d6084f5067",
+    "lstm_confusion_matrix": "d01a05eb75d62641df2f70ac9e20002b13bb57098ecdf5528fc3bcd7e0804110",
+    "rf_confusion_matrix": "38fe486df5084fc922f092693bbeab2b72f731df1c5e3ab408b0f4fd61bd852f",
+    "unified_validation_json": "317a28bc54f932bd6036da5a754ce9618b28e3e000bb249e078747e65b62758f",
+    "weighted_voting_report": "3f596e52d703a62f1c0d3c5c85a4db93c7953f7a7ef03d18721bfbf5ed9aa152"
+  },
+  "top_15_off_diagonal_errors_by_model": {
+    "Frozen RF 75% + LSTM 25% ensemble": [
+      {
+        "count": 332,
+        "fraction_of_all_validation_rows": 0.0007358058181850418,
+        "fraction_of_true_class_support": 0.009923481587757054,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "DoS",
+        "true_class_id": 7
+      },
+      {
+        "count": 145,
+        "fraction_of_all_validation_rows": 0.00032136097480973215,
+        "fraction_of_true_class_support": 0.0003924306886211339,
+        "predicted_class": "Port Scan",
+        "predicted_class_id": 2,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 135,
+        "fraction_of_all_validation_rows": 0.0002991981489607851,
+        "fraction_of_true_class_support": 0.0003653665031989867,
+        "predicted_class": "Bot",
+        "predicted_class_id": 4,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 129,
+        "fraction_of_all_validation_rows": 0.0002859004534514169,
+        "fraction_of_true_class_support": 0.0003491279919456984,
+        "predicted_class": "DoS",
+        "predicted_class_id": 7,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 112,
+        "fraction_of_all_validation_rows": 0.0002482236495082069,
+        "fraction_of_true_class_support": 0.3771043771043771,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Bot",
+        "true_class_id": 4
+      },
+      {
+        "count": 24,
+        "fraction_of_all_validation_rows": 5.3190782037472903e-05,
+        "fraction_of_true_class_support": 0.000950081152765132,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Port Scan",
+        "true_class_id": 2
+      },
+      {
+        "count": 12,
+        "fraction_of_all_validation_rows": 2.6595391018736452e-05,
+        "fraction_of_true_class_support": 0.00644468313641246,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Brute Force",
+        "true_class_id": 3
+      },
+      {
+        "count": 9,
+        "fraction_of_all_validation_rows": 1.994654326405234e-05,
+        "fraction_of_true_class_support": 2.435776687993245e-05,
+        "predicted_class": "Brute Force",
+        "predicted_class_id": 3,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 8,
+        "fraction_of_all_validation_rows": 1.7730260679157637e-05,
+        "fraction_of_true_class_support": 0.6153846153846154,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Infiltration",
+        "true_class_id": 6
+      },
+      {
+        "count": 5,
+        "fraction_of_all_validation_rows": 1.1081412924473522e-05,
+        "fraction_of_true_class_support": 0.00019793357349273585,
+        "predicted_class": "DoS",
+        "predicted_class_id": 7,
+        "true_class": "Port Scan",
+        "true_class_id": 2
+      },
+      {
+        "count": 3,
+        "fraction_of_all_validation_rows": 6.648847754684113e-06,
+        "fraction_of_true_class_support": 8.11925562664415e-06,
+        "predicted_class": "Web Attack",
+        "predicted_class_id": 5,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 2,
+        "fraction_of_all_validation_rows": 4.432565169789409e-06,
+        "fraction_of_true_class_support": 9.776126698602014e-05,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "DDoS",
+        "true_class_id": 1
+      },
+      {
+        "count": 2,
+        "fraction_of_all_validation_rows": 4.432565169789409e-06,
+        "fraction_of_true_class_support": 0.005509641873278237,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Web Attack",
+        "true_class_id": 5
+      },
+      {
+        "count": 2,
+        "fraction_of_all_validation_rows": 4.432565169789409e-06,
+        "fraction_of_true_class_support": 0.5,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Heartbleed",
+        "true_class_id": 8
+      },
+      {
+        "count": 1,
+        "fraction_of_all_validation_rows": 2.2162825848947046e-06,
+        "fraction_of_true_class_support": 0.0027548209366391185,
+        "predicted_class": "DoS",
+        "predicted_class_id": 7,
+        "true_class": "Web Attack",
+        "true_class_id": 5
+      }
+    ],
+    "LSTM baseline": [
+      {
+        "count": 193,
+        "fraction_of_all_validation_rows": 0.00042774253888467793,
+        "fraction_of_true_class_support": 0.0005223387786474403,
+        "predicted_class": "Brute Force",
+        "predicted_class_id": 3,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 158,
+        "fraction_of_all_validation_rows": 0.0003501726484133633,
+        "fraction_of_true_class_support": 0.004722620755619321,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "DoS",
+        "true_class_id": 7
+      },
+      {
+        "count": 138,
+        "fraction_of_all_validation_rows": 0.0003058469967154692,
+        "fraction_of_true_class_support": 0.00037348575882563086,
+        "predicted_class": "Port Scan",
+        "predicted_class_id": 2,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 100,
+        "fraction_of_all_validation_rows": 0.00022162825848947044,
+        "fraction_of_true_class_support": 0.3367003367003367,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Bot",
+        "true_class_id": 4
+      },
+      {
+        "count": 89,
+        "fraction_of_all_validation_rows": 0.00019724915005562868,
+        "fraction_of_true_class_support": 0.00024087125025710977,
+        "predicted_class": "DoS",
+        "predicted_class_id": 7,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 84,
+        "fraction_of_all_validation_rows": 0.00018616773713115518,
+        "fraction_of_true_class_support": 0.00022733915754603618,
+        "predicted_class": "Bot",
+        "predicted_class_id": 4,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 28,
+        "fraction_of_all_validation_rows": 6.205591237705172e-05,
+        "fraction_of_true_class_support": 0.0011084280115593206,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Port Scan",
+        "true_class_id": 2
+      },
+      {
+        "count": 27,
+        "fraction_of_all_validation_rows": 5.983962979215702e-05,
+        "fraction_of_true_class_support": 7.307330063979734e-05,
+        "predicted_class": "Web Attack",
+        "predicted_class_id": 5,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 19,
+        "fraction_of_all_validation_rows": 4.210936911299938e-05,
+        "fraction_of_true_class_support": 0.01020408163265306,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Brute Force",
+        "true_class_id": 3
+      },
+      {
+        "count": 11,
+        "fraction_of_all_validation_rows": 2.4379108433841748e-05,
+        "fraction_of_true_class_support": 0.8461538461538461,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Infiltration",
+        "true_class_id": 6
+      },
+      {
+        "count": 8,
+        "fraction_of_all_validation_rows": 1.7730260679157637e-05,
+        "fraction_of_true_class_support": 0.00039104506794408056,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "DDoS",
+        "true_class_id": 1
+      },
+      {
+        "count": 7,
+        "fraction_of_all_validation_rows": 1.551397809426293e-05,
+        "fraction_of_true_class_support": 1.8944929795503015e-05,
+        "predicted_class": "DDoS",
+        "predicted_class_id": 1,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 5,
+        "fraction_of_all_validation_rows": 1.1081412924473522e-05,
+        "fraction_of_true_class_support": 0.013774104683195593,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Web Attack",
+        "true_class_id": 5
+      },
+      {
+        "count": 4,
+        "fraction_of_all_validation_rows": 8.865130339578818e-06,
+        "fraction_of_true_class_support": 0.00011956001912960307,
+        "predicted_class": "Brute Force",
+        "predicted_class_id": 3,
+        "true_class": "DoS",
+        "true_class_id": 7
+      },
+      {
+        "count": 3,
+        "fraction_of_all_validation_rows": 6.648847754684113e-06,
+        "fraction_of_true_class_support": 0.008264462809917356,
+        "predicted_class": "Brute Force",
+        "predicted_class_id": 3,
+        "true_class": "Web Attack",
+        "true_class_id": 5
+      }
+    ],
+    "RF baseline": [
+      {
+        "count": 495,
+        "fraction_of_all_validation_rows": 0.0010970598795228786,
+        "fraction_of_true_class_support": 0.014795552367288379,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "DoS",
+        "true_class_id": 7
+      },
+      {
+        "count": 177,
+        "fraction_of_all_validation_rows": 0.00039228201752636267,
+        "fraction_of_true_class_support": 0.0004790360819720048,
+        "predicted_class": "DoS",
+        "predicted_class_id": 7,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 143,
+        "fraction_of_all_validation_rows": 0.00031692840963994275,
+        "fraction_of_true_class_support": 0.00038701785153670446,
+        "predicted_class": "Port Scan",
+        "predicted_class_id": 2,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 140,
+        "fraction_of_all_validation_rows": 0.0003102795618852586,
+        "fraction_of_true_class_support": 0.0003788985959100603,
+        "predicted_class": "Bot",
+        "predicted_class_id": 4,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 119,
+        "fraction_of_all_validation_rows": 0.00026373762760246983,
+        "fraction_of_true_class_support": 0.4006734006734007,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Bot",
+        "true_class_id": 4
+      },
+      {
+        "count": 88,
+        "fraction_of_all_validation_rows": 0.00019503286747073398,
+        "fraction_of_true_class_support": 0.0034836308934721506,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Port Scan",
+        "true_class_id": 2
+      },
+      {
+        "count": 43,
+        "fraction_of_all_validation_rows": 9.530015115047229e-05,
+        "fraction_of_true_class_support": 0.02309344790547798,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Brute Force",
+        "true_class_id": 3
+      },
+      {
+        "count": 8,
+        "fraction_of_all_validation_rows": 1.7730260679157637e-05,
+        "fraction_of_true_class_support": 2.165134833771773e-05,
+        "predicted_class": "Brute Force",
+        "predicted_class_id": 3,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 8,
+        "fraction_of_all_validation_rows": 1.7730260679157637e-05,
+        "fraction_of_true_class_support": 0.6153846153846154,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Infiltration",
+        "true_class_id": 6
+      },
+      {
+        "count": 5,
+        "fraction_of_all_validation_rows": 1.1081412924473522e-05,
+        "fraction_of_true_class_support": 0.00019793357349273585,
+        "predicted_class": "DoS",
+        "predicted_class_id": 7,
+        "true_class": "Port Scan",
+        "true_class_id": 2
+      },
+      {
+        "count": 4,
+        "fraction_of_all_validation_rows": 8.865130339578818e-06,
+        "fraction_of_true_class_support": 1.0825674168858865e-05,
+        "predicted_class": "DDoS",
+        "predicted_class_id": 1,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 4,
+        "fraction_of_all_validation_rows": 8.865130339578818e-06,
+        "fraction_of_true_class_support": 0.00019552253397204028,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "DDoS",
+        "true_class_id": 1
+      },
+      {
+        "count": 3,
+        "fraction_of_all_validation_rows": 6.648847754684113e-06,
+        "fraction_of_true_class_support": 8.11925562664415e-06,
+        "predicted_class": "Web Attack",
+        "predicted_class_id": 5,
+        "true_class": "BENIGN",
+        "true_class_id": 0
+      },
+      {
+        "count": 2,
+        "fraction_of_all_validation_rows": 4.432565169789409e-06,
+        "fraction_of_true_class_support": 0.005509641873278237,
+        "predicted_class": "BENIGN",
+        "predicted_class_id": 0,
+        "true_class": "Web Attack",
+        "true_class_id": 5
+      },
+      {
+        "count": 2,
+        "fraction_of_all_validation_rows": 4.432565169789409e-06,
+        "fraction_of_true_class_support": 0.005509641873278237,
+        "predicted_class": "Port Scan",
+        "predicted_class_id": 2,
+        "true_class": "Web Attack",
+        "true_class_id": 5
+      }
+    ]
+  },
+  "validation_observations": 451206
+}

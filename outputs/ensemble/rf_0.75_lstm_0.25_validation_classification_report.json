@@ -1,0 +1,208 @@
+{
+  "artifact_id": "n08_rf_0.75_lstm_0.25_validation_classification_report_v1",
+  "candidate_id": "rf_0.75_lstm_0.25",
+  "partition": "Validation",
+  "class_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "class_names": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ],
+  "classification_report": {
+    "BENIGN": {
+      "precision": 0.9986632933313491,
+      "recall": 0.9988605977937276,
+      "f1-score": 0.9987619358182116,
+      "support": 369492.0
+    },
+    "DDoS": {
+      "precision": 1.0,
+      "recall": 0.999902238733014,
+      "f1-score": 0.9999511169770738,
+      "support": 20458.0
+    },
+    "Port Scan": {
+      "precision": 0.9942469855780597,
+      "recall": 0.9988519852737421,
+      "f1-score": 0.9965441655640909,
+      "support": 25261.0
+    },
+    "Brute Force": {
+      "precision": 0.9951586874663798,
+      "recall": 0.9935553168635876,
+      "f1-score": 0.9943563558183284,
+      "support": 1862.0
+    },
+    "Bot": {
+      "precision": 0.578125,
+      "recall": 0.622895622895623,
+      "f1-score": 0.5996758508914101,
+      "support": 297.0
+    },
+    "Web Attack": {
+      "precision": 0.9917355371900827,
+      "recall": 0.9917355371900827,
+      "f1-score": 0.9917355371900827,
+      "support": 363.0
+    },
+    "Infiltration": {
+      "precision": 1.0,
+      "recall": 0.38461538461538464,
+      "f1-score": 0.5555555555555556,
+      "support": 13.0
+    },
+    "DoS": {
+      "precision": 0.9959408262673642,
+      "recall": 0.9900466284074605,
+      "f1-score": 0.9929849806637288,
+      "support": 33456.0
+    },
+    "Heartbleed": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 4.0
+    },
+    "accuracy": 0.9979565874567271,
+    "macro avg": {
+      "precision": 0.9504300366481372,
+      "recall": 0.831162590196958,
+      "f1-score": 0.866248018349461,
+      "support": 451206.0
+    },
+    "weighted avg": {
+      "precision": 0.997977986921578,
+      "recall": 0.9979565874567271,
+      "f1-score": 0.997961101960074,
+      "support": 451206.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      369071,
+      0,
+      145,
+      9,
+      135,
+      3,
+      0,
+      129,
+      0
+    ],
+    [
+      2,
+      20456,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      24,
+      0,
+      25232,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0
+    ],
+    [
+      12,
+      0,
+      0,
+      1850,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      112,
+      0,
+      0,
+      0,
+      185,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0,
+      360,
+      0,
+      1,
+      0
+    ],
+    [
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      0
+    ],
+    [
+      332,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      33123,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ]
+  ],
+  "confusion_matrix_axis_order": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ]
+}

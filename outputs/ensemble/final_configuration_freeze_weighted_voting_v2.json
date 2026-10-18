@@ -1,0 +1,132 @@
+{
+  "artifact_id": "n08_final_configuration_freeze_weighted_voting_v2",
+  "class_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "created_at_utc": "2026-10-17T16:58:18.877618+00:00",
+  "execution_constraints": {
+    "hyperparameters_changed": false,
+    "models_fitted_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "test_arrays_loaded": false,
+    "upstream_artifacts_modified": false
+  },
+  "historical_artifacts": {
+    "new_version_created_to_avoid_overwrite": true,
+    "previous_freeze_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze.json",
+    "previous_freeze_report_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze_report.json",
+    "previous_stacking_freeze_preserved": true
+  },
+  "inference_configuration": {
+    "base_models": [
+      "RF",
+      "LSTM"
+    ],
+    "class_count": 9,
+    "class_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "lstm_weight": 0.25,
+    "probability_columns": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "rf_weight": 0.75,
+    "strategy": "weighted_soft_voting"
+  },
+  "observation_count": 451206,
+  "partition": "Validation",
+  "primary_metric": "macro_f1",
+  "probability_output": {
+    "calibration_performed": false,
+    "calibration_workflow": "GitHub Issue #9",
+    "class_count": 9,
+    "class_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "predicted_class_rule": "argmax over the nine-class weighted probability vector",
+    "probabilities_calibrated": false
+  },
+  "project_decision": {
+    "combination_rule": "probabilities = 0.75 * RF_probabilities + 0.25 * LSTM_probabilities",
+    "decision_basis": "Freeze the agreed RF-LSTM weighted-voting configuration as the intended project ensemble. This is an explicit project architecture decision, not a claim that the ensemble outperforms the RF baseline on Validation.",
+    "display_name": "RF-LSTM weighted soft voting (RF 75%, LSTM 25%)",
+    "empirical_validation_macro_f1_winner": "rf_baseline",
+    "empirical_winner_macro_f1": 0.8834704173472481,
+    "lstm_weight": 0.25,
+    "rf_weight": 0.75,
+    "selected_candidate_id": "rf_0.75_lstm_0.25",
+    "selected_ensemble_macro_f1": 0.866248018349461,
+    "selected_ensemble_minus_rf_macro_f1": -0.017222398997787103,
+    "stacking_macro_f1": 0.7358889275657453,
+    "strategy_type": "weighted_soft_voting",
+    "test_results_used_for_decision": false
+  },
+  "section": "8.6.3",
+  "source_artifact_paths": {
+    "candidate_comparison_json": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_candidate_comparison.json",
+    "candidate_comparison_report": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_candidate_comparison_report.json",
+    "strategy_selection_json": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_strategy_selection.json",
+    "strategy_selection_report": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_strategy_selection_report.json"
+  },
+  "source_artifact_sha256": {
+    "candidate_comparison_json": "fc1923f9944bc5e1757492a287720fb667805e35d0f38c66aaca077adfb8e44a",
+    "candidate_comparison_report": "3ab57b7aeaaebb381c251a02a8bdb7883dbdfcb10c25e7d0fc45e979a2c26c35",
+    "strategy_selection_json": "af7148b4f1114b4f0099376940d3d19eaa193109216a88b2658c3731b73d02ad",
+    "strategy_selection_report": "619f721f4dc6e0559a29ffe4804ad79409fdb126cf11ec127bc11b80ced54a7a"
+  },
+  "status": "PASS_FINAL_CONFIGURATION_FROZEN",
+  "validation_metrics": {
+    "benchmark_candidate": {
+      "accuracy": 0.9972407281818061,
+      "balanced_accuracy": 0.8533069337190127,
+      "macro_f1": 0.8834704173472481,
+      "macro_precision": 0.9481670020622244,
+      "macro_recall": 0.8533069337190127,
+      "weighted_f1": 0.9972431417152955
+    },
+    "benchmark_candidate_id": "rf_baseline",
+    "selected_candidate": {
+      "accuracy": 0.9979565874567271,
+      "balanced_accuracy": 0.831162590196958,
+      "macro_f1": 0.866248018349461,
+      "macro_precision": 0.9504300366481372,
+      "macro_recall": 0.831162590196958,
+      "weighted_f1": 0.997961101960074
+    },
+    "selected_candidate_id": "rf_0.75_lstm_0.25"
+  },
+  "verdict": "PASS_RF_LSTM_WEIGHTED_SOFT_VOTING_FROZEN"
+}

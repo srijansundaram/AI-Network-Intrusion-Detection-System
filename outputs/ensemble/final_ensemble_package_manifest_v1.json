@@ -1,0 +1,142 @@
+{
+  "artifact_count": 20,
+  "artifact_id": "n08_final_ensemble_package_manifest_v1",
+  "artifacts": [
+    {
+      "relative_path": "calibration_handoff_manifest_v1.json",
+      "sha256": "eb6a89b0e81b16ac68ab1a6c570de6429dd8e784c63e95f25205a09ac5a9047a",
+      "size_bytes": 7223
+    },
+    {
+      "relative_path": "calibration_handoff_manifest_v1_report.json",
+      "sha256": "1ba3960b5c29c813f2b8bba61d00fd719661869c31ac992402841b06c536ca3b",
+      "size_bytes": 5565
+    },
+    {
+      "relative_path": "classwise_error_analysis_v1.json",
+      "sha256": "3a01b95f42976f1468d14333e2e0f14704ca291a61b9a4dfa6aa62b37b8de016",
+      "size_bytes": 35179
+    },
+    {
+      "relative_path": "classwise_error_analysis_v1_report.json",
+      "sha256": "14f6d10f8530e01661b4c267dcb6bf79e6f325dd6c6a2f7c1bb7c97e29615a6a",
+      "size_bytes": 3767
+    },
+    {
+      "relative_path": "ensemble_class_mapping_v1.json",
+      "sha256": "dd15c0eeb994307f85802768db7a246b836106eca107bf5732ab68b4ed6c9d99",
+      "size_bytes": 848
+    },
+    {
+      "relative_path": "ensemble_contract_persistence_report_v1.json",
+      "sha256": "e47cc3b841f3817e3bd28ef984ca5013285eecc9ff03e83755f5e1d693037c45",
+      "size_bytes": 5584
+    },
+    {
+      "relative_path": "ensemble_inference_contract_v1.json",
+      "sha256": "ab4fcdf09de790479a1014e8088c2cbad0fbcabaf54a19d001ca7b57388eb7b9",
+      "size_bytes": 8633
+    },
+    {
+      "relative_path": "ensemble_inference_contract_validation_report_v1.json",
+      "sha256": "14da50855da7209bd9ac366b04992e2833d1e84d57754e69ba774fea61eff8ca",
+      "size_bytes": 8824
+    },
+    {
+      "relative_path": "final_configuration_freeze_weighted_voting_v2.json",
+      "sha256": "34ec70715572dcf4ab92a5bc6f56333cb9e312e443ef742b0ab09d3ef250ef9e",
+      "size_bytes": 4943
+    },
+    {
+      "relative_path": "final_configuration_freeze_weighted_voting_v2_report.json",
+      "sha256": "67406412b5e4df4097ff13004122ed22e2546d50f9dd2be0a06077d6084f5067",
+      "size_bytes": 4714
+    },
+    {
+      "relative_path": "final_strategy_comparison_v1.csv",
+      "sha256": "09ef2d7f7a05f07b4bdc615cb55656ae0847fa081db881d8f0e70a0c70cdd287",
+      "size_bytes": 517
+    },
+    {
+      "relative_path": "final_strategy_comparison_v1.json",
+      "sha256": "6be9ab3cd34f147799cc9e301b7b7e9a60db438dd337529743552ae6bfbd3301",
+      "size_bytes": 11397
+    },
+    {
+      "relative_path": "section_8_7_final_evaluation_manifest_v1.json",
+      "sha256": "4e4aa44ee108800f28b82504cbe9d6260c9e35254a45cd00c3fc529e1dcb9052",
+      "size_bytes": 5375
+    },
+    {
+      "relative_path": "section_8_7_final_evaluation_persistence_report_v1.json",
+      "sha256": "5e93cc245dd501aa7bbc4f0c65604121ddf2acf5e1ed604e4b659c94504822db",
+      "size_bytes": 4862
+    },
+    {
+      "relative_path": "test_evaluation_history_v1.json",
+      "sha256": "24175ccef88a6131772ec0760db79b9d24d21cfad179f06b5c39129f99e6bd1a",
+      "size_bytes": 2645
+    },
+    {
+      "relative_path": "test_evaluation_history_v1_report.json",
+      "sha256": "82c9b9b4a75c0017afc6bc9a2b4e5d6d9c7621cd236494dc60b930b382532c71",
+      "size_bytes": 6148
+    },
+    {
+      "relative_path": "uncalibrated_probability_output_contract_v1.json",
+      "sha256": "ebf47736660dff50ca12640f42b3fba8ea5bd1d07ecf6dacc11ed98270ed9b65",
+      "size_bytes": 4908
+    },
+    {
+      "relative_path": "uncalibrated_probability_output_contract_v1_report.json",
+      "sha256": "4e86449ac51216c18014dcbd43bae553a76bde74da7ed251ba16bc2e2ccf6fce",
+      "size_bytes": 4200
+    },
+    {
+      "relative_path": "unified_validation_results_v2.json",
+      "sha256": "317a28bc54f932bd6036da5a754ce9618b28e3e000bb249e078747e65b62758f",
+      "size_bytes": 3440
+    },
+    {
+      "relative_path": "unified_validation_results_v3_audit_report.json",
+      "sha256": "f9f9f906eca67eca7235f166c5e04a77f9bbb47e8df0fadb992a6fbe55d57f1e",
+      "size_bytes": 7011
+    }
+  ],
+  "ensemble": {
+    "candidate_id": "rf_0.75_lstm_0.25",
+    "combination_rule": "P_ensemble = 0.75 * P_RF + 0.25 * P_LSTM",
+    "lstm_weight": 0.25,
+    "rf_weight": 0.75,
+    "strategy": "weighted_soft_voting"
+  },
+  "evaluation_provenance": {
+    "ensemble_test_evaluation_inferred_without_evidence": false,
+    "final_evaluation_manifest": "section_8_7_final_evaluation_manifest_v1.json",
+    "final_strategy_comparison": "final_strategy_comparison_v1.json",
+    "primary_partition": "Validation",
+    "prior_rf_and_lstm_test_evaluation_disclosed": true,
+    "test_evaluation_history": "test_evaluation_history_v1.json",
+    "unified_validation_results": "unified_validation_results_v2.json"
+  },
+  "inference_contract": {
+    "artifact": "ensemble_inference_contract_v1.json",
+    "class_mapping_artifact": "ensemble_class_mapping_v1.json",
+    "class_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "probability_status": "uncalibrated"
+  },
+  "manifest_self_hash_included": false,
+  "manifest_status": "VALIDATED_PACKAGE_INVENTORY",
+  "manifest_validation_report_self_hash_included": false,
+  "package_directory": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1"
+}

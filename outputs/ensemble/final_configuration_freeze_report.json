@@ -1,0 +1,118 @@
+{
+  "benchmark_candidate_id": "rf_baseline",
+  "checks": [
+    {
+      "check": "required_upstream_artifacts_exist",
+      "details": "required=7; missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_status",
+      "details": "status=PASS_VALIDATION_BASED_STRATEGY_SELECTION",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_report_status",
+      "details": "status=PASS_VALIDATION_BASED_STRATEGY_SELECTION; checks_failed=0",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_decision_is_rf_baseline_benchmark",
+      "details": "Section 8.6.2 empirical selection=rf_baseline; this is retained as the macro-F1 benchmark, not silently replaced.",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_uses_validation",
+      "details": "partition=Validation; observations=451206",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_class_order",
+      "details": "class_ids=[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate_comparison_status",
+      "details": "status=PASS_FINAL_CANDIDATE_COMPARISON",
+      "status": "PASS"
+    },
+    {
+      "check": "comparison_contains_rf_and_stacking",
+      "details": "candidate_ids=['equal_weight', 'lstm_baseline', 'rf_0.25_lstm_0.75', 'rf_0.40_lstm_0.60', 'rf_0.60_lstm_0.40', 'rf_0.75_lstm_0.25', 'rf_baseline', 'stacking_meta_model']",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_configuration_identity",
+      "details": "config_id=n08_stacking_meta_model_config_v1",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_configuration_status",
+      "details": "config_status=VALIDATED_PENDING_TRAINING",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_meta_model_exists",
+      "details": "path=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/stacking/stacking_meta_model.joblib",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_integrity_gate_status",
+      "details": "status=PASS_STACKING_INTEGRITY_AND_PROVENANCE; checks_failed=0",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_feature_contract",
+      "details": "feature_count=18; class_order=[0, 1, 2, 3, 4, 5, 6, 7, 8]; feature_order_valid=True",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_validation_metrics_available",
+      "details": "metrics_found=['accuracy', 'balanced_accuracy', 'macro_f1', 'macro_precision', 'macro_recall', 'weighted_f1']; required=['macro_f1', 'macro_precision', 'macro_recall', 'balanced_accuracy', 'weighted_f1', 'accuracy']",
+      "status": "PASS"
+    },
+    {
+      "check": "benchmark_and_stacking_metrics_available",
+      "details": "rf_metrics=['accuracy', 'balanced_accuracy', 'macro_f1', 'macro_precision', 'macro_recall', 'weighted_f1']; stacking_metrics=['accuracy', 'balanced_accuracy', 'macro_f1', 'macro_precision', 'macro_recall', 'weighted_f1']",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_macro_f1_consistency",
+      "details": "metrics_artifact_macro_f1=0.7358889275657453; comparison_macro_f1=0.7358889275657453; absolute_difference=0.0",
+      "status": "PASS"
+    },
+    {
+      "check": "freeze_configuration_reload_integrity",
+      "details": "path=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze.json; write_mode=CREATED_NEW",
+      "status": "PASS"
+    }
+  ],
+  "checks_failed": 0,
+  "checks_passed": 17,
+  "configuration_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze.json",
+  "configuration_write_mode": "CREATED_NEW",
+  "created_at_utc": "2026-10-17T16:44:16.969879+00:00",
+  "execution_constraints": {
+    "models_fitted_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "test_arrays_loaded": false,
+    "upstream_artifacts_modified": false
+  },
+  "frozen_candidate_id": "stacking_meta_model",
+  "observation_count": 451206,
+  "partition": "Validation",
+  "report_id": "n08_final_configuration_freeze_report_v1",
+  "section": "8.6.3",
+  "source_artifact_sha256": {
+    "candidate_comparison_json": "fc1923f9944bc5e1757492a287720fb667805e35d0f38c66aaca077adfb8e44a",
+    "selection_json": "af7148b4f1114b4f0099376940d3d19eaa193109216a88b2658c3731b73d02ad",
+    "selection_report": "619f721f4dc6e0559a29ffe4804ad79409fdb126cf11ec127bc11b80ced54a7a",
+    "stacking_config": "f04497ccd0154a8fc5297a0b1dcf49f55d0d7cbf00fff3a2c38336311c383b19",
+    "stacking_integrity_gate": "dcf6eb1751c359c3a2815da4a4a48ee59673edf19cd43f921b886d4c2610d7b7",
+    "stacking_model": "f5a8617099fe35b6795fbc0176d38726992f6c623bc45839af4d59c7d1d4551a",
+    "stacking_validation_metrics": "0c93a1c153bc75daa583164fff8e026b8cacbcaeb0d988d345cb4858f1c1b4c9"
+  },
+  "status": "PASS_FINAL_CONFIGURATION_FREEZE",
+  "verdict": "PASS_PROJECT_STRATEGY_FROZEN_AND_RELOAD_VERIFIED"
+}
