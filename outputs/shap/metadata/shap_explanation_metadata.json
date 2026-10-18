@@ -1,0 +1,93 @@
+{
+  "metadata_version": "1.0",
+  "notebook": "N06",
+  "section": "6.6 — SHAP Artifact Persistence and Dashboard Handoff",
+  "created_utc": "2026-10-10T18:43:48.819136+00:00",
+  "purpose": "Describe the persisted SHAP explanations and their use in frontend integration.",
+  "model_context": {
+    "model_type": "RandomForestClassifier",
+    "model_artifact": "trained_models/random_forest/final_random_forest.joblib",
+    "model_strategy": "RF-3 — Controlled Random Oversampling",
+    "model_retrained_in_N06": false,
+    "feature_count": 32,
+    "feature_order": [
+      "ECE Flag Count",
+      "FIN Flag Count",
+      "Fwd PSH Flags",
+      "URG Flag Count",
+      "Down/Up Ratio",
+      "PSH Flag Count",
+      "ACK Flag Count",
+      "act_data_pkt_fwd",
+      "Fwd Header Length",
+      "Avg Fwd Segment Size",
+      "Fwd Packet Length Min",
+      "Bwd Header Length",
+      "Average Packet Size",
+      "Bwd Packet Length Min",
+      "Fwd Packet Length Std",
+      "Bwd Packet Length Std",
+      "Active Std",
+      "Bwd IAT Min",
+      "Idle Std",
+      "Flow IAT Min",
+      "Fwd IAT Min",
+      "Bwd Packets/s",
+      "Active Max",
+      "Flow Bytes/s",
+      "Flow Duration",
+      "Bwd IAT Mean",
+      "Bwd IAT Std",
+      "Fwd IAT Mean",
+      "Flow IAT Std",
+      "min_seg_size_forward",
+      "Fwd IAT Std",
+      "Destination Port"
+    ],
+    "class_count": 9,
+    "class_labels": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ]
+  },
+  "explanation_method": {
+    "method": "SHAP TreeExplainer",
+    "model_output": "probability",
+    "background_partition": "original_n04_training",
+    "explanation_partition": "original_n04_validation",
+    "background_sample_count": 100,
+    "explanation_sample_count": 500,
+    "random_seed": 42,
+    "shap_recalculated_during_persistence": false
+  },
+  "validation": {
+    "shap_additivity_passed": true,
+    "class_order_matches_model": true,
+    "predicted_probabilities_valid": true,
+    "section_6_5_validation_passed": true,
+    "independent_test_accessed": false,
+    "model_retrained": false
+  },
+  "interpretation_guidance": {
+    "global_importance": "Mean absolute SHAP values summarize feature importance across the sampled Validation observations and output classes.",
+    "class_wise_importance": "Class-wise mean absolute SHAP values describe the relative importance of each feature for each output class.",
+    "dependence_analysis": "Dependence records pair a feature value in model-input representation with its SHAP contribution to the selected class output.",
+    "local_explanations": "Local contribution records describe feature contributions for selected individual Validation observations.",
+    "plain_english_generation": "Not generated in N06. The frontend can convert structured SHAP records into user-facing explanatory text.",
+    "limitations": [
+      "Explanations use sampled Validation observations.",
+      "SHAP contributions explain model behavior and are not causal effects.",
+      "The Independent Test partition was not accessed.",
+      "The original class distribution was not rebalanced for SHAP sampling."
+    ]
+  },
+  "artifact_root": ".",
+  "manifest_filename": "shap_artifact_manifest.json"
+}

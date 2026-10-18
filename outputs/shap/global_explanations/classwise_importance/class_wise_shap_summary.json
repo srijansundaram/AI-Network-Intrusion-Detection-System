@@ -1,0 +1,100 @@
+{
+  "method": "Mean absolute SHAP per feature and output class",
+  "background_partition": "original_n04_training",
+  "explanation_partition": "original_n04_validation",
+  "explanation_observations": 500,
+  "feature_count": 32,
+  "class_count": 9,
+  "class_order": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ],
+  "feature_order": [
+    "ECE Flag Count",
+    "FIN Flag Count",
+    "Fwd PSH Flags",
+    "URG Flag Count",
+    "Down/Up Ratio",
+    "PSH Flag Count",
+    "ACK Flag Count",
+    "act_data_pkt_fwd",
+    "Fwd Header Length",
+    "Avg Fwd Segment Size",
+    "Fwd Packet Length Min",
+    "Bwd Header Length",
+    "Average Packet Size",
+    "Bwd Packet Length Min",
+    "Fwd Packet Length Std",
+    "Bwd Packet Length Std",
+    "Active Std",
+    "Bwd IAT Min",
+    "Idle Std",
+    "Flow IAT Min",
+    "Fwd IAT Min",
+    "Bwd Packets/s",
+    "Active Max",
+    "Flow Bytes/s",
+    "Flow Duration",
+    "Bwd IAT Mean",
+    "Bwd IAT Std",
+    "Fwd IAT Mean",
+    "Flow IAT Std",
+    "min_seg_size_forward",
+    "Fwd IAT Std",
+    "Destination Port"
+  ],
+  "importance_matrix_shape": [
+    32,
+    9
+  ],
+  "top_feature_by_class": {
+    "BENIGN": {
+      "top_feature": "Destination Port",
+      "mean_abs_shap": 0.05653742978901219
+    },
+    "DDoS": {
+      "top_feature": "Bwd Packet Length Std",
+      "mean_abs_shap": 0.01918608810432256
+    },
+    "Port Scan": {
+      "top_feature": "PSH Flag Count",
+      "mean_abs_shap": 0.021056947006342357
+    },
+    "Brute Force": {
+      "top_feature": "Destination Port",
+      "mean_abs_shap": 0.004539980460504331
+    },
+    "Bot": {
+      "top_feature": "Bwd IAT Std",
+      "mean_abs_shap": 0.0010117386389978096
+    },
+    "Web Attack": {
+      "top_feature": "Destination Port",
+      "mean_abs_shap": 0.008351747474530416
+    },
+    "Infiltration": {
+      "top_feature": "Flow Bytes/s",
+      "mean_abs_shap": 0.0008216878705049804
+    },
+    "DoS": {
+      "top_feature": "Destination Port",
+      "mean_abs_shap": 0.0347042459269944
+    },
+    "Heartbleed": {
+      "top_feature": "Avg Fwd Segment Size",
+      "mean_abs_shap": 0.0004723198469003181
+    }
+  },
+  "all_scores_finite": true,
+  "all_scores_nonnegative": true,
+  "independent_test_accessed": false,
+  "shap_recalculated": false,
+  "artifacts_persisted": false
+}
