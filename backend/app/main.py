@@ -32,23 +32,36 @@ configure_logging()
 logger = get_logger(__name__)
 
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting %s ...", settings.app_name)
+
     try:
         load_artifacts()
     except FileNotFoundError as exc:
-        # Don't crash the whole API if the model isn't in place yet — endpoints
-        # that need it will error clearly, but /health and docs still work,
-        # which is useful while other team members finish the model.
         logger.warning("Model not loaded at startup: %s", exc)
+
+    # Automatically start live packet capture when the backend starts.
+    try:
+        if not live_capture.running:
+            await live_capture.start()
+            logger.info(
+                "Automatic live capture started on interface=%s",
+                live_capture.interface,
+            )
+    except Exception:
+        # Keep the API available even if capture cannot start.
+        logger.exception(
+            "Automatic live capture failed. "
+            "Check Npcap, interface selection, and permissions."
+        )
 
     yield
 
     logger.info("Shutting down %s ...", settings.app_name)
     await live_capture.stop()
     await replay_controller.stop()
-
 
 app = FastAPI(title=settings.app_name, lifespan=lifespan)
 
