@@ -120,7 +120,7 @@
                     <div class="panel-title">Threat Map</div>
                     <div class="panel-sub">Global attack origin tracking — real time</div>
                 </div>
-                <span class="panel-badge">● 7 Active</span>
+                <span class="panel-badge" id="threat-map-badge">● 0 Locations</span>
             </div>
 
             <div id="threat-map"></div>
@@ -129,36 +129,7 @@
                 <div class="tbl-row tbl-head">
                     <span>#</span><span>Location</span><span>Attacks</span><span>Type</span>
                 </div>
-                <div class="tbl-row">
-                    <span class="rank">01</span>
-                    <div><div class="loc-name">New York</div><div class="loc-ctry">United States</div></div>
-                    <span class="atk-count">312</span>
-                    <span class="badge bc">DDoS</span>
-                </div>
-                <div class="tbl-row">
-                    <span class="rank">02</span>
-                    <div><div class="loc-name">Beijing</div><div class="loc-ctry">China</div></div>
-                    <span class="atk-count">248</span>
-                    <span class="badge bc">Infiltration</span>
-                </div>
-                <div class="tbl-row">
-                    <span class="rank">03</span>
-                    <div><div class="loc-name">Moscow</div><div class="loc-ctry">Russia</div></div>
-                    <span class="atk-count">187</span>
-                    <span class="badge bw">Brute Force</span>
-                </div>
-                <div class="tbl-row">
-                    <span class="rank">04</span>
-                    <div><div class="loc-name">Singapore</div><div class="loc-ctry">Singapore</div></div>
-                    <span class="atk-count">94</span>
-                    <span class="badge bw">Port Scan</span>
-                </div>
-                <div class="tbl-row">
-                    <span class="rank">05</span>
-                    <div><div class="loc-name">São Paulo</div><div class="loc-ctry">Brazil</div></div>
-                    <span class="atk-count">67</span>
-                    <span class="badge bg">Bot</span>
-                </div>
+                <div id="attack-table-body"></div>
             </div>
         </div>
 
@@ -175,9 +146,6 @@
             <div class="tab-bar">
                 <button class="tab-btn active" data-tab="feed">🚨 Feed</button>
                 <button class="tab-btn" data-tab="timeline">📈 Timeline</button>
-                <button class="tab-btn" data-tab="compare">🔬 Models</button>
-                <button class="tab-btn" data-tab="errors">⚠️ Errors</button>
-                <button class="tab-btn" data-tab="explain">🧠 Explain</button>
             </div>
 
             <!-- TAB 1: ALERT FEED -->
@@ -196,50 +164,6 @@
                     </div>
                 </div>
                 <div id="timeline-chart"></div>
-            </div>
-
-            <!-- TAB 3: MODEL COMPARISON -->
-            <div class="tab-panel" id="tab-compare">
-                <div class="scroll-pane">
-                    <div class="sec-title">Select models</div>
-                    <div class="chips" id="mdl-chips"></div>
-                    <div class="sec-title">Independent-test metrics</div>
-                    <div id="mdl-table"></div>
-                    <div id="mdl-chart"></div>
-                    <div class="note" id="mdl-note"></div>
-                    <div class="sec-title">Latest alert — prediction by each model</div>
-                    <div id="mdl-live"></div>
-                </div>
-            </div>
-
-            <!-- TAB 4: ERROR ANALYSIS -->
-            <div class="tab-panel" id="tab-errors">
-                <div class="scroll-pane">
-                    <div class="toolbar flat">
-                        <div class="chips" id="err-chips"></div>
-                        <select class="sel" id="err-cat"></select>
-                    </div>
-                    <div class="toolbar flat">
-                        <div class="chips" id="err-metric">
-                            <button class="chip on" data-m="fp">False positives</button>
-                            <button class="chip" data-m="fn">False negatives</button>
-                        </div>
-                    </div>
-                    <div id="err-chart"></div>
-                    <div id="err-cards"></div>
-                    <div class="note">False positive = benign traffic flagged as an attack. False negative = an attack classified as benign. Source: confusion matrices on 113,229 independent-test sequences.</div>
-                </div>
-            </div>
-
-            <!-- TAB 5: EXPLAINABILITY (SHAP + LIME) -->
-            <div class="tab-panel" id="tab-explain">
-                <div class="scroll-pane">
-                    <div class="sec-title">Global feature importance (SHAP, Random Forest)</div>
-                    <div id="ex-global"></div>
-                    <div class="sec-title">Explain a single alert</div>
-                    <select class="sel wide" id="ex-alert"></select>
-                    <div id="ex-detail"></div>
-                </div>
             </div>
         </div>
 

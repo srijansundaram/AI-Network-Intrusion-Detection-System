@@ -327,16 +327,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); margin: 8px 0 4p
 /* Timeline tab */
 #timeline-chart { flex: 1; min-height: 0; padding: 8px; }
 
-/* Model comparison tab */
-.cmp-table { padding: 14px 16px; overflow-y: auto; }
-.cmp-row {
-    display: grid; grid-template-columns: 1fr 90px 90px 110px;
-    gap: 8px; font-size: 11.5px; padding: 9px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04); align-items: center;
-}
-.cmp-head { color: var(--t3); font-size: 9.5px; text-transform: uppercase; letter-spacing: .06em; }
-.cmp-model { font-weight: 600; }
-.cmp-best { color: var(--green); font-weight: 700; }
+
 
 /* ═══════════════════════════════════════════════════════════════
    APPENDED — new dashboard features (paste at the very bottom)
@@ -381,17 +372,6 @@ input[type="range"] { width: 100%; accent-color: var(--accent); margin: 8px 0 4p
               color: #fff; background: var(--accent); box-shadow: 0 6px 16px rgba(224,112,32,.35); margin: 2px 0 6px; transition: background .2s; }
 .export-btn:hover { background: #C86018; }
 .export-btn:disabled { opacity: .6; cursor: wait; }
-
-/* confidence gauge + per-model bars */
-.gauge-row { display: flex; gap: 10px; align-items: center; }
-.mbar { margin-bottom: 7px; }
-.mbar-top { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--t2); margin-bottom: 3px; }
-.warn-tag { font-size: 9px; color: var(--orange); }
-.conf-bar-fill { transition: width .3s; }
-
-/* model comparison table (6 columns) */
-.cmp-row.six { grid-template-columns: 1.5fr repeat(5, 1fr); padding: 8px 0; font-size: 11px; }
-#mdl-chart { height: 210px; margin-top: 10px; }
 
 /* error analysis */
 #err-chart { height: 230px; }
