@@ -1,7 +1,3 @@
-/* ════════════════════════════════════════════════════════════════
-   api.js — mock alert stream now, real FastAPI backend later
-   Flip API.USE_MOCK to false when B's endpoints are ready.
-   ════════════════════════════════════════════════════════════════ */
 const API = { BASE: 'http://localhost:8000', USE_MOCK: false };
 
 let _timer = null, _ws = null, _seq = 0;
