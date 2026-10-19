@@ -19,6 +19,7 @@ from pathlib import Path
 
 from scapy.all import AsyncSniffer, wrpcap
 
+from app.utils.network_interface import pick_interface
 from app.capture.pipeline import process_pcap_file
 from app.config import settings
 from app.core.logging_config import get_logger
@@ -64,7 +65,7 @@ class LiveCaptureController:
         if self._running:
             raise RuntimeError("Live capture is already running")
 
-        self._interface = interface or settings.default_interface
+        self._interface = interface or pick_interface() or settings.default_interface
         self._packet_count = 0
         self._buffer = []
 

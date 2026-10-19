@@ -40,9 +40,16 @@ class ReplayController:
     def packets_replayed(self) -> int:
         return self._packets_replayed
 
-    async def start(self, filename: str, speed: float = 1.0, loop: bool = False) -> None:
+    async def start(self, filename: str | None = None, speed: float = 1.0, loop: bool = False) -> None:
         if self._running:
             raise RuntimeError("A replay is already running")
+
+        if not filename:
+            candidates = list(settings.pcap_dir.glob("*.pcap"))
+            if candidates:
+                filename = candidates[0].name
+            else:
+                filename = "demo_attack.pcap"
 
         pcap_path = settings.pcap_dir / filename
         if not pcap_path.exists():

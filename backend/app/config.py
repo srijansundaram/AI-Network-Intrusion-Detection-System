@@ -7,6 +7,19 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = BASE_DIR.parent
+
+
+def _find_cicflowmeter() -> str:
+    import sys
+    import shutil
+    candidate = Path(sys.prefix) / "Scripts" / "cicflowmeter.exe"
+    if candidate.exists():
+        return str(candidate)
+    which = shutil.which("cicflowmeter")
+    if which:
+        return which
+    return "cicflowmeter"
 
 
 class Settings(BaseSettings):
@@ -18,12 +31,14 @@ class Settings(BaseSettings):
     # --- Paths ---
     upload_dir: Path = BASE_DIR / "app" / "uploads"
     pcap_dir: Path = BASE_DIR / "app" / "pcaps"
-    model_dir: Path = BASE_DIR / "app" / "models"
+    model_dir: Path = ROOT_DIR / "models"
 
-    # --- Model ---
-    model_path: Path = BASE_DIR / "app" / "models" / "nids_model.joblib"
-    scaler_path: Path = BASE_DIR / "app" / "models" / "scaler.joblib"
-    label_encoder_path: Path = BASE_DIR / "app" / "models" / "label_encoder.joblib"
+    # --- Models ---
+    ensemble_path: Path = ROOT_DIR / "models" / "ensemble" / "final_ensemble_model.joblib"
+    rf_path: Path = ROOT_DIR / "models" / "random_forest" / "random_forest_handoff.joblib"
+    lstm_path: Path = ROOT_DIR / "models" / "lstm_pytorch" / "final_model.pt"
+    scaler_path: Path = ROOT_DIR / "models" / "scaler.joblib"
+    label_encoder_path: Path = ROOT_DIR / "models" / "label_encoder.joblib"
 
     # --- Capture ---
     default_interface: str = "eth0"
@@ -31,7 +46,7 @@ class Settings(BaseSettings):
     flow_idle_timeout_sec: float = 5.0     # flow considered "done" after this much inactivity
 
     # --- CICFlowMeter ---
-    cicflowmeter_bin: str = "cicflowmeter"  # CLI entrypoint installed via pip package
+    cicflowmeter_bin: str = _find_cicflowmeter()
 
     # --- Inference ---
     inference_latency_budget_ms: float = 10.0
