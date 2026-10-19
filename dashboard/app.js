@@ -515,9 +515,10 @@ function renderTimeline() {
 
 /* ════════════ PDF REPORT ═══════════════════════════════════════ */
 
+
 async function downloadReport() {
     if (!window.jspdf) {
-        alert('PDF library not loaded (jsPDF needs internet via the CDN).');
+        alert('PDF library not loaded. Please check your internet connection.');
         return;
     }
 
@@ -538,38 +539,38 @@ async function downloadReport() {
         let y = 0;
 
         const need = h => {
-            if (y + h > 282) {
+            if (y + h > 280) {
                 doc.addPage();
                 y = 18;
             }
         };
 
-        const heading = t => {
+        const heading = title => {
             need(14);
             y += 4;
 
             doc.setFont('helvetica', 'bold');
             doc.setFontSize(12);
             doc.setTextColor(11, 31, 58);
-            doc.text(t, M, y);
+            doc.text(title, M, y);
 
             doc.setDrawColor(224, 112, 32);
             doc.line(M, y + 1.5, W - M, y + 1.5);
 
-            y += 7;
+            y += 8;
         };
 
-        const row = (k, v) => {
+        const row = (label, value) => {
             need(6);
 
             doc.setFont('helvetica', 'bold');
             doc.setFontSize(9);
             doc.setTextColor(90);
-            doc.text(k, M, y);
+            doc.text(label, M, y);
 
             doc.setFont('helvetica', 'normal');
             doc.setTextColor(30);
-            doc.text(String(v), M + 38, y);
+            doc.text(String(value), M + 42, y);
 
             y += 5.5;
         };
@@ -578,11 +579,19 @@ async function downloadReport() {
         const attacks = A.filter(a => a.sev !== 'Normal');
         const now = new Date();
 
-        // Report header
+        // Normalize timestamps for charting.
+        const timeOf = a =>
+            a.ts instanceof Date ? a.ts.getTime() : new Date(a.ts).getTime();
+
+        const validAlerts = A.filter(a =>
+            Number.isFinite(timeOf(a))
+        );
+
+        // ── Report header ──────────────────────────────────────
         doc.setFillColor(11, 31, 58);
         doc.rect(0, 0, W, 26, 'F');
 
-        doc.setTextColor(255);
+        doc.setTextColor(255, 255, 255);
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(16);
         doc.text('NIDS - Intrusion Detection Report', M, 12);
@@ -595,9 +604,9 @@ async function downloadReport() {
             19
         );
 
-        y = 30;
+        y = 32;
 
-        // Report details
+        // ── Report details ─────────────────────────────────────
         heading('Report details');
 
         row('Date', now.toLocaleDateString());
@@ -610,7 +619,7 @@ async function downloadReport() {
         );
         row('Model used', CONFIG.MODEL_USED);
         row('Dataset', CONFIG.DATASET);
-        row('Confidence', 'Model Confidence');
+        row('Confidence', 'Calibrated Confidence');
         row(
             'Class scheme',
             CONFIG.USE_GROUPS
@@ -618,28 +627,28 @@ async function downloadReport() {
                 : '15 CICIDS-2017 classes'
         );
 
-        // Prediction summary
+        // ── Prediction summary ─────────────────────────────────
         heading('Prediction summary');
 
-        const crit = A.filter(a => a.sev === 'Critical').length;
-        const warn = A.filter(a => a.sev === 'Warning').length;
+        const critical = A.filter(a => a.sev === 'Critical').length;
+        const warnings = A.filter(a => a.sev === 'Warning').length;
+        const normal = A.filter(a => a.sev === 'Normal').length;
 
         row('Flows analysed', fmtN(A.length));
-        row('Critical alerts', crit);
-        row('Warnings', warn);
-        row('Normal flows', A.length - crit - warn);
+        row('Critical alerts', critical);
+        row('Warnings', warnings);
+        row('Normal flows', normal);
 
         row(
-            'Avg. confidence',
+            'Average attack confidence',
             attacks.length
                 ? (
-                    sum(attacks.map(a => a.conf)) /
-                    attacks.length
-                ).toFixed(1) + '% (attacks)'
+                    sum(attacks.map(a => a.conf)) / attacks.length
+                ).toFixed(1) + '%'
                 : '-'
         );
 
-        // Attack statistics
+        // ── Attack statistics ──────────────────────────────────
         const byCat = {};
 
         attacks.forEach(a => {
@@ -647,7 +656,7 @@ async function downloadReport() {
         });
 
         const catRows = Object.entries(byCat)
-            .sort((p, q) => q[1].length - p[1].length);
+            .sort((a, b) => b[1].length - a[1].length);
 
         heading('Attack statistics');
 
@@ -656,146 +665,273 @@ async function downloadReport() {
         doc.setTextColor(90);
 
         doc.text('Attack type', M, y);
-        doc.text('Count', M + 70, y);
-        doc.text('Avg. confidence', M + 95, y);
+        doc.text('Count', M + 75, y);
+        doc.text('Avg. confidence', M + 105, y);
 
         y += 5;
 
-        doc.setFont('helvetica', 'normal');
-        doc.setTextColor(30);
+        if (catRows.length) {
+            catRows.forEach(([category, values]) => {
+                need(6);
 
-        catRows.forEach(([category, values]) => {
-            need(6);
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(30);
 
-            doc.text(category, M, y);
-            doc.text(String(values.length), M + 70, y);
+                doc.text(category, M, y);
+                doc.text(String(values.length), M + 75, y);
+                doc.text(
+                    (
+                        sum(values) / values.length
+                    ).toFixed(1) + '%',
+                    M + 105,
+                    y
+                );
+
+                y += 5;
+            });
+        } else {
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(90);
+            doc.text('No attacks recorded in this session.', M, y);
+            y += 6;
+        }
+
+        // ── Dashboard-style charts ─────────────────────────────
+        heading('Charts');
+
+        if (!validAlerts.length) {
+            need(12);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(10);
+            doc.setTextColor(90);
             doc.text(
-                (sum(values) / values.length).toFixed(1) + '%',
-                M + 95,
-                y
-            );
-
-            y += 5;
-        });
-
-        if (!catRows.length) {
-            need(6);
-            doc.setFontSize(9);
-            doc.text(
-                'No attacks recorded in this session.',
+                'No traffic data recorded in this session.',
                 M,
                 y
             );
-            y += 5;
-        }
+            y += 10;
+        } else {
+            const B = CONFIG.BUCKET_MS;
+            const buckets = {};
 
-        // Chart configuration
-        const L = extra => Object.assign({
-            paper_bgcolor: '#fff',
-            plot_bgcolor: '#fff',
-            font: { color: '#222', size: 12 },
-            margin: { t: 30, b: 50, l: 60, r: 14 }
-        }, extra);
+            // Include normal flows, just like the dashboard timeline.
+            validAlerts.forEach(a => {
+                const timestamp = timeOf(a);
+                const key = Math.floor(timestamp / B) * B;
 
-        const B = CONFIG.BUCKET_MS;
-        const bk = {};
+                const bucket = buckets[key] || (buckets[key] = {
+                    Critical: 0,
+                    Warning: 0,
+                    Normal: 0
+                });
 
-        attacks.forEach(a => {
-            const k = Math.floor(a.ts.getTime() / B) * B;
-
-            const bucket = bk[k] || (bk[k] = {
-                Critical: 0,
-                Warning: 0
+                const severity = buckets[key] && a.sev;
+                if (severity === 'Critical') bucket.Critical++;
+                else if (severity === 'Warning') bucket.Warning++;
+                else bucket.Normal++;
             });
 
-            bucket[a.sev]++;
-        });
+            const keys = Object.keys(buckets)
+                .map(Number)
+                .sort((a, b) => a - b);
 
-        const keys = Object.keys(bk)
-            .map(Number)
-            .sort((p, q) => p - q);
+            const xs = keys.map(k => new Date(k + B / 2));
 
-        const xs = keys.map(k => new Date(k + B / 2));
+            const attackPoints = validAlerts.filter(
+                a => a.sev !== 'Normal'
+            );
 
-        // Chart 1: Attack timeline
-        const img1 = await Plotly.toImage({
-            data: [
-                {
-                    x: xs,
-                    y: keys.map(k => bk[k].Critical),
-                    name: 'Critical',
-                    type: 'bar',
-                    marker: { color: '#D92D2D' }
+            const layoutBase = {
+                paper_bgcolor: '#FFFFFF',
+                plot_bgcolor: '#FFFFFF',
+                font: {
+                    color: '#243247',
+                    family: 'Arial, sans-serif',
+                    size: 11
                 },
-                {
-                    x: xs,
-                    y: keys.map(k => bk[k].Warning),
-                    name: 'Warning',
-                    type: 'bar',
-                    marker: { color: '#F08C42' }
-                }
-            ],
-            layout: L({
-                title: {
-                    text: 'Attack timeline',
-                    font: { size: 14 }
-                },
+                margin: { t: 45, b: 55, l: 65, r: 20 },
+                hovermode: 'closest',
                 barmode: 'stack',
                 legend: {
                     orientation: 'h',
-                    y: -0.2
-                }
-            })
-        }, {
-            format: 'png',
-            width: 900,
-            height: 320
-        });
-
-        // Chart 2: Attacks by type
-        const img2 = await Plotly.toImage({
-            data: [{
-                type: 'bar',
-                orientation: 'h',
-                y: catRows.map(r => r[0]).reverse(),
-                x: catRows.map(r => r[1].length).reverse(),
-                marker: { color: '#E07020' }
-            }],
-            layout: L({
-                title: {
-                    text: 'Attacks by type',
-                    font: { size: 14 }
+                    x: 1,
+                    xanchor: 'right',
+                    y: 1.15
                 },
-                margin: {
-                    t: 30,
-                    b: 40,
-                    l: 130,
-                    r: 14
+                xaxis: {
+                    type: 'date',
+                    gridcolor: '#E8EDF3',
+                    zerolinecolor: '#AAB4C0',
+                    tickformat: '%H:%M:%S'
+                },
+                yaxis: {
+                    domain: [0.57, 1],
+                    title: { text: 'Flows / interval' },
+                    gridcolor: '#E8EDF3',
+                    rangemode: 'tozero'
+                },
+                yaxis2: {
+                    domain: [0, 0.42],
+                    type: 'category',
+                    categoryorder: 'array',
+                    categoryarray: [...new Set(
+                        attackPoints.map(a => a.cat)
+                    )],
+                    gridcolor: '#E8EDF3'
                 }
-            })
-        }, {
-            format: 'png',
-            width: 600,
-            height: 340
-        });
+            };
 
-        // Model comparison chart intentionally removed.
-        // Only the two attack-related charts are included.
+            const timelineTraces = [
+                {
+                    x: xs,
+                    y: keys.map(k => buckets[k].Normal),
+                    name: 'Normal',
+                    type: 'bar',
+                    marker: { color: '#00C987' },
+                    yaxis: 'y'
+                },
+                {
+                    x: xs,
+                    y: keys.map(k => buckets[k].Warning),
+                    name: 'Warning',
+                    type: 'bar',
+                    marker: { color: '#FF8C42' },
+                    yaxis: 'y'
+                },
+                {
+                    x: xs,
+                    y: keys.map(k => buckets[k].Critical),
+                    name: 'Critical',
+                    type: 'bar',
+                    marker: { color: '#FF2D2D' },
+                    yaxis: 'y'
+                }
+            ];
 
-        heading('Charts');
+            // Add the same attack-category scatter points as the dashboard.
+            if (attackPoints.length) {
+                timelineTraces.push({
+                    x: attackPoints.map(a => new Date(timeOf(a))),
+                    y: attackPoints.map(a => a.cat),
+                    type: 'scatter',
+                    mode: 'markers',
+                    name: 'Attack events',
+                    showlegend: false,
+                    yaxis: 'y2',
+                    marker: {
+                        color: attackPoints.map(a =>
+                            a.sev === 'Critical'
+                                ? '#FF2D2D'
+                                : '#FF8C42'
+                        ),
+                        size: attackPoints.map(a =>
+                            6 + Number(a.conf || 0) / 12
+                        ),
+                        opacity: 0.85
+                    },
+                    text: attackPoints.map(a =>
+                        `${a.cat} · ${a.sev} · ${a.conf}%`
+                    ),
+                    hoverinfo: 'text'
+                });
+            }
 
-        need(62);
-        doc.addImage(img1, 'PNG', M, y, 180, 64);
-        y += 68;
+            const timelineImage = await Plotly.toImage({
+                data: timelineTraces,
+                layout: {
+                    ...layoutBase,
+                    title: {
+                        text: 'Traffic timeline',
+                        font: { size: 15 }
+                    }
+                }
+            }, {
+                format: 'png',
+                width: 1100,
+                height: 600
+            });
 
-        need(56);
-        doc.addImage(img2, 'PNG', M + 46, y, 88, 50);
-        y += 54;
+            need(110);
+            doc.addImage(
+                timelineImage,
+                'PNG',
+                M,
+                y,
+                180,
+                98
+            );
+            y += 102;
 
-        // Recent alerts
+            // Attacks-by-type chart, matching the dashboard palette.
+            heading('Attacks by type');
+
+            if (catRows.length) {
+                const attackTypeImage = await Plotly.toImage({
+                    data: [{
+                        type: 'bar',
+                        orientation: 'h',
+                        y: catRows.map(r => r[0]).reverse(),
+                        x: catRows.map(r => r[1].length).reverse(),
+                        marker: { color: '#E07020' }
+                    }],
+                    layout: {
+                        paper_bgcolor: '#FFFFFF',
+                        plot_bgcolor: '#FFFFFF',
+                        font: {
+                            color: '#243247',
+                            family: 'Arial, sans-serif',
+                            size: 11
+                        },
+                        title: {
+                            text: 'Attacks by type',
+                            font: { size: 15 }
+                        },
+                        margin: { t: 45, b: 45, l: 150, r: 25 },
+                        xaxis: {
+                            title: { text: 'Number of alerts' },
+                            gridcolor: '#E8EDF3',
+                            rangemode: 'tozero'
+                        },
+                        yaxis: { automargin: true }
+                    }
+                }, {
+                    format: 'png',
+                    width: 900,
+                    height: Math.max(300, catRows.length * 35 + 100)
+                });
+
+                const imageHeight = Math.min(
+                    105,
+                    Math.max(55, catRows.length * 5 + 30)
+                );
+
+                need(imageHeight + 5);
+                doc.addImage(
+                    attackTypeImage,
+                    'PNG',
+                    M + 10,
+                    y,
+                    160,
+                    imageHeight
+                );
+                y += imageHeight + 7;
+            } else {
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(10);
+                doc.setTextColor(90);
+                doc.text(
+                    'No attacks detected in this session.',
+                    M,
+                    y
+                );
+                y += 10;
+            }
+        }
+
+        // ── Recent alerts ──────────────────────────────────────
         heading('Recent alerts (latest 15 attacks)');
 
-        if (attacks.length === 0) {
+        if (!attacks.length) {
             need(10);
 
             doc.setFont('helvetica', 'normal');
@@ -811,19 +947,20 @@ async function downloadReport() {
             y += 7;
         } else {
             attacks.slice(-15).reverse().forEach(a => {
+                const sentence = a.sentence || `${a.cat} detected`;
                 const lines = doc.splitTextToSize(
-                    a.sentence,
+                    sentence,
                     W - 2 * M
                 );
 
-                need(10 + lines.length * 4);
+                need(12 + lines.length * 4);
 
                 doc.setFont('helvetica', 'bold');
                 doc.setFontSize(9);
                 doc.setTextColor(30);
 
                 doc.text(
-                    `${a.ts.toLocaleTimeString()}   ${a.cat}   [${a.sev}]   ${a.conf}%`,
+                    `${new Date(timeOf(a)).toLocaleTimeString()}   ${a.cat}   [${a.sev}]   ${a.conf}%`,
                     M,
                     y
                 );
@@ -832,7 +969,7 @@ async function downloadReport() {
                 doc.setTextColor(90);
 
                 doc.text(
-                    `${a.src} -> ${a.dst}:${a.port}`,
+                    `${a.src || '-'} -> ${a.dst || '-'}:${a.port ?? '-'}`,
                     W - M,
                     y,
                     { align: 'right' }
@@ -848,11 +985,13 @@ async function downloadReport() {
             });
         }
 
-        // Page numbers
+        // ── Page numbers ───────────────────────────────────────
         const pages = doc.getNumberOfPages();
 
         for (let p = 1; p <= pages; p++) {
             doc.setPage(p);
+
+            doc.setFont('helvetica', 'normal');
             doc.setFontSize(8);
             doc.setTextColor(140);
 
@@ -864,7 +1003,6 @@ async function downloadReport() {
             );
         }
 
-        // Save report
         doc.save(
             `NIDS_Report_${now.toISOString()
                 .slice(0, 19)
@@ -872,14 +1010,13 @@ async function downloadReport() {
         );
 
     } catch (e) {
-        console.error(e);
+        console.error('PDF report generation failed:', e);
         alert('Report generation failed: ' + e.message);
+    } finally {
+        btn.disabled = false;
+        btn.textContent = old;
     }
-
-    btn.disabled = false;
-    btn.textContent = old;
 }
-
 
 /* ════════════ WIRING ═══════════════════════════════════════════ */
 
