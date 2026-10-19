@@ -67,15 +67,48 @@ def _extract_in_process(pcap_path: Path, out_csv: Path) -> bool:
         return False
 
 
+
 def _extract_cli(pcap_path: Path, out_csv: Path) -> bool:
-    """Run cicflowmeter via CLI subprocess."""
+    """Run cicflowmeter via CLI and log diagnostic details."""
     cmd = [settings.cicflowmeter_bin, "-f", str(pcap_path), "-c", str(out_csv)]
     logger.info("Running CICFlowMeter CLI: %s", " ".join(cmd))
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
-    if result.returncode != 0:
-        logger.warning("CICFlowMeter CLI exited with code %d: %s", result.returncode, result.stderr[-500:])
+
+    try:
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            timeout=300,
+            check=False,
+        )
+    except Exception:
+        logger.exception("Could not execute CICFlowMeter CLI")
         return False
-    return out_csv.exists() and out_csv.stat().st_size > 0
+
+    logger.info("CICFlowMeter exit code: %d", result.returncode)
+
+    if result.stdout.strip():
+        logger.info("CICFlowMeter stdout: %s", result.stdout[-2000:])
+
+    if result.stderr.strip():
+        logger.warning("CICFlowMeter stderr: %s", result.stderr[-2000:])
+
+    success = (
+        result.returncode == 0
+        and out_csv.exists()
+        and out_csv.stat().st_size > 0
+    )
+
+    if not success:
+        logger.error(
+            "CICFlowMeter failed: returncode=%d, csv_exists=%s, csv_size=%s",
+            result.returncode,
+            out_csv.exists(),
+            out_csv.stat().st_size if out_csv.exists() else 0,
+        )
+
+    return success
+
 
 
 async def extract_features_from_pcap(pcap_path: Path) -> pd.DataFrame:
@@ -93,7 +126,14 @@ async def extract_features_from_pcap(pcap_path: Path) -> pd.DataFrame:
         if not ok:
             ok = _extract_cli(pcap_path, out_csv)
         if not ok:
-            raise FeatureExtractionError("Failed to extract flows from PCAP using both in-process and CLI methods.")
+            logger.error(
+                "Both extraction methods failed for PCAP: %s",
+                pcap_path,
+            )
+            raise FeatureExtractionError(
+                f"Both extraction methods failed for {pcap_path.name}. "
+                "Check the preceding logs for the underlying error."
+            )
 
     try:
         await asyncio.to_thread(_run)
@@ -104,10 +144,19 @@ async def extract_features_from_pcap(pcap_path: Path) -> pd.DataFrame:
     if not out_csv.exists():
         return pd.DataFrame()
 
+
     try:
+        if not out_csv.exists() or out_csv.stat().st_size == 0:
+            logger.warning(
+                "CICFlowMeter produced no flow records for PCAP: %s",
+                pcap_path.name,
+            )
+            return pd.DataFrame()
+
         df = pd.read_csv(out_csv)
     finally:
         out_csv.unlink(missing_ok=True)
+
 
     if df.empty:
         return df
