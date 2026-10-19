@@ -71,9 +71,11 @@ app.include_router(routes_ws.router)  # WS path is /ws/alerts, no REST prefix
 @app.get("/health", response_model=HealthResponse)
 async def health() -> HealthResponse:
     from app.inference import model_loader
+    bundle = model_loader._bundle
+    is_loaded = bundle is not None and (bundle.rf is not None or bundle.lstm is not None)
     return HealthResponse(
         status="ok",
-        model_loaded=model_loader._artifacts is not None,
+        model_loaded=is_loaded,
         active_websockets=manager.active_count,
     )
 

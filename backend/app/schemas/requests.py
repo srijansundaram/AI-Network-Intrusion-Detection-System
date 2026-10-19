@@ -18,7 +18,7 @@ class CaptureStatusResponse(BaseModel):
 
 
 class ReplayStartRequest(BaseModel):
-    filename: str = Field(..., description="Filename of a previously uploaded pcap in the pcap directory")
+    filename: Optional[str] = Field(None, description="Filename of a previously uploaded pcap in the pcap directory")
     speed: float = Field(1.0, gt=0, description="Playback speed multiplier. 1.0 = real-time, 2.0 = 2x speed")
     loop: bool = False
 
