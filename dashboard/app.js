@@ -41,10 +41,7 @@ const confColor = c =>
             ? '#FF8C42'
             : '#FF2D2D';
 
-const confLabel = () =>
-    CONFIG.CONFIDENCE_CALIBRATED
-        ? 'Calibrated confidence'
-        : 'Model confidence (uncalibrated)';
+const confLabel = () => 'Model Confidence';
 
 const setText = (sel, v) => {
     const e = $(sel);
@@ -515,6 +512,9 @@ function renderTimeline() {
 
 /* ════════════ PDF REPORT ═══════════════════════════════════════ */
 
+
+/* ════════════ PDF REPORT ═══════════════════════════════════════ */
+
 async function downloadReport() {
     if (!window.jspdf) {
         alert('PDF library not loaded (jsPDF needs internet via the CDN).');
@@ -547,24 +547,30 @@ async function downloadReport() {
         const heading = t => {
             need(14);
             y += 4;
+
             doc.setFont('helvetica', 'bold');
             doc.setFontSize(12);
             doc.setTextColor(11, 31, 58);
             doc.text(t, M, y);
+
             doc.setDrawColor(224, 112, 32);
             doc.line(M, y + 1.5, W - M, y + 1.5);
+
             y += 7;
         };
 
         const row = (k, v) => {
             need(6);
+
             doc.setFont('helvetica', 'bold');
             doc.setFontSize(9);
             doc.setTextColor(90);
             doc.text(k, M, y);
+
             doc.setFont('helvetica', 'normal');
             doc.setTextColor(30);
             doc.text(String(v), M + 38, y);
+
             y += 5.5;
         };
 
@@ -572,8 +578,10 @@ async function downloadReport() {
         const attacks = A.filter(a => a.sev !== 'Normal');
         const now = new Date();
 
+        // Report header
         doc.setFillColor(11, 31, 58);
         doc.rect(0, 0, W, 26, 'F');
+
         doc.setTextColor(255);
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(16);
@@ -581,19 +589,36 @@ async function downloadReport() {
 
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(9);
-        doc.text('AI-Powered Network Intrusion Detection System', M, 19);
+        doc.text(
+            'AI-Powered Network Intrusion Detection System',
+            M,
+            19
+        );
 
         y = 30;
 
+        // Report details
         heading('Report details');
+
         row('Date', now.toLocaleDateString());
         row('Time', now.toLocaleTimeString());
-        row('Source', state.mode === 'live' ? 'Live capture' : 'PCAP: ' + (state.pcapName || '-'));
+        row(
+            'Source',
+            state.mode === 'live'
+                ? 'Live capture'
+                : 'PCAP: ' + (state.pcapName || '-')
+        );
         row('Model used', CONFIG.MODEL_USED);
         row('Dataset', CONFIG.DATASET);
-        row('Confidence', CONFIG.CONFIDENCE_CALIBRATED ? 'Temperature-calibrated' : 'Uncalibrated (highest class probability)');
-        row('Class scheme', CONFIG.USE_GROUPS ? '8 attack categories (grouped)' : '15 CICIDS-2017 classes');
+        row('Confidence', 'Model Confidence');
+        row(
+            'Class scheme',
+            CONFIG.USE_GROUPS
+                ? '8 attack categories (grouped)'
+                : '15 CICIDS-2017 classes'
+        );
 
+        // Prediction summary
         heading('Prediction summary');
 
         const crit = A.filter(a => a.sev === 'Critical').length;
@@ -603,10 +628,18 @@ async function downloadReport() {
         row('Critical alerts', crit);
         row('Warnings', warn);
         row('Normal flows', A.length - crit - warn);
-        row('Avg. confidence', attacks.length
-            ? (sum(attacks.map(a => a.conf)) / attacks.length).toFixed(1) + '% (attacks)'
-            : '-');
 
+        row(
+            'Avg. confidence',
+            attacks.length
+                ? (
+                    sum(attacks.map(a => a.conf)) /
+                    attacks.length
+                ).toFixed(1) + '% (attacks)'
+                : '-'
+        );
+
+        // Attack statistics
         const byCat = {};
 
         attacks.forEach(a => {
@@ -621,28 +654,42 @@ async function downloadReport() {
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(9);
         doc.setTextColor(90);
+
         doc.text('Attack type', M, y);
         doc.text('Count', M + 70, y);
         doc.text('Avg. confidence', M + 95, y);
+
         y += 5;
 
         doc.setFont('helvetica', 'normal');
         doc.setTextColor(30);
 
-        catRows.forEach(([c, v]) => {
+        catRows.forEach(([category, values]) => {
             need(6);
-            doc.text(c, M, y);
-            doc.text(String(v.length), M + 70, y);
-            doc.text((sum(v) / v.length).toFixed(1) + '%', M + 95, y);
+
+            doc.text(category, M, y);
+            doc.text(String(values.length), M + 70, y);
+            doc.text(
+                (sum(values) / values.length).toFixed(1) + '%',
+                M + 95,
+                y
+            );
+
             y += 5;
         });
 
         if (!catRows.length) {
-            doc.text('No attacks recorded in this session.', M, y);
+            need(6);
+            doc.setFontSize(9);
+            doc.text(
+                'No attacks recorded in this session.',
+                M,
+                y
+            );
             y += 5;
         }
 
-        // Charts for PDF output
+        // Chart configuration
         const L = extra => Object.assign({
             paper_bgcolor: '#fff',
             plot_bgcolor: '#fff',
@@ -655,6 +702,7 @@ async function downloadReport() {
 
         attacks.forEach(a => {
             const k = Math.floor(a.ts.getTime() / B) * B;
+
             const bucket = bk[k] || (bk[k] = {
                 Critical: 0,
                 Warning: 0
@@ -669,6 +717,7 @@ async function downloadReport() {
 
         const xs = keys.map(k => new Date(k + B / 2));
 
+        // Chart 1: Attack timeline
         const img1 = await Plotly.toImage({
             data: [
                 {
@@ -687,9 +736,15 @@ async function downloadReport() {
                 }
             ],
             layout: L({
-                title: { text: 'Attack timeline', font: { size: 14 } },
+                title: {
+                    text: 'Attack timeline',
+                    font: { size: 14 }
+                },
                 barmode: 'stack',
-                legend: { orientation: 'h', y: -0.2 }
+                legend: {
+                    orientation: 'h',
+                    y: -0.2
+                }
             })
         }, {
             format: 'png',
@@ -697,6 +752,7 @@ async function downloadReport() {
             height: 320
         });
 
+        // Chart 2: Attacks by type
         const img2 = await Plotly.toImage({
             data: [{
                 type: 'bar',
@@ -706,8 +762,16 @@ async function downloadReport() {
                 marker: { color: '#E07020' }
             }],
             layout: L({
-                title: { text: 'Attacks by type', font: { size: 14 } },
-                margin: { t: 30, b: 40, l: 130, r: 14 }
+                title: {
+                    text: 'Attacks by type',
+                    font: { size: 14 }
+                },
+                margin: {
+                    t: 30,
+                    b: 40,
+                    l: 130,
+                    r: 14
+                }
             })
         }, {
             format: 'png',
@@ -715,29 +779,8 @@ async function downloadReport() {
             height: 340
         });
 
-        const mets = [
-            ['Accuracy', 'acc'],
-            ['Macro F1', 'f1']
-        ];
-
-        const img3 = await Plotly.toImage({
-            data: MODELS.map(m => ({
-                type: 'bar',
-                name: m.name,
-                x: mets.map(x => x[0]),
-                y: mets.map(([, k]) => k === 'acc' ? m.acc : m[k] * 100),
-                marker: { color: MODEL_COLOR[m.key] }
-            })),
-            layout: L({
-                title: { text: 'Model comparison (%)', font: { size: 14 } },
-                barmode: 'group',
-                legend: { orientation: 'h', y: -0.25 }
-            })
-        }, {
-            format: 'png',
-            width: 600,
-            height: 340
-        });
+        // Model comparison chart intentionally removed.
+        // Only the two attack-related charts are included.
 
         heading('Charts');
 
@@ -746,61 +789,86 @@ async function downloadReport() {
         y += 68;
 
         need(56);
-        doc.addImage(img2, 'PNG', M, y, 88, 50);
-        doc.addImage(img3, 'PNG', M + 92, y, 88, 50);
+        doc.addImage(img2, 'PNG', M + 46, y, 88, 50);
         y += 54;
 
+        // Recent alerts
         heading('Recent alerts (latest 15 attacks)');
 
-        attacks.slice(-15).reverse().forEach(a => {
-            const lines = doc.splitTextToSize(
-                a.sentence,
-                W - 2 * M
-            );
+        if (attacks.length === 0) {
+            need(10);
 
-            need(10 + lines.length * 4);
-
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(9);
-            doc.setTextColor(30);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(10);
+            doc.setTextColor(90);
 
             doc.text(
-                `${a.ts.toLocaleTimeString()}   ${a.cat}   [${a.sev}]   ${a.conf}%`,
+                'No alert recorded in this session.',
                 M,
                 y
             );
 
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(90);
+            y += 7;
+        } else {
+            attacks.slice(-15).reverse().forEach(a => {
+                const lines = doc.splitTextToSize(
+                    a.sentence,
+                    W - 2 * M
+                );
 
-            doc.text(
-                `${a.src} -> ${a.dst}:${a.port}`,
-                W - M,
-                y,
-                { align: 'right' }
-            );
+                need(10 + lines.length * 4);
 
-            y += 4.5;
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(9);
+                doc.setTextColor(30);
 
-            doc.setFontSize(8);
-            doc.setTextColor(70);
-            doc.text(lines, M, y);
-            y += lines.length * 4 + 3;
-        });
+                doc.text(
+                    `${a.ts.toLocaleTimeString()}   ${a.cat}   [${a.sev}]   ${a.conf}%`,
+                    M,
+                    y
+                );
 
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(90);
+
+                doc.text(
+                    `${a.src} -> ${a.dst}:${a.port}`,
+                    W - M,
+                    y,
+                    { align: 'right' }
+                );
+
+                y += 4.5;
+
+                doc.setFontSize(8);
+                doc.setTextColor(70);
+                doc.text(lines, M, y);
+
+                y += lines.length * 4 + 3;
+            });
+        }
+
+        // Page numbers
         const pages = doc.getNumberOfPages();
 
         for (let p = 1; p <= pages; p++) {
             doc.setPage(p);
             doc.setFontSize(8);
             doc.setTextColor(140);
-            doc.text(`Page ${p} of ${pages}`, W / 2, 292, {
-                align: 'center'
-            });
+
+            doc.text(
+                `Page ${p} of ${pages}`,
+                W / 2,
+                292,
+                { align: 'center' }
+            );
         }
 
+        // Save report
         doc.save(
-            `NIDS_Report_${now.toISOString().slice(0, 19).replace(/[:T]/g, '-')}.pdf`
+            `NIDS_Report_${now.toISOString()
+                .slice(0, 19)
+                .replace(/[:T]/g, '-')}.pdf`
         );
 
     } catch (e) {
@@ -811,6 +879,7 @@ async function downloadReport() {
     btn.disabled = false;
     btn.textContent = old;
 }
+
 
 /* ════════════ WIRING ═══════════════════════════════════════════ */
 
