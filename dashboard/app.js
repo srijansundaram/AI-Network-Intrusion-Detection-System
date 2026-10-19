@@ -619,7 +619,7 @@ async function downloadReport() {
         );
         row('Model used', CONFIG.MODEL_USED);
         row('Dataset', CONFIG.DATASET);
-        row('Confidence', 'Model Confidence');
+        row('Confidence', 'Calibrated Confidence');
         row(
             'Class scheme',
             CONFIG.USE_GROUPS
