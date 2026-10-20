@@ -1,0 +1,82 @@
+{
+  "report_name": "uncalibrated_baseline_metrics_v1",
+  "section": "9.2.3",
+  "created_utc": "2026-10-20T06:29:22.024037+00:00",
+  "status": "PASS",
+  "purpose": "Establish uncalibrated multiclass predictive and probability quality metrics before fitting any calibration method.",
+  "metric_definitions": {
+    "log_loss": "Multiclass cross-entropy computed using normalized probability rows and the fixed class order.",
+    "multiclass_brier_score": "Mean over observations of the sum across classes of (predicted_probability - one_hot_target)^2.",
+    "argmax_accuracy": "Fraction of observations whose highest-probability class matches the target class.",
+    "mean_max_confidence": "Mean of each observation's maximum class probability."
+  },
+  "probability_handling": {
+    "upstream_arrays_modified": false,
+    "normalization": "Metric calculations use normalized copies of the probability matrices to eliminate floating-point row-sum deviations.",
+    "class_count": 9,
+    "class_order": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ]
+  },
+  "results": [
+    {
+      "dataset": "OOF",
+      "observations": 1814009,
+      "log_loss": 0.020937109758290877,
+      "multiclass_brier_score": 0.0114097300307692,
+      "argmax_accuracy": 0.9945116038564307,
+      "mean_max_confidence": 0.9887662336406889,
+      "minimum_row_sum_after_normalization": 0.9999999999999994,
+      "maximum_row_sum_after_normalization": 1.0000000000000004,
+      "class_count": 9,
+      "class_order": [
+        "BENIGN",
+        "DDoS",
+        "Port Scan",
+        "Brute Force",
+        "Bot",
+        "Web Attack",
+        "Infiltration",
+        "DoS",
+        "Heartbleed"
+      ],
+      "probabilities_normalized_for_metrics": true
+    },
+    {
+      "dataset": "Validation",
+      "observations": 451206,
+      "log_loss": 0.005929068464959517,
+      "multiclass_brier_score": 0.003048456838586941,
+      "argmax_accuracy": 0.9979565874567271,
+      "mean_max_confidence": 0.9976333708773301,
+      "minimum_row_sum_after_normalization": 0.9999999999999994,
+      "maximum_row_sum_after_normalization": 1.0000000000000004,
+      "class_count": 9,
+      "class_order": [
+        "BENIGN",
+        "DDoS",
+        "Port Scan",
+        "Brute Force",
+        "Bot",
+        "Web Attack",
+        "Infiltration",
+        "DoS",
+        "Heartbleed"
+      ],
+      "probabilities_normalized_for_metrics": true
+    }
+  ],
+  "limitations": [
+    "OOF metrics summarize out-of-fold predictions and are intended as a development baseline.",
+    "Validation metrics describe the supplied Validation probabilities; interpretation depends on the provenance and eligibility of those observations.",
+    "These metrics alone do not establish good calibration. Reliability analysis and calibration error are addressed in subsection 9.2.4."
+  ]
+}

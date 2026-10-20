@@ -1,0 +1,254 @@
+{
+  "report_name": "uncalibrated_evaluation_summary",
+  "report_version": "v1",
+  "created_at_utc": "2026-10-20T06:29:44.654464+00:00",
+  "project_root": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System",
+  "evaluation_stage": "uncalibrated_baseline",
+  "calibration_fitted": false,
+  "ensemble_retrained": false,
+  "upstream_artifacts_modified": false,
+  "source_reports": {
+    "baseline_metrics": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/uncalibrated_baseline_metrics_v1.json",
+    "reliability_analysis": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/reliability_analysis_v1.json"
+  },
+  "reliability_table_validation": {
+    "oof_rows": 15,
+    "validation_rows": 15,
+    "required_columns_present": true
+  },
+  "baseline_metrics_report": {
+    "report_name": "uncalibrated_baseline_metrics_v1",
+    "section": "9.2.3",
+    "created_utc": "2026-10-20T06:29:22.024037+00:00",
+    "status": "PASS",
+    "purpose": "Establish uncalibrated multiclass predictive and probability quality metrics before fitting any calibration method.",
+    "metric_definitions": {
+      "log_loss": "Multiclass cross-entropy computed using normalized probability rows and the fixed class order.",
+      "multiclass_brier_score": "Mean over observations of the sum across classes of (predicted_probability - one_hot_target)^2.",
+      "argmax_accuracy": "Fraction of observations whose highest-probability class matches the target class.",
+      "mean_max_confidence": "Mean of each observation's maximum class probability."
+    },
+    "probability_handling": {
+      "upstream_arrays_modified": false,
+      "normalization": "Metric calculations use normalized copies of the probability matrices to eliminate floating-point row-sum deviations.",
+      "class_count": 9,
+      "class_order": [
+        "BENIGN",
+        "DDoS",
+        "Port Scan",
+        "Brute Force",
+        "Bot",
+        "Web Attack",
+        "Infiltration",
+        "DoS",
+        "Heartbleed"
+      ]
+    },
+    "results": [
+      {
+        "dataset": "OOF",
+        "observations": 1814009,
+        "log_loss": 0.020937109758290877,
+        "multiclass_brier_score": 0.0114097300307692,
+        "argmax_accuracy": 0.9945116038564307,
+        "mean_max_confidence": 0.9887662336406889,
+        "minimum_row_sum_after_normalization": 0.9999999999999994,
+        "maximum_row_sum_after_normalization": 1.0000000000000004,
+        "class_count": 9,
+        "class_order": [
+          "BENIGN",
+          "DDoS",
+          "Port Scan",
+          "Brute Force",
+          "Bot",
+          "Web Attack",
+          "Infiltration",
+          "DoS",
+          "Heartbleed"
+        ],
+        "probabilities_normalized_for_metrics": true
+      },
+      {
+        "dataset": "Validation",
+        "observations": 451206,
+        "log_loss": 0.005929068464959517,
+        "multiclass_brier_score": 0.003048456838586941,
+        "argmax_accuracy": 0.9979565874567271,
+        "mean_max_confidence": 0.9976333708773301,
+        "minimum_row_sum_after_normalization": 0.9999999999999994,
+        "maximum_row_sum_after_normalization": 1.0000000000000004,
+        "class_count": 9,
+        "class_order": [
+          "BENIGN",
+          "DDoS",
+          "Port Scan",
+          "Brute Force",
+          "Bot",
+          "Web Attack",
+          "Infiltration",
+          "DoS",
+          "Heartbleed"
+        ],
+        "probabilities_normalized_for_metrics": true
+      }
+    ],
+    "limitations": [
+      "OOF metrics summarize out-of-fold predictions and are intended as a development baseline.",
+      "Validation metrics describe the supplied Validation probabilities; interpretation depends on the provenance and eligibility of those observations.",
+      "These metrics alone do not establish good calibration. Reliability analysis and calibration error are addressed in subsection 9.2.4."
+    ]
+  },
+  "reliability_analysis_report": {
+    "report_name": "reliability_analysis_v1",
+    "created_utc": "2026-10-20T06:29:33.877411+00:00",
+    "status": "PASS",
+    "purpose": "Assess top-label calibration of the frozen weighted ensemble before fitting a calibration method.",
+    "method": {
+      "ensemble": "Frozen weighted soft voting",
+      "random_forest_weight": 0.75,
+      "lstm_weight": 0.25,
+      "class_order": [
+        "BENIGN",
+        "DDoS",
+        "Port Scan",
+        "Brute Force",
+        "Bot",
+        "Web Attack",
+        "Infiltration",
+        "DoS",
+        "Heartbleed"
+      ],
+      "confidence_definition": "Maximum predicted class probability for each observation.",
+      "correctness_definition": "Whether the argmax-predicted class equals the ground-truth label.",
+      "binning_strategy": "Equal-width confidence bins over [0, 1]",
+      "number_of_bins": 15,
+      "bin_edges": [
+        0.0,
+        0.06666666666666667,
+        0.13333333333333333,
+        0.2,
+        0.26666666666666666,
+        0.3333333333333333,
+        0.4,
+        0.4666666666666667,
+        0.5333333333333333,
+        0.6,
+        0.6666666666666666,
+        0.7333333333333333,
+        0.8,
+        0.8666666666666667,
+        0.9333333333333333,
+        1.0
+      ],
+      "ece_definition": "Observation-weighted sum of absolute differences between bin accuracy and mean bin confidence.",
+      "mce_definition": "Maximum absolute difference between bin accuracy and mean bin confidence across non-empty bins.",
+      "empty_bins": "Retained in reliability tables but excluded from ECE and MCE."
+    },
+    "datasets": {
+      "oof": {
+        "dataset": "OOF",
+        "observations": 1814009,
+        "ece": 0.006019549517247437,
+        "mce": 0.2961782441116613,
+        "mean_confidence": 0.9887662335891721,
+        "argmax_accuracy": 0.9945116038564307,
+        "mean_absolute_bin_gap": 0.10239815605884632,
+        "nonempty_bins": 11,
+        "configured_bins": 15
+      },
+      "validation": {
+        "dataset": "Validation",
+        "observations": 451206,
+        "ece": 0.0007908055017889816,
+        "mce": 0.5724433107229723,
+        "mean_confidence": 0.9976333708813717,
+        "argmax_accuracy": 0.9979565874567271,
+        "mean_absolute_bin_gap": 0.13916913209550075,
+        "nonempty_bins": 10,
+        "configured_bins": 15
+      }
+    },
+    "source_artifacts": {
+      "OOF features": {
+        "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_features.npy",
+        "size_bytes": 130608776
+      },
+      "OOF targets": {
+        "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_targets.npy",
+        "size_bytes": 14512200
+      },
+      "OOF observation indices": {
+        "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_observation_indices.npy",
+        "size_bytes": 14512200
+      },
+      "Validation features": {
+        "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_features.npy",
+        "size_bytes": 32486960
+      },
+      "Validation targets": {
+        "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_targets.npy",
+        "size_bytes": 3609776
+      },
+      "Validation observation indices": {
+        "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_observation_indices.npy",
+        "size_bytes": 3609776
+      }
+    },
+    "output_artifacts": {
+      "oof_reliability_table": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/reliability_bins_oof_v1.csv",
+      "validation_reliability_table": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/reliability_bins_validation_v1.csv",
+      "oof_reliability_diagram": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/visualizations/reliability_diagram_oof_v1.png",
+      "validation_reliability_diagram": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/visualizations/reliability_diagram_validation_v1.png"
+    },
+    "interpretation_notes": [
+      "ECE and MCE depend on the selected binning strategy; comparisons should use the same bin configuration.",
+      "This is top-label calibration analysis, not a complete class-conditional calibration assessment.",
+      "OOF and Validation metrics are reported separately and should not be interpreted as interchangeable.",
+      "This subsection is diagnostic only and does not fit a calibrator or modify the ensemble."
+    ]
+  },
+  "artifact_inventory": [
+    {
+      "artifact_name": "baseline_metrics_report",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/uncalibrated_baseline_metrics_v1.json",
+      "exists": true,
+      "size_bytes": 2941,
+      "sha256": "ce58ceb7236a8710111c5797938651ce81565542d834a48a937d902fba212b42"
+    },
+    {
+      "artifact_name": "reliability_analysis_report",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/reliability_analysis_v1.json",
+      "exists": true,
+      "size_bytes": 4930,
+      "sha256": "d1d25d3c08ac475837940078054b1f8ef12d8ebdc713268848db26859f368853"
+    },
+    {
+      "artifact_name": "oof_reliability_table",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/reliability_bins_oof_v1.csv",
+      "exists": true,
+      "size_bytes": 1873,
+      "sha256": "a9afce2a735b66a2b1a6895ded1d6e23068620d483690c3ebb2422292a5218e4"
+    },
+    {
+      "artifact_name": "validation_reliability_table",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/reliability_bins_validation_v1.csv",
+      "exists": true,
+      "size_bytes": 1849,
+      "sha256": "17f989b8275cbb719b00232671ec59345ae62a99109d8863e18c5a9f03fe4ad7"
+    },
+    {
+      "artifact_name": "oof_reliability_diagram",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/visualizations/reliability_diagram_oof_v1.png",
+      "exists": true,
+      "size_bytes": 77287,
+      "sha256": "68f7d68bc012b10ef634e2dda2d305ca7d6ec4925c705dc6291663ed4cecbe13"
+    },
+    {
+      "artifact_name": "validation_reliability_diagram",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/visualizations/reliability_diagram_validation_v1.png",
+      "exists": true,
+      "size_bytes": 77634,
+      "sha256": "e0a79826027aa585824dc33f65442db2fc0766ab91a0904287499f965c452b0a"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "stage": "9.1.4",
+  "created_at_utc": "2026-10-20T06:28:53.619659+00:00",
+  "expected_artifact_count": 13,
+  "present_artifact_count": 13,
+  "missing_artifacts": [],
+  "hash_calculation_failures": [],
+  "trusted_hash_verification_status": "NOT_ESTABLISHED_BY_HASH_CALCULATION",
+  "artifacts": [
+    {
+      "artifact": "calibration_handoff_manifest",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/calibration_handoff_manifest_v1.json",
+      "exists": true,
+      "size_bytes": 7223,
+      "sha256": "eb6a89b0e81b16ac68ab1a6c570de6429dd8e784c63e95f25205a09ac5a9047a",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "calibration_handoff_report",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/calibration_handoff_manifest_v1_report.json",
+      "exists": true,
+      "size_bytes": 5565,
+      "sha256": "1ba3960b5c29c813f2b8bba61d00fd719661869c31ac992402841b06c536ca3b",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "uncalibrated_probability_contract",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/uncalibrated_probability_output_contract_v1.json",
+      "exists": true,
+      "size_bytes": 4908,
+      "sha256": "ebf47736660dff50ca12640f42b3fba8ea5bd1d07ecf6dacc11ed98270ed9b65",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "probability_contract_report",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/uncalibrated_probability_output_contract_v1_report.json",
+      "exists": true,
+      "size_bytes": 4200,
+      "sha256": "4e86449ac51216c18014dcbd43bae553a76bde74da7ed251ba16bc2e2ccf6fce",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "frozen_ensemble_configuration",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze_weighted_voting_v2.json",
+      "exists": true,
+      "size_bytes": 4943,
+      "sha256": "34ec70715572dcf4ab92a5bc6f56333cb9e312e443ef742b0ab09d3ef250ef9e",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "ensemble_feature_contract",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_feature_contract.json",
+      "exists": true,
+      "size_bytes": 8201,
+      "sha256": "967d217240a93510a256400852c2481475d8e095a529e8d8c1850909263a5103",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "oof_features",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_features.npy",
+      "exists": true,
+      "size_bytes": 130608776,
+      "sha256": "bbe1f0ede035892f914a8c83fc135923965df4a467b573580a55bca5b7acbabb",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "oof_targets",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_targets.npy",
+      "exists": true,
+      "size_bytes": 14512200,
+      "sha256": "0ae035fb5bddc8d1d991de062839b9f70b85605d88b272747b09892a082d5e77",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "oof_observation_indices",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_observation_indices.npy",
+      "exists": true,
+      "size_bytes": 14512200,
+      "sha256": "ef5297b88cbed6d997dff43be4aae4d6b384cbc8e1c3c762aec1dc4778b4d2a8",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "oof_fold_ids",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_fold_ids.npy",
+      "exists": true,
+      "size_bytes": 1814137,
+      "sha256": "8bbc0d8fdc0ae93f3b8b4c1a0eacd88dd0555ffddbe4db60dcfa8d696e1f4269",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "validation_features",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_features.npy",
+      "exists": true,
+      "size_bytes": 32486960,
+      "sha256": "f2316f121ecf77bab74c6f1db8202ba10b9238265ec79ebfe6162bda825cc671",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "validation_targets",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_targets.npy",
+      "exists": true,
+      "size_bytes": 3609776,
+      "sha256": "300bab17fdf0597461dfdedd8b6954f6acd3d1b89ceef452d5325a898dd8773d",
+      "hash_status": "CALCULATED",
+      "error": null
+    },
+    {
+      "artifact": "validation_observation_indices",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_observation_indices.npy",
+      "exists": true,
+      "size_bytes": 3609776,
+      "sha256": "40a30921651062908c7aa2cd3bb20dd31fd5edfb6ff3d34459ab1f93196b76b4",
+      "hash_status": "CALCULATED",
+      "error": null
+    }
+  ],
+  "note": "SHA-256 values identify the inventoried file contents. They are not considered verified against a trusted reference unless an explicit artifact-to-reference-hash comparison is performed."
+}

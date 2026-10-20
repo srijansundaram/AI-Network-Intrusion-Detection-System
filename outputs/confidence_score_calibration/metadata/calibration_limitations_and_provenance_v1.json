@@ -1,0 +1,81 @@
+{
+  "schema_name": "nids_calibration_limitations_and_provenance",
+  "schema_version": "1.0.0",
+  "report_name": "calibration_limitations_and_provenance_v1",
+  "created_utc": "2026-10-20T09:22:59.256131+00:00",
+  "calibration_method": "multiclass_temperature_scaling",
+  "evaluation_partition": "Validation",
+  "source_reports": {
+    "final_calibration_summary": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/final_calibration_summary_v1.json",
+      "sha256": "7b3d82bbbb5b700a3903c47b8569e0ab2b50d7e08f33147688e39767c1d06a3e",
+      "size_bytes": 14069
+    },
+    "performance_report": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/uncalibrated_vs_calibrated_performance_report_v1.json",
+      "sha256": "f957a18e364830b18af4d14b6ab1855bd503bffcf2b436ded59b0320cff60dd4",
+      "size_bytes": 4618
+    },
+    "probability_output_contract": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibrated_probability_output_contract_v1.json",
+      "sha256": "8ed137fea970b64ccb8f7fa2ef90d0609c521936da8a3752be0bebdcd223f2f0",
+      "size_bytes": 7050
+    },
+    "artifact_verification_report": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/artifact_and_contract_verification_v1.json",
+      "sha256": "373436a4dc57b6b304fff42adb61fe565a59bff7c01b132092fd2c3d4527985b",
+      "size_bytes": 12577
+    },
+    "section_9_6_readiness_report": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/section_9_6_6_readiness_report_v1.json",
+      "sha256": "588d27e86e3bb850084f614b6d58ff1d1662cd6b60b220ff18c71435f4099afb",
+      "size_bytes": 1545
+    }
+  },
+  "provenance": {
+    "oof_provenance_verified": false,
+    "research_grade_leakage_free_approval": false,
+    "validation_labels_used_for_calibrator_fitting": false,
+    "calibrator_refitted": false,
+    "ensemble_retrained": false,
+    "probability_outputs_regenerated": false,
+    "upstream_artifacts_modified": false
+  },
+  "limitations": [
+    {
+      "id": "OOF_PROVENANCE_UNVERIFIED",
+      "status": "UNRESOLVED",
+      "description": "The out-of-fold data-generation provenance has not been independently verified.",
+      "interpretation": "The available persisted reports do not establish independent research-grade, leakage-free calibration fitting."
+    },
+    {
+      "id": "CALIBRATION_METRICS_MIXED",
+      "status": "DOCUMENTED",
+      "description": "The Validation comparison reports improved ECE and MCE, but slightly worsened log loss and multiclass Brier score.",
+      "interpretation": "Calibration must not be described as improving every probability-quality metric."
+    },
+    {
+      "id": "PREDICTIVE_PERFORMANCE_UNCHANGED",
+      "status": "DOCUMENTED",
+      "description": "Accuracy and classification error count remained unchanged in the persisted comparison.",
+      "interpretation": "The reported calibration changes concern probability quality, not a change in predicted class decisions."
+    }
+  ],
+  "evaluation_interpretation": {
+    "ece": "Improved in the persisted Validation comparison: approximately 0.000791 to 0.000683.",
+    "mce": "Improved in the persisted Validation comparison: approximately 0.572443 to 0.553663.",
+    "log_loss": "Worsened slightly: approximately 0.005916 to 0.006073.",
+    "multiclass_brier_score": "Worsened slightly: approximately 0.003048 to 0.003053.",
+    "accuracy": "Unchanged at approximately 0.997957.",
+    "classification_error_count": "Unchanged at 922 observations.",
+    "overall_conclusion": "The reported calibration-error metrics improved, but log loss and multiclass Brier score worsened slightly. The results do not support an unqualified claim that calibration improved every measure of probability quality."
+  },
+  "scope": {
+    "reads_existing_persisted_reports_only": true,
+    "calibrator_refitted": false,
+    "ensemble_retrained": false,
+    "probability_outputs_regenerated": false,
+    "upstream_artifacts_modified": false
+  },
+  "approval_statement": "Operational artifact verification does not establish research-grade leakage-free approval. OOF provenance remains unverified."
+}

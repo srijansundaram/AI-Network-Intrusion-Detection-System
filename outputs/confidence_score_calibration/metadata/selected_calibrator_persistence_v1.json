@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "report_name": "selected_calibrator_persistence",
+  "section": "9.6.1",
+  "created_utc": "2026-10-20T06:41:47.711941+00:00",
+  "method": "multiclass_temperature_scaling",
+  "fitting_status": "FITTED_AND_PERSISTED",
+  "operational_status": "PERSISTED_FOR_INFERENCE_WITH_DOCUMENTED_PROVENANCE_LIMITATION",
+  "temperature": 0.7703281965251618,
+  "fitting_observations": 1814009,
+  "oof_nll_before": 0.020937109854289898,
+  "oof_nll_after": 0.020453518727340362,
+  "optimization_success": true,
+  "optimizer_message": "Solution found.",
+  "persisted_calibrator": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_calibrator_v1.joblib",
+  "selected_configuration": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_calibrator_configuration_v1.json",
+  "temperature_json": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_temperature_v1.json",
+  "artifacts_sha256": {
+    "selected_calibrator": "d89fba1e8d045cdd4f40f20fe1c9f7d73ada548f3060ae11717dc4aff69c9fc8",
+    "selected_configuration": "37870e8ff872ccbd68a42cd504f455e198369a138daffcca25e2c2a70ac49b97",
+    "temperature_json": "fc2ce8fb1ff7bca316c9bd6d3b7066882af8f9c57b20a7748bb039a5855c1b73"
+  },
+  "checks": {
+    "oof_shapes_and_targets_aligned": true,
+    "oof_indices_unique": true,
+    "base_probability_normalization": true,
+    "ensemble_probability_normalization": true,
+    "temperature_finite_and_positive": true,
+    "calibrator_output_shape": true,
+    "calibrator_output_normalization": true,
+    "persistence_reload": true,
+    "reloaded_output_matches_original": true
+  },
+  "provenance": {
+    "oof_provenance_verified": false,
+    "index_semantics_verified": false,
+    "validation_labels_used_for_fitting": false,
+    "limitations_documented": true
+  },
+  "ensemble_retrained": false,
+  "upstream_artifacts_modified": false
+}
