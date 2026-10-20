@@ -1,0 +1,692 @@
+{
+    "section": "5.9.4",
+    "title": "Error, Minority-Class, and Resource Trade-off Analysis",
+    "comparison_scope": "RF-0 through RF-4",
+    "evaluation_partition": "Validation",
+    "independent_test_used": false,
+    "model_fitting_performed": false,
+    "validation_predictions_regenerated": false,
+    "resampling_performed": false,
+    "synthetic_sampling_performed": false,
+    "strategy_selected": false,
+    "error_summary": [
+        {
+            "strategy_id": "RF-0",
+            "strategy_name": "RF-0 Natural Distribution Baseline",
+            "benign_false_positive_rate": 0.009533250116259148,
+            "total_attack_false_negatives": 789,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.0769230769230769,
+            "lowest_attack_f1": 0.1428571428571428
+        },
+        {
+            "strategy_id": "RF-1",
+            "strategy_name": "RF-1 Balanced Class Weighting",
+            "benign_false_positive_rate": 0.0092150671855496,
+            "total_attack_false_negatives": 762,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.3076923076923077,
+            "lowest_attack_f1": 0.4705882352941176
+        },
+        {
+            "strategy_id": "RF-2",
+            "strategy_name": "RF-2 Balanced-Subsample Class Weighting",
+            "benign_false_positive_rate": 0.00919059157549502,
+            "total_attack_false_negatives": 761,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.3076923076923077,
+            "lowest_attack_f1": 0.4705882352941176
+        },
+        {
+            "strategy_id": "RF-3",
+            "strategy_name": "RF-3 Controlled Random Oversampling",
+            "benign_false_positive_rate": 0.009300731820740631,
+            "total_attack_false_negatives": 770,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.3846153846153846,
+            "lowest_attack_f1": 0.5555555555555556
+        },
+        {
+            "strategy_id": "RF-4",
+            "strategy_name": "RF-4 Controlled SMOTE",
+            "benign_false_positive_rate": 0.009007024500085664,
+            "total_attack_false_negatives": 841,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.4615384615384615,
+            "lowest_attack_f1": 0.631578947368421
+        }
+    ],
+    "minority_class_ids": [
+        8,
+        6,
+        4,
+        5
+    ],
+    "minority_class_reference": [
+        {
+            "class_id": 8,
+            "class_name": "Heartbleed",
+            "support": 4
+        },
+        {
+            "class_id": 6,
+            "class_name": "Infiltration",
+            "support": 13
+        },
+        {
+            "class_id": 4,
+            "class_name": "Bot",
+            "support": 297
+        },
+        {
+            "class_id": 5,
+            "class_name": "Web Attack",
+            "support": 363
+        }
+    ],
+    "minority_class_comparison": [
+        {
+            "strategy_id": "RF-0",
+            "strategy_name": "RF-0 Natural Distribution Baseline",
+            "class_id": 8,
+            "class_name": "Heartbleed",
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+        },
+        {
+            "strategy_id": "RF-0",
+            "strategy_name": "RF-0 Natural Distribution Baseline",
+            "class_id": 6,
+            "class_name": "Infiltration",
+            "support": 13,
+            "precision": 1.0,
+            "recall": 0.0769230769230769,
+            "f1": 0.1428571428571428
+        },
+        {
+            "strategy_id": "RF-0",
+            "strategy_name": "RF-0 Natural Distribution Baseline",
+            "class_id": 4,
+            "class_name": "Bot",
+            "support": 297,
+            "precision": 0.623574144486692,
+            "recall": 0.5521885521885522,
+            "f1": 0.5857142857142857
+        },
+        {
+            "strategy_id": "RF-0",
+            "strategy_name": "RF-0 Natural Distribution Baseline",
+            "class_id": 5,
+            "class_name": "Web Attack",
+            "support": 363,
+            "precision": 0.9916434540389972,
+            "recall": 0.9807162534435262,
+            "f1": 0.9861495844875346
+        },
+        {
+            "strategy_id": "RF-1",
+            "strategy_name": "RF-1 Balanced Class Weighting",
+            "class_id": 8,
+            "class_name": "Heartbleed",
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+        },
+        {
+            "strategy_id": "RF-1",
+            "strategy_name": "RF-1 Balanced Class Weighting",
+            "class_id": 6,
+            "class_name": "Infiltration",
+            "support": 13,
+            "precision": 1.0,
+            "recall": 0.3076923076923077,
+            "f1": 0.4705882352941176
+        },
+        {
+            "strategy_id": "RF-1",
+            "strategy_name": "RF-1 Balanced Class Weighting",
+            "class_id": 4,
+            "class_name": "Bot",
+            "support": 297,
+            "precision": 0.6045627376425855,
+            "recall": 0.5353535353535354,
+            "f1": 0.5678571428571428
+        },
+        {
+            "strategy_id": "RF-1",
+            "strategy_name": "RF-1 Balanced Class Weighting",
+            "class_id": 5,
+            "class_name": "Web Attack",
+            "support": 363,
+            "precision": 0.9861495844875346,
+            "recall": 0.9807162534435262,
+            "f1": 0.9834254143646408
+        },
+        {
+            "strategy_id": "RF-2",
+            "strategy_name": "RF-2 Balanced-Subsample Class Weighting",
+            "class_id": 8,
+            "class_name": "Heartbleed",
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+        },
+        {
+            "strategy_id": "RF-2",
+            "strategy_name": "RF-2 Balanced-Subsample Class Weighting",
+            "class_id": 6,
+            "class_name": "Infiltration",
+            "support": 13,
+            "precision": 1.0,
+            "recall": 0.3076923076923077,
+            "f1": 0.4705882352941176
+        },
+        {
+            "strategy_id": "RF-2",
+            "strategy_name": "RF-2 Balanced-Subsample Class Weighting",
+            "class_id": 4,
+            "class_name": "Bot",
+            "support": 297,
+            "precision": 0.6098484848484849,
+            "recall": 0.5420875420875421,
+            "f1": 0.5739750445632799
+        },
+        {
+            "strategy_id": "RF-2",
+            "strategy_name": "RF-2 Balanced-Subsample Class Weighting",
+            "class_id": 5,
+            "class_name": "Web Attack",
+            "support": 363,
+            "precision": 0.9861878453038674,
+            "recall": 0.9834710743801652,
+            "f1": 0.9848275862068966
+        },
+        {
+            "strategy_id": "RF-3",
+            "strategy_name": "RF-3 Controlled Random Oversampling",
+            "class_id": 8,
+            "class_name": "Heartbleed",
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571
+        },
+        {
+            "strategy_id": "RF-3",
+            "strategy_name": "RF-3 Controlled Random Oversampling",
+            "class_id": 6,
+            "class_name": "Infiltration",
+            "support": 13,
+            "precision": 1.0,
+            "recall": 0.3846153846153846,
+            "f1": 0.5555555555555556
+        },
+        {
+            "strategy_id": "RF-3",
+            "strategy_name": "RF-3 Controlled Random Oversampling",
+            "class_id": 4,
+            "class_name": "Bot",
+            "support": 297,
+            "precision": 0.559748427672956,
+            "recall": 0.5993265993265994,
+            "f1": 0.5788617886178862
+        },
+        {
+            "strategy_id": "RF-3",
+            "strategy_name": "RF-3 Controlled Random Oversampling",
+            "class_id": 5,
+            "class_name": "Web Attack",
+            "support": 363,
+            "precision": 0.9917127071823204,
+            "recall": 0.9889807162534436,
+            "f1": 0.9903448275862068
+        },
+        {
+            "strategy_id": "RF-4",
+            "strategy_name": "RF-4 Controlled SMOTE",
+            "class_id": 8,
+            "class_name": "Heartbleed",
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666
+        },
+        {
+            "strategy_id": "RF-4",
+            "strategy_name": "RF-4 Controlled SMOTE",
+            "class_id": 6,
+            "class_name": "Infiltration",
+            "support": 13,
+            "precision": 1.0,
+            "recall": 0.4615384615384615,
+            "f1": 0.631578947368421
+        },
+        {
+            "strategy_id": "RF-4",
+            "strategy_name": "RF-4 Controlled SMOTE",
+            "class_id": 4,
+            "class_name": "Bot",
+            "support": 297,
+            "precision": 0.5116279069767442,
+            "recall": 0.6666666666666666,
+            "f1": 0.5789473684210527
+        },
+        {
+            "strategy_id": "RF-4",
+            "strategy_name": "RF-4 Controlled SMOTE",
+            "class_id": 5,
+            "class_name": "Web Attack",
+            "support": 363,
+            "precision": 0.7627118644067796,
+            "recall": 0.9917355371900828,
+            "f1": 0.8622754491017964
+        }
+    ],
+    "minority_class_summary": [
+        {
+            "strategy_id": "RF-0",
+            "strategy_name": "RF-0 Natural Distribution Baseline",
+            "minority_mean_recall": 0.5274569706387888,
+            "minority_mean_f1": 0.5953469199314074,
+            "minority_min_recall": 0.0769230769230769,
+            "minority_min_f1": 0.1428571428571428
+        },
+        {
+            "strategy_id": "RF-1",
+            "strategy_name": "RF-1 Balanced Class Weighting",
+            "minority_mean_recall": 0.5809405241223423,
+            "minority_mean_f1": 0.6721343647956419,
+            "minority_min_recall": 0.3076923076923077,
+            "minority_min_f1": 0.4705882352941176
+        },
+        {
+            "strategy_id": "RF-2",
+            "strategy_name": "RF-2 Balanced-Subsample Class Weighting",
+            "minority_mean_recall": 0.5833127310400037,
+            "minority_mean_f1": 0.6740143831827402,
+            "minority_min_recall": 0.3076923076923077,
+            "minority_min_f1": 0.4705882352941176
+        },
+        {
+            "strategy_id": "RF-3",
+            "strategy_name": "RF-3 Controlled Random Oversampling",
+            "minority_mean_recall": 0.6807306750488569,
+            "minority_mean_f1": 0.7454762572256264,
+            "minority_min_recall": 0.3846153846153846,
+            "minority_min_f1": 0.5555555555555556
+        },
+        {
+            "strategy_id": "RF-4",
+            "strategy_name": "RF-4 Controlled SMOTE",
+            "minority_mean_recall": 0.6549851663488028,
+            "minority_mean_f1": 0.6848671078894841,
+            "minority_min_recall": 0.4615384615384615,
+            "minority_min_f1": 0.5789473684210527
+        }
+    ],
+    "top_confusion_pairs": {
+        "RF-0": [
+            {
+                "actual_class_id": 7,
+                "actual_class_name": "DoS",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 488
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 7,
+                "predicted_class_name": "DoS",
+                "count": 179
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 2,
+                "predicted_class_name": "Port Scan",
+                "count": 143
+            },
+            {
+                "actual_class_id": 4,
+                "actual_class_name": "Bot",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 133
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 4,
+                "predicted_class_name": "Bot",
+                "count": 99
+            }
+        ],
+        "RF-1": [
+            {
+                "actual_class_id": 7,
+                "actual_class_name": "DoS",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 466
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 7,
+                "predicted_class_name": "DoS",
+                "count": 240
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 2,
+                "predicted_class_name": "Port Scan",
+                "count": 143
+            },
+            {
+                "actual_class_id": 4,
+                "actual_class_name": "Bot",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 138
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 4,
+                "predicted_class_name": "Bot",
+                "count": 104
+            }
+        ],
+        "RF-2": [
+            {
+                "actual_class_id": 7,
+                "actual_class_name": "DoS",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 465
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 7,
+                "predicted_class_name": "DoS",
+                "count": 242
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 2,
+                "predicted_class_name": "Port Scan",
+                "count": 143
+            },
+            {
+                "actual_class_id": 4,
+                "actual_class_name": "Bot",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 136
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 4,
+                "predicted_class_name": "Bot",
+                "count": 103
+            }
+        ],
+        "RF-3": [
+            {
+                "actual_class_id": 7,
+                "actual_class_name": "DoS",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 495
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 7,
+                "predicted_class_name": "DoS",
+                "count": 177
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 2,
+                "predicted_class_name": "Port Scan",
+                "count": 143
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 4,
+                "predicted_class_name": "Bot",
+                "count": 140
+            },
+            {
+                "actual_class_id": 4,
+                "actual_class_name": "Bot",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 119
+            }
+        ],
+        "RF-4": [
+            {
+                "actual_class_id": 7,
+                "actual_class_name": "DoS",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 487
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 4,
+                "predicted_class_name": "Bot",
+                "count": 189
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 7,
+                "predicted_class_name": "DoS",
+                "count": 175
+            },
+            {
+                "actual_class_id": 0,
+                "actual_class_name": "BENIGN",
+                "predicted_class_id": 2,
+                "predicted_class_name": "Port Scan",
+                "count": 142
+            },
+            {
+                "actual_class_id": 4,
+                "actual_class_name": "Bot",
+                "predicted_class_id": 0,
+                "predicted_class_name": "BENIGN",
+                "count": 99
+            }
+        ]
+    },
+    "resource_tradeoff": [
+        {
+            "strategy_id": "RF-0",
+            "strategy_name": "RF-0 Natural Distribution Baseline",
+            "training_observations": 1814018,
+            "training_time_seconds": 791.1116387840002,
+            "n_estimators": 100,
+            "n_features": 32,
+            "n_classes": 9,
+            "total_tree_nodes": 699452,
+            "current_process_ram_gb": 1.7282257080078125,
+            "available_memory_before_gb": NaN,
+            "available_memory_after_gb": NaN,
+            "process_memory_delta_gb": NaN,
+            "additional_oversampled_observations": NaN,
+            "oversampled_training_observations": NaN,
+            "total_synthetic_observations": NaN,
+            "smote_training_observations": NaN,
+            "smote_generation_time_seconds": NaN
+        },
+        {
+            "strategy_id": "RF-1",
+            "strategy_name": "RF-1 Balanced Class Weighting",
+            "training_observations": 1814018,
+            "training_time_seconds": 753.8117206149991,
+            "n_estimators": 100,
+            "n_features": 32,
+            "n_classes": 9,
+            "total_tree_nodes": 802322,
+            "current_process_ram_gb": 1.790374755859375,
+            "available_memory_before_gb": NaN,
+            "available_memory_after_gb": NaN,
+            "process_memory_delta_gb": NaN,
+            "additional_oversampled_observations": NaN,
+            "oversampled_training_observations": NaN,
+            "total_synthetic_observations": NaN,
+            "smote_training_observations": NaN,
+            "smote_generation_time_seconds": NaN
+        },
+        {
+            "strategy_id": "RF-2",
+            "strategy_name": "RF-2 Balanced-Subsample Class Weighting",
+            "training_observations": 1814018,
+            "training_time_seconds": 859.6801829099995,
+            "n_estimators": 100,
+            "n_features": 32,
+            "n_classes": 9,
+            "total_tree_nodes": 776402,
+            "current_process_ram_gb": 1.8527717590332031,
+            "available_memory_before_gb": NaN,
+            "available_memory_after_gb": NaN,
+            "process_memory_delta_gb": NaN,
+            "additional_oversampled_observations": NaN,
+            "oversampled_training_observations": NaN,
+            "total_synthetic_observations": NaN,
+            "smote_training_observations": NaN,
+            "smote_generation_time_seconds": NaN
+        },
+        {
+            "strategy_id": "RF-3",
+            "strategy_name": "RF-3 Controlled Random Oversampling",
+            "training_observations": 1814018,
+            "training_time_seconds": 626.4028810599993,
+            "n_estimators": 100,
+            "n_features": 32,
+            "n_classes": 9,
+            "total_tree_nodes": 758752,
+            "current_process_ram_gb": 1.8549880981445312,
+            "available_memory_before_gb": 9.815052032470703,
+            "available_memory_after_gb": 9.562644958496094,
+            "process_memory_delta_gb": 0.002086639404296875,
+            "additional_oversampled_observations": 47996.0,
+            "oversampled_training_observations": 1862014.0,
+            "total_synthetic_observations": NaN,
+            "smote_training_observations": NaN,
+            "smote_generation_time_seconds": NaN
+        },
+        {
+            "strategy_id": "RF-4",
+            "strategy_name": "RF-4 Controlled SMOTE",
+            "training_observations": 1814018,
+            "training_time_seconds": 684.7816889189999,
+            "n_estimators": 100,
+            "n_features": 32,
+            "n_classes": 9,
+            "total_tree_nodes": 834954,
+            "current_process_ram_gb": 2.143817901611328,
+            "available_memory_before_gb": 9.558223724365234,
+            "available_memory_after_gb": 9.454097747802734,
+            "process_memory_delta_gb": 0.12398910522460938,
+            "additional_oversampled_observations": NaN,
+            "oversampled_training_observations": NaN,
+            "total_synthetic_observations": 47996.0,
+            "smote_training_observations": 1862014.0,
+            "smote_generation_time_seconds": 2.734079826999732
+        }
+    ],
+    "combined_tradeoff_summary": [
+        {
+            "strategy_id": "RF-0",
+            "strategy_name": "RF-0 Natural Distribution Baseline",
+            "benign_false_positive_rate": 0.009533250116259148,
+            "total_attack_false_negatives": 789,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.0769230769230769,
+            "lowest_attack_f1": 0.1428571428571428,
+            "minority_mean_recall": 0.5274569706387888,
+            "minority_mean_f1": 0.5953469199314074,
+            "minority_min_recall": 0.0769230769230769,
+            "minority_min_f1": 0.1428571428571428
+        },
+        {
+            "strategy_id": "RF-1",
+            "strategy_name": "RF-1 Balanced Class Weighting",
+            "benign_false_positive_rate": 0.0092150671855496,
+            "total_attack_false_negatives": 762,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.3076923076923077,
+            "lowest_attack_f1": 0.4705882352941176,
+            "minority_mean_recall": 0.5809405241223423,
+            "minority_mean_f1": 0.6721343647956419,
+            "minority_min_recall": 0.3076923076923077,
+            "minority_min_f1": 0.4705882352941176
+        },
+        {
+            "strategy_id": "RF-2",
+            "strategy_name": "RF-2 Balanced-Subsample Class Weighting",
+            "benign_false_positive_rate": 0.00919059157549502,
+            "total_attack_false_negatives": 761,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.3076923076923077,
+            "lowest_attack_f1": 0.4705882352941176,
+            "minority_mean_recall": 0.5833127310400037,
+            "minority_mean_f1": 0.6740143831827402,
+            "minority_min_recall": 0.3076923076923077,
+            "minority_min_f1": 0.4705882352941176
+        },
+        {
+            "strategy_id": "RF-3",
+            "strategy_name": "RF-3 Controlled Random Oversampling",
+            "benign_false_positive_rate": 0.009300731820740631,
+            "total_attack_false_negatives": 770,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.3846153846153846,
+            "lowest_attack_f1": 0.5555555555555556,
+            "minority_mean_recall": 0.6807306750488569,
+            "minority_mean_f1": 0.7454762572256264,
+            "minority_min_recall": 0.3846153846153846,
+            "minority_min_f1": 0.5555555555555556
+        },
+        {
+            "strategy_id": "RF-4",
+            "strategy_name": "RF-4 Controlled SMOTE",
+            "benign_false_positive_rate": 0.009007024500085664,
+            "total_attack_false_negatives": 841,
+            "lowest_attack_recall_class_id": 6,
+            "lowest_attack_recall_class": "Infiltration",
+            "lowest_attack_recall": 0.4615384615384615,
+            "lowest_attack_f1": 0.631578947368421,
+            "minority_mean_recall": 0.6549851663488028,
+            "minority_mean_f1": 0.6848671078894841,
+            "minority_min_recall": 0.4615384615384615,
+            "minority_min_f1": 0.5789473684210527
+        }
+    ]
+}

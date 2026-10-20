@@ -1,0 +1,144 @@
+{
+  "best_by_macro_f1": {
+    "candidate_id": "rf_baseline",
+    "macro_f1": 0.8834704173472481
+  },
+  "candidate_count": 8,
+  "checks": [
+    {
+      "check": "required_upstream_artifacts_exist",
+      "details": "required=4; missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "voting_comparison_status",
+      "details": "status=PASS_VOTING_CANDIDATE_COMPARISON",
+      "status": "PASS"
+    },
+    {
+      "check": "voting_comparison_report_status",
+      "details": "status=PASS_VOTING_CANDIDATE_COMPARISON",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_comparison_status",
+      "details": "status=PASS_STACKING_VALIDATION_CANDIDATE_COMPARISON",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_integrity_status",
+      "details": "status=PASS_STACKING_INTEGRITY_AND_PROVENANCE",
+      "status": "PASS"
+    },
+    {
+      "check": "voting_partition_is_validation",
+      "details": "partition=Validation",
+      "status": "PASS"
+    },
+    {
+      "check": "voting_observation_count",
+      "details": "observations=451206; expected=451206",
+      "status": "PASS"
+    },
+    {
+      "check": "voting_class_ids",
+      "details": "class_ids=[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+      "status": "PASS"
+    },
+    {
+      "check": "voting_primary_metric",
+      "details": "primary_metric=macro_f1",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_partition_is_validation",
+      "details": "partition=Validation",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_observation_count",
+      "details": "observations=451206; expected=451206",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_class_ids",
+      "details": "class_ids=[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_primary_metric",
+      "details": "primary_metric=macro_f1",
+      "status": "PASS"
+    },
+    {
+      "check": "voting_candidate_results_are_list",
+      "details": "type=list",
+      "status": "PASS"
+    },
+    {
+      "check": "stacking_candidate_results_are_list",
+      "details": "type=list",
+      "status": "PASS"
+    },
+    {
+      "check": "seven_voting_candidate_ids",
+      "details": "expected=['equal_weight', 'lstm_baseline', 'rf_0.25_lstm_0.75', 'rf_0.40_lstm_0.60', 'rf_0.60_lstm_0.40', 'rf_0.75_lstm_0.25', 'rf_baseline']; actual=['equal_weight', 'lstm_baseline', 'rf_0.25_lstm_0.75', 'rf_0.40_lstm_0.60', 'rf_0.60_lstm_0.40', 'rf_0.75_lstm_0.25', 'rf_baseline']",
+      "status": "PASS"
+    },
+    {
+      "check": "eight_candidate_stacking_comparison",
+      "details": "expected=['equal_weight', 'lstm_baseline', 'rf_0.25_lstm_0.75', 'rf_0.40_lstm_0.60', 'rf_0.60_lstm_0.40', 'rf_0.75_lstm_0.25', 'rf_baseline', 'stacking_meta_model']; actual=['equal_weight', 'lstm_baseline', 'rf_0.25_lstm_0.75', 'rf_0.40_lstm_0.60', 'rf_0.60_lstm_0.40', 'rf_0.75_lstm_0.25', 'rf_baseline', 'stacking_meta_model']; row_count=8",
+      "status": "PASS"
+    },
+    {
+      "check": "all_eight_candidates_have_valid_metrics",
+      "details": "candidate_count=8; metrics=['macro_f1', 'macro_precision', 'macro_recall', 'balanced_accuracy', 'weighted_f1', 'accuracy']",
+      "status": "PASS"
+    },
+    {
+      "check": "voting_and_stacking_metrics_agree",
+      "details": "All seven shared candidates agree across Sections 8.4.4 and 8.5.5.",
+      "status": "PASS"
+    },
+    {
+      "check": "comparison_json_reload_integrity",
+      "details": "path=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_candidate_comparison.json; write_mode=CREATED_NEW",
+      "status": "PASS"
+    },
+    {
+      "check": "comparison_csv_reload_integrity",
+      "details": "path=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_candidate_comparison.csv; rows=8; write_mode=CREATED_NEW",
+      "status": "PASS"
+    }
+  ],
+  "checks_failed": 0,
+  "checks_passed": 21,
+  "execution_constraints": {
+    "models_fitted_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "test_arrays_loaded": false,
+    "upstream_artifacts_modified": false
+  },
+  "observation_count": 451206,
+  "output_write_modes": {
+    "csv": "CREATED_NEW",
+    "json": "CREATED_NEW"
+  },
+  "outputs": {
+    "csv": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_candidate_comparison.csv",
+    "json": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_candidate_comparison.json"
+  },
+  "partition": "Validation",
+  "primary_metric": "macro_f1",
+  "report_id": "n08_final_candidate_comparison_report_v1",
+  "section": "8.6.1",
+  "source_artifact_sha256": {
+    "stacking/stacking_integrity_provenance_report.json": "dcf6eb1751c359c3a2815da4a4a48ee59673edf19cd43f921b886d4c2610d7b7",
+    "stacking/stacking_validation_candidate_comparison.json": "a303f78fe3c42122bdf77587ce1d5636fce26dbc6377ba1d102a3f179606a725",
+    "voting/voting_candidate_comparison.json": "9543001d232f7ee4a0f71680a2071bc458215d8d2b0f0d16ce666974b9e81013",
+    "voting/voting_candidate_comparison_report.json": "b8a87bf6d4d3c6b7002556530bea10941f11cd141782da6f27d188af9e5342bf"
+  },
+  "status": "PASS_FINAL_CANDIDATE_COMPARISON",
+  "verdict": "PASS_EIGHT_VALIDATION_CANDIDATES_AND_PERSISTENCE"
+}

@@ -1,0 +1,122 @@
+{
+  "report_name": "Uncalibrated-versus-Calibrated Performance Report",
+  "report_version": "v1",
+  "generated_at_utc": "2026-10-20T08:53:40.740358+00:00",
+  "evaluation_partition": "Validation",
+  "evaluation_observations": 451206,
+  "class_count": 9,
+  "class_order": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ],
+  "calibration": {
+    "method": "multiclass_temperature_scaling",
+    "fitted_temperature": 0.7703281965251618,
+    "calibrator_refitted_in_this_section": false,
+    "ensemble_retrained": false
+  },
+  "metrics": [
+    {
+      "metric": "observations",
+      "uncalibrated": 451206.0,
+      "calibrated": 451206.0,
+      "change_calibrated_minus_uncalibrated": 0.0,
+      "interpretation": "Unchanged"
+    },
+    {
+      "metric": "accuracy",
+      "uncalibrated": 0.9979565874567272,
+      "calibrated": 0.9979565874567272,
+      "change_calibrated_minus_uncalibrated": 0.0,
+      "interpretation": "Unchanged"
+    },
+    {
+      "metric": "error_count",
+      "uncalibrated": 922.0,
+      "calibrated": 922.0,
+      "change_calibrated_minus_uncalibrated": 0.0,
+      "interpretation": "Unchanged"
+    },
+    {
+      "metric": "error_rate",
+      "uncalibrated": 0.0020434125432729,
+      "calibrated": 0.0020434125432729,
+      "change_calibrated_minus_uncalibrated": 0.0,
+      "interpretation": "Unchanged"
+    },
+    {
+      "metric": "log_loss",
+      "uncalibrated": 0.0059162972121729,
+      "calibrated": 0.0060730195648554,
+      "change_calibrated_minus_uncalibrated": 0.00015672235268250016,
+      "interpretation": "Worsened"
+    },
+    {
+      "metric": "multiclass_brier_score",
+      "uncalibrated": 0.003048456836689,
+      "calibrated": 0.0030531339929877,
+      "change_calibrated_minus_uncalibrated": 4.677156298699917e-06,
+      "interpretation": "Worsened"
+    },
+    {
+      "metric": "ece",
+      "uncalibrated": 0.0007908556676215,
+      "calibrated": 0.0006829075423823,
+      "change_calibrated_minus_uncalibrated": -0.00010794812523920005,
+      "interpretation": "Improved"
+    },
+    {
+      "metric": "mce",
+      "uncalibrated": 0.5724433064460754,
+      "calibrated": 0.5536626279354095,
+      "change_calibrated_minus_uncalibrated": -0.018780678510665894,
+      "interpretation": "Improved"
+    },
+    {
+      "metric": "mean_max_confidence",
+      "uncalibrated": 0.9976335167884828,
+      "calibrated": 0.9983057975769044,
+      "change_calibrated_minus_uncalibrated": 0.0006722807884216309,
+      "interpretation": "Changed; direction not classified automatically"
+    },
+    {
+      "metric": "mean_confidence_on_correct",
+      "uncalibrated": 0.9981898665428162,
+      "calibrated": 0.998791515827179,
+      "change_calibrated_minus_uncalibrated": 0.000601649284362793,
+      "interpretation": "Changed; direction not classified automatically"
+    },
+    {
+      "metric": "mean_confidence_on_errors",
+      "uncalibrated": 0.7258270978927612,
+      "calibrated": 0.7611167430877686,
+      "change_calibrated_minus_uncalibrated": 0.035289645195007324,
+      "interpretation": "Changed; direction not classified automatically"
+    }
+  ],
+  "interpretation": {
+    "accuracy": "Classification accuracy is unchanged in the persisted comparison.",
+    "calibration_quality": "ECE and MCE improved, while log loss and multiclass Brier score worsened in the persisted comparison. The observed results are mixed and do not support a claim that all calibration metrics improved.",
+    "overall_claim": "Report the observed metric-specific changes. Do not claim universal or overall calibration improvement."
+  },
+  "provenance": {
+    "oof_provenance_verified": false,
+    "research_grade_leakage_free_approval": false,
+    "ensemble_retrained": false,
+    "upstream_artifacts_modified": false,
+    "validation_labels_used_for_calibrator_fitting": false,
+    "limitation": "OOF provenance and independence have not been verified. The evaluation and calibration artifacts must be interpreted under this documented limitation."
+  },
+  "source_artifacts": {
+    "evaluation_report": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_evaluation_report_v1.json",
+    "comparison_csv": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_evaluation_comparison_v1.csv",
+    "final_summary": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/final_calibration_summary_v1.json"
+  }
+}

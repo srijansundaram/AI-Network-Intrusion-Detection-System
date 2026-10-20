@@ -1,0 +1,226 @@
+{
+  "artifact_id": "n08_ensemble_inference_contract_validation_report_v1",
+  "candidate_id": "rf_0.75_lstm_0.25",
+  "checks": [
+    {
+      "check": "package_directory_exists",
+      "details": "path=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1",
+      "status": "PASS"
+    },
+    {
+      "check": "required_contract_evidence_exists",
+      "details": "required=9; missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_configuration_status",
+      "details": "status=PASS_FINAL_CONFIGURATION_FROZEN",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_configuration_report_status",
+      "details": "status=PASS_FINAL_CONFIGURATION_FREEZE",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_candidate_identity",
+      "details": "candidate=rf_0.75_lstm_0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_weights_match",
+      "details": "RF=0.75; LSTM=0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_weights_sum_to_one",
+      "details": "sum=1.0",
+      "status": "PASS"
+    },
+    {
+      "check": "probability_contract_status",
+      "details": "status=PASS_UNCALIBRATED_PROBABILITY_OUTPUT_CONTRACT",
+      "status": "PASS"
+    },
+    {
+      "check": "probability_contract_report_status",
+      "details": "status=PASS_UNCALIBRATED_PROBABILITY_OUTPUT_CONTRACT",
+      "status": "PASS"
+    },
+    {
+      "check": "calibration_handoff_status",
+      "details": "status=PASS_CALIBRATION_HANDOFF_READY",
+      "status": "PASS"
+    },
+    {
+      "check": "calibration_handoff_report_status",
+      "details": "status=PASS_CALIBRATION_HANDOFF_READY",
+      "status": "PASS"
+    },
+    {
+      "check": "contract_persistence_report_status",
+      "details": "status=PASS_ENSEMBLE_CONTRACT_AND_CLASS_MAPPING_PERSISTENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "class_mapping_artifact_identity",
+      "details": "artifact_id=n08_ensemble_class_mapping_v1",
+      "status": "PASS"
+    },
+    {
+      "check": "class_mapping_order",
+      "details": "class_order=[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+      "status": "PASS"
+    },
+    {
+      "check": "class_mapping_names",
+      "details": "Persisted class IDs map to the established nine class names.",
+      "status": "PASS"
+    },
+    {
+      "check": "class_mapping_count",
+      "details": "class_count=9",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_artifact_identity",
+      "details": "artifact_id=n08_ensemble_inference_contract_v1",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_validation_status",
+      "details": "contract_status=VALIDATED_FROM_EXISTING_PACKAGE_EVIDENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_strategy",
+      "details": "strategy=weighted_soft_voting",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_candidate_matches_freeze",
+      "details": "candidate_id=rf_0.75_lstm_0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_weights_match_freeze",
+      "details": "RF=0.75; LSTM=0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_combination_rule",
+      "details": "combination_rule=P_ensemble = 0.75 * P_RF + 0.25 * P_LSTM",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_class_order",
+      "details": "class_order=[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_class_count",
+      "details": "class_count=9",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_probability_status",
+      "details": "Probability status is uncalibrated; this subsection does not perform calibration.",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_embeds_existing_probability_contract",
+      "details": "Embedded probability contract matches the packaged source contract.",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_class_mapping_path",
+      "details": "class_mapping_artifact=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/ensemble_class_mapping_v1.json",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_handoff_status",
+      "details": "handoff_status=PASS_CALIBRATION_HANDOFF_READY",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_source_inventory",
+      "details": "source_names=['calibration_handoff_manifest', 'calibration_handoff_report', 'frozen_configuration', 'probability_output_contract', 'probability_output_contract_report']",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_source_hashes_match",
+      "details": "frozen_configuration: hash_match=True; path_match=True; probability_output_contract: hash_match=True; path_match=True; probability_output_contract_report: hash_match=True; path_match=True; calibration_handoff_manifest: hash_match=True; path_match=True; calibration_handoff_report: hash_match=True; path_match=True",
+      "status": "PASS"
+    },
+    {
+      "check": "source_artifacts_unchanged",
+      "details": "All audited packaged evidence retains its original SHA-256 hashes.",
+      "status": "PASS"
+    }
+  ],
+  "checks_failed": 0,
+  "checks_passed": 31,
+  "class_mapping": {
+    "0": "BENIGN",
+    "1": "DDoS",
+    "2": "Port Scan",
+    "3": "Brute Force",
+    "4": "Bot",
+    "5": "Web Attack",
+    "6": "Infiltration",
+    "7": "DoS",
+    "8": "Heartbleed"
+  },
+  "class_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "execution_boundaries": {
+    "evaluation_metrics_recalculated": false,
+    "live_model_inference_tested": false,
+    "models_trained_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "source_artifacts_modified": false,
+    "test_arrays_loaded": false
+  },
+  "lstm_weight": 0.25,
+  "outputs": {
+    "class_mapping": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/ensemble_class_mapping_v1.json",
+    "inference_contract": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/ensemble_inference_contract_v1.json",
+    "validation_report": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/ensemble_inference_contract_validation_report_v1.json"
+  },
+  "probability_status": "uncalibrated",
+  "rf_weight": 0.75,
+  "source_hashes_after": {
+    "calibration_handoff_manifest": "eb6a89b0e81b16ac68ab1a6c570de6429dd8e784c63e95f25205a09ac5a9047a",
+    "calibration_handoff_report": "1ba3960b5c29c813f2b8bba61d00fd719661869c31ac992402841b06c536ca3b",
+    "class_mapping": "dd15c0eeb994307f85802768db7a246b836106eca107bf5732ab68b4ed6c9d99",
+    "contract_persistence_report": "e47cc3b841f3817e3bd28ef984ca5013285eecc9ff03e83755f5e1d693037c45",
+    "frozen_configuration": "34ec70715572dcf4ab92a5bc6f56333cb9e312e443ef742b0ab09d3ef250ef9e",
+    "frozen_configuration_report": "67406412b5e4df4097ff13004122ed22e2546d50f9dd2be0a06077d6084f5067",
+    "inference_contract": "ab4fcdf09de790479a1014e8088c2cbad0fbcabaf54a19d001ca7b57388eb7b9",
+    "probability_output_contract": "ebf47736660dff50ca12640f42b3fba8ea5bd1d07ecf6dacc11ed98270ed9b65",
+    "probability_output_contract_report": "4e86449ac51216c18014dcbd43bae553a76bde74da7ed251ba16bc2e2ccf6fce"
+  },
+  "source_hashes_before": {
+    "calibration_handoff_manifest": "eb6a89b0e81b16ac68ab1a6c570de6429dd8e784c63e95f25205a09ac5a9047a",
+    "calibration_handoff_report": "1ba3960b5c29c813f2b8bba61d00fd719661869c31ac992402841b06c536ca3b",
+    "class_mapping": "dd15c0eeb994307f85802768db7a246b836106eca107bf5732ab68b4ed6c9d99",
+    "contract_persistence_report": "e47cc3b841f3817e3bd28ef984ca5013285eecc9ff03e83755f5e1d693037c45",
+    "frozen_configuration": "34ec70715572dcf4ab92a5bc6f56333cb9e312e443ef742b0ab09d3ef250ef9e",
+    "frozen_configuration_report": "67406412b5e4df4097ff13004122ed22e2546d50f9dd2be0a06077d6084f5067",
+    "inference_contract": "ab4fcdf09de790479a1014e8088c2cbad0fbcabaf54a19d001ca7b57388eb7b9",
+    "probability_output_contract": "ebf47736660dff50ca12640f42b3fba8ea5bd1d07ecf6dacc11ed98270ed9b65",
+    "probability_output_contract_report": "4e86449ac51216c18014dcbd43bae553a76bde74da7ed251ba16bc2e2ccf6fce"
+  },
+  "status": "PASS_ENSEMBLE_INFERENCE_CONTRACT_VALIDATION",
+  "validation_scope": "Reload and consistency validation of persisted inference metadata; not live model inference."
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIDS — Threat Intelligence Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo">
+        <div class="logo-text">🛡️ NIDS</div>
+        <div class="logo-sub">Threat Intelligence</div>
+    </div>
+
+    <div class="sidebar-scroll">
+        <div class="ctrl-section">
+            <div class="ctrl-label">Select Mode</div>
+            <div class="mode-toggle">
+                <button class="mode-btn active" data-mode="live">🔴 Live Capture</button>
+                <button class="mode-btn" data-mode="pcap">📂 PCAP Upload</button>
+            </div>
+            <div id="live-status" style="font-size:11px; color: var(--green); margin-top:6px;">
+                ● Monitoring live interface
+            </div>
+            <div id="pcap-upload-box" class="upload-box" style="display:none;">
+                <input type="file" id="pcap-input" accept=".pcap,.pcapng">
+                <div id="upload-label">Click to upload a .pcap file</div>
+                <div id="upload-filename" class="upload-name"></div>
+            </div>
+        </div>
+
+        <div class="ctrl-section" style="border-bottom: none; margin-bottom: 0;">
+            <div class="ctrl-label">Confidence Threshold <span class="slider-val" id="thresh-val">60%</span></div>
+            <input type="range" id="thresh-slider" min="0" max="100" value="60" step="5">
+            <div class="slider-hint">Alerts below this confidence are hidden</div>
+        </div>
+
+        <div class="ctrl-section" style="border-bottom: none; margin-bottom: 0; padding-top: 14px; border-top: 1px solid rgba(255,170,110,0.12);">
+            <div class="ctrl-label">Filter by Severity</div>
+            <label class="sev-check"><input type="checkbox" class="sev-cb" value="Critical" checked><span class="sev-dot" style="background:var(--red)"></span> Critical</label>
+            <label class="sev-check"><input type="checkbox" class="sev-cb" value="Warning" checked><span class="sev-dot" style="background:var(--orange)"></span> Warning</label>
+            <label class="sev-check"><input type="checkbox" class="sev-cb" value="Normal" checked><span class="sev-dot" style="background:var(--green)"></span> Normal</label>
+        </div>
+
+        <div class="ctrl-section" style="border-bottom: none; margin-bottom: 0; padding-top: 14px; border-top: 1px solid rgba(255,170,110,0.12);">
+            <div class="ctrl-label">Export</div>
+            <button class="export-btn" id="export-btn">⬇ Download PDF Report</button>
+            <div class="slider-hint">Summary, statistics, charts and recent alerts</div>
+        </div>
+    </div>
+
+    <div class="sidebar-footer">
+        <div class="user-card">
+            <div class="avatar">SR</div>
+            <div>
+                <div class="user-name">Srijan</div>
+                <div class="user-role">Security Analyst</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="page-info">
+            <span class="live-dot"></span>
+            <div class="page-title"><b>Dashboard</b> — <span id="page-mode">Live Monitoring</span></div>
+        </div>
+        <div class="metrics">
+            <div class="metric-card">
+                <div>
+                    <div class="m-label">Critical Alerts</div>
+                    <div class="m-value" id="m-critical" style="color:#FF2D2D">0</div>
+                    <div class="m-delta" id="m-critical-d">—</div>
+                </div>
+                <svg width="68" height="30" viewBox="0 0 68 30"><polyline points="0,26 12,20 22,23 34,14 46,18 56,10 68,7" fill="none" stroke="#E07020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="7" r="2.5" fill="#E07020"/></svg>
+            </div>
+            <div class="metric-card">
+                <div>
+                    <div class="m-label">Active Threats</div>
+                    <div class="m-value" id="m-threats" style="color:#FF8C42">0</div>
+                    <div class="m-delta dn" id="m-threats-d">unique sources, 5 min</div>
+                </div>
+                <svg width="68" height="30" viewBox="0 0 68 30"><polyline points="0,8 12,14 22,11 34,19 46,16 56,21 68,25" fill="none" stroke="#FF2D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="25" r="2.5" fill="#FF2D2D"/></svg>
+            </div>
+            <div class="metric-card">
+                <div>
+                    <div class="m-label">Flows Analysed</div>
+                    <div class="m-value" id="m-flows" style="color:#00D084">0</div>
+                    <div class="m-delta" id="m-flows-d">—</div>
+                </div>
+                <svg width="68" height="30" viewBox="0 0 68 30"><polyline points="0,24 12,20 22,18 34,13 46,15 56,9 68,6" fill="none" stroke="#00D084" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="6" r="2.5" fill="#00D084"/></svg>
+            </div>
+            <div class="metric-card">
+                <div>
+                    <div class="m-label">Avg Latency</div>
+                    <div class="m-value" id="m-latency" style="color:#4A9EFF">—</div>
+                    <div class="m-delta" id="m-latency-d">per flow</div>
+                </div>
+                <svg width="68" height="30" viewBox="0 0 68 30"><polyline points="0,22 12,18 22,20 34,14 46,11 56,9 68,5" fill="none" stroke="#4A9EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="5" r="2.5" fill="#4A9EFF"/></svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- THREAT MAP PANEL -->
+        <div class="panel threat-panel">
+            <div class="panel-header">
+                <div>
+                    <div class="panel-title">Threat Map</div>
+                    <div class="panel-sub">Global attack origin tracking — real time</div>
+                </div>
+                <span class="panel-badge" id="threat-map-badge">● 0 Locations</span>
+            </div>
+
+            <div id="threat-map"></div>
+
+            <div class="attack-table">
+                <div class="tbl-row tbl-head">
+                    <span>#</span><span>Location</span><span>Attacks</span><span>Type</span>
+                </div>
+                <div id="attack-table-body"></div>
+            </div>
+        </div>
+
+        <!-- ACTIVITY PANEL -->
+        <div class="panel activity-panel">
+            <div class="panel-header">
+                <div>
+                    <div class="panel-title">Alerts</div>
+                    <div class="panel-sub" id="feed-sub">Waiting for data…</div>
+                </div>
+                <button class="sort-btn" id="sort-btn">Sort: Time ↕</button>
+            </div>
+
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="feed">🚨 Feed</button>
+                <button class="tab-btn" data-tab="timeline">📈 Timeline</button>
+            </div>
+
+            <!-- TAB 1: ALERT FEED -->
+            <div class="tab-panel active" id="tab-feed">
+                <div class="activity-list" id="activity-list"></div>
+            </div>
+
+            <!-- TAB 2: TIMELINE -->
+            <div class="tab-panel" id="tab-timeline">
+                <div class="toolbar">
+                    <div class="chips" id="tl-chips"></div>
+                    <div class="tool-btns">
+                        <button class="mini-btn" id="tl-all">All</button>
+                        <button class="mini-btn" id="tl-none">None</button>
+                        <button class="mini-btn on" id="tl-live">● Live</button>
+                    </div>
+                </div>
+                <div id="timeline-chart"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="config.js"></script>
+<script src="api.js"></script>
+<script src="script.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

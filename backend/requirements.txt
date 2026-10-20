@@ -1,0 +1,14 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+websockets==13.1
+scapy==2.6.0
+pyshark==0.6
+cicflowmeter==0.3.0
+joblib==1.4.2
+scikit-learn==1.5.2
+numpy==1.26.4
+pandas==2.2.3
+python-multipart==0.0.9
+python-dotenv==1.0.1
+pydantic==2.9.2
+pydantic-settings==2.5.2

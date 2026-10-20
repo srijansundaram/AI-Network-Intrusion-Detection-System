@@ -1,0 +1,271 @@
+{
+  "artifact_id": "n08_final_ensemble_readiness_report_v1",
+  "artifact_integrity": {
+    "manifest_artifact_count": 20,
+    "manifest_hashes_match": true,
+    "manifest_inventory_errors": [],
+    "manifest_paths_valid": true,
+    "manifest_sizes_match": true
+  },
+  "calibration_handoff": {
+    "calibrated_confidence_scores_validated": false,
+    "calibration_performed": false,
+    "status": "READY_FOR_SEPARATE_ISSUE_9_WORKFLOW",
+    "target": "GitHub Issue #9"
+  },
+  "checks": [
+    {
+      "check": "package_directory_exists",
+      "details": "path=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1",
+      "status": "PASS"
+    },
+    {
+      "check": "required_readiness_evidence_exists",
+      "details": "required=20; missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_configuration_status",
+      "details": "status=PASS_FINAL_CONFIGURATION_FROZEN",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_configuration_report_status",
+      "details": "status=PASS_FINAL_CONFIGURATION_FREEZE",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_candidate_identity",
+      "details": "candidate=rf_0.75_lstm_0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_weights_match",
+      "details": "RF=0.75; LSTM=0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "frozen_weights_sum_to_one",
+      "details": "sum=1.0",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_identity",
+      "details": "artifact_id=n08_final_ensemble_package_manifest_v1",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_status",
+      "details": "manifest_status=VALIDATED_PACKAGE_INVENTORY",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_validation_report_status",
+      "details": "status=PASS_FINAL_ENSEMBLE_PACKAGE_MANIFEST_VALIDATION",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_validation_report_has_no_failures",
+      "details": "checks_failed_before_report_persistence=0",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_validation_report_hash_matches",
+      "details": "The validation report's manifest SHA-256 matches the persisted manifest.",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_candidate_and_weights",
+      "details": "candidate=rf_0.75_lstm_0.25; strategy=weighted_soft_voting; RF=0.75; LSTM=0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_probability_contract",
+      "details": "class_order=[0, 1, 2, 3, 4, 5, 6, 7, 8]; probability_status=uncalibrated",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_inventory_is_nonempty",
+      "details": "artifact_count=20",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_paths_are_safe_and_unique",
+      "details": "unique_paths=20; errors=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_artifact_hashes_match",
+      "details": "checked=20; errors=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_artifact_sizes_match",
+      "details": "checked=20; errors=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_artifact_count_matches",
+      "details": "recorded=20; actual=20",
+      "status": "PASS"
+    },
+    {
+      "check": "class_mapping_identity_and_order",
+      "details": "artifact_id=n08_ensemble_class_mapping_v1; class_order=[0, 1, 2, 3, 4, 5, 6, 7, 8]; class_count=9",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_identity",
+      "details": "artifact_id=n08_ensemble_inference_contract_v1; contract_status=VALIDATED_FROM_EXISTING_PACKAGE_EVIDENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_matches_frozen_strategy",
+      "details": "candidate=rf_0.75_lstm_0.25; RF=0.75; LSTM=0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_class_order_and_probability_status",
+      "details": "class_order=[0, 1, 2, 3, 4, 5, 6, 7, 8]; class_count=9; probability_status=uncalibrated",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_calibration_handoff",
+      "details": "handoff_status=PASS_CALIBRATION_HANDOFF_READY",
+      "status": "PASS"
+    },
+    {
+      "check": "contract_persistence_report_status",
+      "details": "status=PASS_ENSEMBLE_CONTRACT_AND_CLASS_MAPPING_PERSISTENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "inference_contract_validation_status",
+      "details": "status=PASS_ENSEMBLE_INFERENCE_CONTRACT_VALIDATION; checks_failed=0",
+      "status": "PASS"
+    },
+    {
+      "check": "probability_output_contract_status",
+      "details": "status=PASS_UNCALIBRATED_PROBABILITY_OUTPUT_CONTRACT",
+      "status": "PASS"
+    },
+    {
+      "check": "embedded_probability_contract_matches",
+      "details": "Embedded probability-output contract matches the packaged source artifact.",
+      "status": "PASS"
+    },
+    {
+      "check": "probability_outputs_remain_uncalibrated",
+      "details": "The package documents uncalibrated probabilities; no calibration is claimed.",
+      "status": "PASS"
+    },
+    {
+      "check": "unified_validation_audit_status",
+      "details": "verdict=PASS_UNIFIED_VALIDATION_RESULTS_READ_ONLY_AUDIT",
+      "status": "PASS"
+    },
+    {
+      "check": "classwise_analysis_report_status",
+      "details": "status=PASS_CLASSWISE_ERROR_ANALYSIS",
+      "status": "PASS"
+    },
+    {
+      "check": "test_history_report_status",
+      "details": "status=PASS_TEST_HISTORY_REPORTING_AUDIT",
+      "status": "PASS"
+    },
+    {
+      "check": "final_evaluation_manifest_status",
+      "details": "status=VALIDATED",
+      "status": "PASS"
+    },
+    {
+      "check": "final_evaluation_persistence_report_status",
+      "details": "status=PASS_FINAL_EVALUATION_ARTIFACT_PERSISTENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "manifest_evaluation_provenance_is_disclosed",
+      "details": "primary_partition=Validation; prior RF/LSTM Test evaluation disclosed; ensemble Test evaluation not inferred without evidence",
+      "status": "PASS"
+    },
+    {
+      "check": "final_strategy_comparison_readable",
+      "details": "top_level_keys=12",
+      "status": "PASS"
+    },
+    {
+      "check": "unified_validation_results_readable",
+      "details": "top_level_keys=13",
+      "status": "PASS"
+    },
+    {
+      "check": "existing_evidence_unchanged",
+      "details": "All audited pre-existing package evidence retains its original SHA-256 hashes.",
+      "status": "PASS"
+    }
+  ],
+  "checks_failed_before_report_persistence": 0,
+  "checks_passed_before_report_persistence": 38,
+  "ensemble": {
+    "candidate_id": "rf_0.75_lstm_0.25",
+    "combination_rule": "P_ensemble = 0.75 * P_RF + 0.25 * P_LSTM",
+    "lstm_weight": 0.25,
+    "rf_weight": 0.75,
+    "strategy": "weighted_soft_voting"
+  },
+  "evaluation_provenance": {
+    "ensemble_test_evaluation_inferred_without_evidence": false,
+    "final_evaluation_manifest_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/section_8_7_final_evaluation_manifest_v1.json",
+    "final_strategy_comparison_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/final_strategy_comparison_v1.json",
+    "primary_partition": "Validation",
+    "prior_rf_and_lstm_test_evaluation_disclosed": true,
+    "test_evaluation_history_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/test_evaluation_history_v1.json",
+    "unified_validation_results_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/unified_validation_results_v2.json"
+  },
+  "execution_boundaries": {
+    "evaluation_metrics_recalculated": false,
+    "existing_package_evidence_modified": false,
+    "frozen_configuration_modified": false,
+    "live_model_inference_tested": false,
+    "manifest_or_manifest_report_modified": false,
+    "models_trained_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "test_arrays_loaded": false
+  },
+  "inference_contract": {
+    "artifact_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/ensemble_inference_contract_v1.json",
+    "class_mapping_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/ensemble_class_mapping_v1.json",
+    "class_names": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "class_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "live_inference_executed": false,
+    "probability_status": "uncalibrated"
+  },
+  "manifest_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/final_ensemble_package_manifest_v1.json",
+  "manifest_sha256": "4c4075714b8a403bf18c1c4f3ba580513fc0ea956350469eef6c1a201cdcf12b",
+  "manifest_validation_report_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1/final_ensemble_package_manifest_validation_report_v1.json",
+  "package_directory": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/final_ensemble_package_v1",
+  "readiness_decision": "READY_FOR_CALIBRATION_HANDOFF",
+  "status": "PASS_FINAL_ENSEMBLE_READINESS"
+}

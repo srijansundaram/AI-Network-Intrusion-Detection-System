@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "artifact_name": "selected_calibrator_configuration",
+  "method": "multiclass_temperature_scaling",
+  "method_status": "SELECTED_AND_FITTED",
+  "operational_status": "PERSISTED_FOR_INFERENCE_WITH_DOCUMENTED_PROVENANCE_LIMITATION",
+  "temperature": 0.7703281965251618,
+  "temperature_parameterization": "T = exp(log_temperature)",
+  "temperature_scope": "one_global_scalar_for_all_classes",
+  "class_count": 9,
+  "class_order": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ],
+  "input_requirements": {
+    "shape": "(n_observations, 9)",
+    "values": "finite probabilities in [0, 1]",
+    "row_sum": "approximately 1",
+    "column_order": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ]
+  },
+  "output_semantics": {
+    "shape": "(n_observations, 9)",
+    "values": "normalized calibrated probabilities",
+    "predicted_class": "argmax of calibrated probabilities; temperature scaling preserves row-wise class ranking apart from numerical ties"
+  },
+  "fitting": {
+    "source": "existing OOF ensemble probabilities and aligned OOF labels",
+    "observation_count": 1814009,
+    "objective": "multiclass negative log likelihood",
+    "validation_labels_used": false
+  },
+  "provenance_limitations": {
+    "oof_provenance_verified": false,
+    "index_semantics_verified": false,
+    "interpretation": "The calibrator is fitted and persisted for operational integration, but the independence/provenance of the OOF predictions has not been independently verified. Do not claim leakage-free calibration or fully validated research-grade final approval."
+  },
+  "ensemble_retrained": false,
+  "upstream_artifacts_modified": false,
+  "created_utc": "2026-10-20T06:41:47.711941+00:00"
+}

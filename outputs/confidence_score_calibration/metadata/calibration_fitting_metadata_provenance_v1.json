@@ -1,0 +1,91 @@
+{
+  "report_name": "calibration_fitting_metadata_and_provenance",
+  "report_version": "v1",
+  "subsection": "9.3.5",
+  "created_at_utc": "2026-10-20T06:30:04.724808+00:00",
+  "project": {
+    "name": "AI-Powered Network Intrusion Detection System",
+    "project_root": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System"
+  },
+  "calibration_method": {
+    "name": "multiclass_temperature_scaling",
+    "selection_status": "PRIMARY_CANDIDATE_NOT_FINALIZED",
+    "class_count": 9,
+    "class_names_in_order": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "random_forest_weight": 0.75,
+    "lstm_weight": 0.25
+  },
+  "data_provenance": {
+    "alignment_status": "ALIGNMENT_VALIDATED",
+    "oof_provenance_status": "UNRESOLVED",
+    "index_semantics_status": "UNRESOLVED",
+    "alignment_validated": true,
+    "oof_provenance_verified": false,
+    "index_semantics_verified": false,
+    "validation_used_for_fitting": false,
+    "provenance_limitation": "Array alignment checks do not independently prove that each OOF prediction was generated without training on its corresponding observation. The provenance and index semantics remain unresolved unless supported by explicit upstream evidence."
+  },
+  "fitting_record": {
+    "fitting_status": "NOT_FITTED_PROVENANCE_OR_PRECONDITION_GATE_CLOSED",
+    "fitting_authorized": false,
+    "calibrator_fitted": false,
+    "fitting_report_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibrator_fitting_integrity_report_v1.json",
+    "calibrator_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/multiclass_temperature_scaling_v1.json",
+    "calibrator_file_exists": false,
+    "calibrator_integrity_status": "NO_CALIBRATOR_CONFIRMED_BY_FITTING_REPORT"
+  },
+  "upstream_reports": {
+    "strategy": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_strategy_v1.json",
+      "exists": true,
+      "sha256": "8edc15f2d40ee1584138c8da5b19d780b2490b9cb8d08e93b180929733317952",
+      "loaded_successfully": true
+    },
+    "alignment": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/oof_probability_label_alignment_v1.json",
+      "exists": true,
+      "sha256": "527f23fb93883950c33b2c5bc6bbbc78a70c9eb7e88965e418ae3479d359496b",
+      "loaded_successfully": true
+    },
+    "configuration": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_method_configuration_v1.json",
+      "exists": true,
+      "sha256": "bb43cb03f8e06292e150f456b528c129d98f02c2b5feb7b6a5b7c8c8bf45b5c1",
+      "loaded_successfully": true
+    },
+    "fitting_integrity": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibrator_fitting_integrity_report_v1.json",
+      "exists": true,
+      "sha256": "ac3499dd8c6b601a57fd573e8281f9703645f13187bf6b46b6cc2f82534ab5d3",
+      "loaded_successfully": true
+    }
+  },
+  "report_validation": {
+    "all_required_reports_loaded": true,
+    "report_identity_checks": {
+      "strategy_report_is_9_3_1": true,
+      "alignment_report_is_9_3_2": true,
+      "configuration_report_is_9_3_3": true,
+      "fitting_report_is_9_3_4": true
+    },
+    "all_report_identities_valid": true,
+    "report_load_errors": {}
+  },
+  "safety": {
+    "calibrator_fitted_by_this_subsection": false,
+    "fitting_authorization_changed": false,
+    "ensemble_retrained": false,
+    "upstream_artifacts_modified": false,
+    "unresolved_provenance_overridden": false
+  }
+}

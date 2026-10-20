@@ -1,0 +1,87 @@
+{
+  "report_name": "Final LSTM Readiness Gate",
+  "report_version": "1.0",
+  "section": "7.10.4",
+  "created_at_utc": "2026-10-12T18:32:06.212706+00:00",
+  "status": "READY_FOR_HANDOFF",
+  "notebook": "N07 \u2014 LSTM Intrusion Detection Model",
+  "selected_experiment": "LSTM-3",
+  "criteria_total": 8,
+  "criteria_passed": 8,
+  "criteria_failed": 0,
+  "criteria": [
+    {
+      "criterion": "Final model and refit completed",
+      "status": "PASSED",
+      "evidence": "LSTM-3 checkpoint and four-epoch refit records are persisted"
+    },
+    {
+      "criterion": "Consumer contract and architecture are consistent",
+      "status": "PASSED",
+      "evidence": "Input=(batch, 10, 32), output=(batch, 9) raw logits"
+    },
+    {
+      "criterion": "Handoff metadata and manifest are valid",
+      "status": "PASSED",
+      "evidence": "58 entries; invalid entries=0"
+    },
+    {
+      "criterion": "Cross-artifact validation passed",
+      "status": "PASSED",
+      "evidence": "status=PASSED, passed=147, failed=0"
+    },
+    {
+      "criterion": "Final model reload validation passed",
+      "status": "PASSED",
+      "evidence": "status=PASSED"
+    },
+    {
+      "criterion": "Independent Test evidence is internally consistent",
+      "status": "PASSED",
+      "evidence": "Test sequences=565,501; prediction/target alignment=True; confusion matrix match=True"
+    },
+    {
+      "criterion": "Independent Test remained reporting-only",
+      "status": "PASSED",
+      "evidence": "Test data was not used for strategy selection"
+    },
+    {
+      "criterion": "Limitations and downstream requirements documented",
+      "status": "PASSED",
+      "evidence": "Preprocessing, output semantics, and continuity limitations recorded"
+    }
+  ],
+  "failed_criteria": [],
+  "artifact_paths": {
+    "checkpoint": "outputs/lstm_model_development/final_model/final_model.pt",
+    "configuration": "outputs/lstm_model_development/final_model/final_training_config.json",
+    "consumer_contract": "outputs/lstm_model_development/final_model/lstm_consumer_contract.json",
+    "metadata": "outputs/lstm_model_development/final_model/lstm_handoff_metadata.json",
+    "manifest": "outputs/lstm_model_development/final_model/lstm_handoff_manifest.json",
+    "cross_artifact_validation": "outputs/lstm_model_development/final_model/lstm_handoff_validation.json",
+    "reload_validation": "outputs/lstm_model_development/final_model/final_model_reload_validation.json",
+    "independent_test_evaluation": "outputs/lstm_model_development/final_model/independent_test_evaluation.json",
+    "error_analysis": "outputs/lstm_model_development/final_model/independent_test_error_analysis.json"
+  },
+  "independent_test_results": {
+    "test_sequences": 565501,
+    "accuracy": 0.9983660506347469,
+    "macro_f1": 0.9137342508128012,
+    "weighted_f1": 0.9983998348481631
+  },
+  "boundaries": {
+    "model_retrained": false,
+    "inference_rerun": false,
+    "independent_test_used_for_selection": false,
+    "existing_model_artifacts_modified": false
+  },
+  "handoff_notes": [
+    "Use the persisted final_model.pt checkpoint and documented architecture.",
+    "Supply correctly ordered, scaled float32 sequences shaped (batch_size, 10, 32).",
+    "The model returns raw logits shaped (batch_size, 9), not calibrated probabilities.",
+    "Recover the authoritative N04 preprocessing and feature order before inference.",
+    "Perform separate RF-LSTM ensemble integration and end-to-end testing.",
+    "Chronological and session continuity were not established."
+  ],
+  "next_step": "Notebook 07 complete; proceed to RF-LSTM ensemble integration."
+}

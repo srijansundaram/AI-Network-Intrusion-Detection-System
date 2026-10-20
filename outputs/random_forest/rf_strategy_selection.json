@@ -1,0 +1,47 @@
+{
+  "section": "5.10.3",
+  "selection_status": "selected",
+  "selected_strategy_id": "RF-3",
+  "selected_strategy_name": "Controlled Random Oversampling",
+  "selection_partition": "Validation",
+  "primary_selection_metric": "macro_f1",
+  "primary_selection_direction": "maximize",
+  "selected_validation_macro_f1": 0.8834704218666544,
+  "candidate_strategy_order": [
+    {
+      "strategy_id": "RF-3",
+      "strategy_name": "Controlled Random Oversampling",
+      "macro_f1": 0.8834704218666544
+    },
+    {
+      "strategy_id": "RF-4",
+      "strategy_name": "Controlled SMOTE",
+      "macro_f1": 0.8552286507399987
+    },
+    {
+      "strategy_id": "RF-2",
+      "strategy_name": "Balanced-Subsample Class Weighting",
+      "macro_f1": 0.8506486375240001
+    },
+    {
+      "strategy_id": "RF-1",
+      "strategy_name": "Balanced Class Weighting",
+      "macro_f1": 0.8498204649451766
+    },
+    {
+      "strategy_id": "RF-0",
+      "strategy_name": "Natural Distribution Baseline",
+      "macro_f1": 0.8166403416106625
+    }
+  ],
+  "independent_test_used": false,
+  "model_fitting_performed": false,
+  "validation_predictions_regenerated": false,
+  "training_distribution_modified": false,
+  "validation_distribution_modified": false,
+  "random_oversampling_performed": false,
+  "synthetic_sampling_performed": false,
+  "final_model_training_performed": false,
+  "final_model_training_reserved_for": "5.11",
+  "independent_test_evaluation_reserved_for": "5.12"
+}

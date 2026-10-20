@@ -1,0 +1,6 @@
+case_id,observation_index,selection_category,true_class_id,true_class_label,predicted_class_id,predicted_class_label,predicted_class_probability,maximum_predicted_probability,correct_prediction
+VAL_0048,48,correct,0,BENIGN,0,BENIGN,1.0,1.0,True
+VAL_0056,56,misclassified,2,Port Scan,0,BENIGN,0.7,0.7,False
+VAL_0315,315,correct,2,Port Scan,2,Port Scan,1.0,1.0,True
+VAL_0422,422,correct,1,DDoS,1,DDoS,1.0,1.0,True
+VAL_0470,470,misclassified,0,BENIGN,2,Port Scan,0.6564285714285713,0.6564285714285713,False

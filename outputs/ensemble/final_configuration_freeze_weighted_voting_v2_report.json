@@ -1,0 +1,137 @@
+{
+  "benchmark_candidate_id": "rf_baseline",
+  "checks": [
+    {
+      "check": "required_upstream_artifacts_exist",
+      "details": "required=4; missing=[]",
+      "status": "PASS"
+    },
+    {
+      "check": "comparison_status",
+      "details": "status=PASS_FINAL_CANDIDATE_COMPARISON",
+      "status": "PASS"
+    },
+    {
+      "check": "comparison_report_status",
+      "details": "status=PASS_FINAL_CANDIDATE_COMPARISON",
+      "status": "PASS"
+    },
+    {
+      "check": "comparison_report_has_zero_failures",
+      "details": "checks_failed=0",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_status",
+      "details": "status=PASS_VALIDATION_BASED_STRATEGY_SELECTION",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_report_status",
+      "details": "status=PASS_VALIDATION_BASED_STRATEGY_SELECTION",
+      "status": "PASS"
+    },
+    {
+      "check": "validation_partition_contract",
+      "details": "comparison=Validation; selection=Validation",
+      "status": "PASS"
+    },
+    {
+      "check": "validation_observation_count",
+      "details": "comparison=451206; selection=451206; expected=451206",
+      "status": "PASS"
+    },
+    {
+      "check": "nine_class_order",
+      "details": "class_ids=[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+      "status": "PASS"
+    },
+    {
+      "check": "primary_metric_is_macro_f1",
+      "details": "comparison=macro_f1; selection=macro_f1",
+      "status": "PASS"
+    },
+    {
+      "check": "candidate_results_is_list",
+      "details": "type=list",
+      "status": "PASS"
+    },
+    {
+      "check": "selected_candidate_exists",
+      "details": "candidate_id=rf_0.75_lstm_0.25; available=['equal_weight', 'lstm_baseline', 'rf_0.25_lstm_0.75', 'rf_0.40_lstm_0.60', 'rf_0.60_lstm_0.40', 'rf_0.75_lstm_0.25', 'rf_baseline', 'stacking_meta_model']",
+      "status": "PASS"
+    },
+    {
+      "check": "benchmark_candidate_exists",
+      "details": "candidate_id=rf_baseline",
+      "status": "PASS"
+    },
+    {
+      "check": "all_eight_candidates_present",
+      "details": "candidate_count=8",
+      "status": "PASS"
+    },
+    {
+      "check": "selected_candidate_validation_partition",
+      "details": "partition=Validation",
+      "status": "PASS"
+    },
+    {
+      "check": "selected_candidate_observation_count",
+      "details": "observations=451206",
+      "status": "PASS"
+    },
+    {
+      "check": "weighted_voting_weights_verified",
+      "details": "RF=0.75; LSTM=0.25; expected=(0.75, 0.25)",
+      "status": "PASS"
+    },
+    {
+      "check": "selection_record_preserved_as_empirical_decision",
+      "details": "Section 8.6.2 macro-F1 winner=rf_baseline; project freeze candidate=rf_0.75_lstm_0.25",
+      "status": "PASS"
+    },
+    {
+      "check": "selected_candidate_macro_f1_matches_expected_evidence",
+      "details": "macro_f1=0.8662480183",
+      "status": "PASS"
+    },
+    {
+      "check": "rf_benchmark_macro_f1_matches_expected_evidence",
+      "details": "macro_f1=0.8834704173",
+      "status": "PASS"
+    },
+    {
+      "check": "freeze_configuration_reload_integrity",
+      "details": "path=/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze_weighted_voting_v2.json; write_mode=CREATED_NEW",
+      "status": "PASS"
+    }
+  ],
+  "checks_failed": 0,
+  "checks_passed": 21,
+  "configuration_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze_weighted_voting_v2.json",
+  "configuration_write_mode": "CREATED_NEW",
+  "created_at_utc": "2026-10-17T16:58:18.910141+00:00",
+  "execution_constraints": {
+    "models_fitted_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "test_arrays_loaded": false,
+    "upstream_artifacts_modified": false
+  },
+  "frozen_candidate_id": "rf_0.75_lstm_0.25",
+  "lstm_weight": 0.25,
+  "observation_count": 451206,
+  "partition": "Validation",
+  "report_id": "n08_final_configuration_freeze_weighted_voting_v2_report",
+  "rf_weight": 0.75,
+  "section": "8.6.3",
+  "source_artifact_sha256": {
+    "candidate_comparison_json": "fc1923f9944bc5e1757492a287720fb667805e35d0f38c66aaca077adfb8e44a",
+    "candidate_comparison_report": "3ab57b7aeaaebb381c251a02a8bdb7883dbdfcb10c25e7d0fc45e979a2c26c35",
+    "strategy_selection_json": "af7148b4f1114b4f0099376940d3d19eaa193109216a88b2658c3731b73d02ad",
+    "strategy_selection_report": "619f721f4dc6e0559a29ffe4804ad79409fdb126cf11ec127bc11b80ced54a7a"
+  },
+  "status": "PASS_FINAL_CONFIGURATION_FREEZE",
+  "verdict": "PASS_RF_LSTM_WEIGHTED_SOFT_VOTING_FROZEN"
+}

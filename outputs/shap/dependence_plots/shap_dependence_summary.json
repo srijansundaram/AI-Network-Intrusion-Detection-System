@@ -1,0 +1,35 @@
+{
+  "method": "Feature value versus existing class-specific SHAP contribution",
+  "explanation_partition": "original_n04_validation",
+  "explanation_observations": 500,
+  "selected_feature_count": 3,
+  "dependence_plot_count": 3,
+  "dependence_record_count": 1500,
+  "selected_feature_class_pairs": [
+    {
+      "feature": "Destination Port",
+      "feature_index": 31,
+      "class_label": "BENIGN",
+      "class_index": 0,
+      "class_mean_abs_shap": 0.05653742978901219
+    },
+    {
+      "feature": "Bwd Packet Length Std",
+      "feature_index": 15,
+      "class_label": "BENIGN",
+      "class_index": 0,
+      "class_mean_abs_shap": 0.04714051545365302
+    },
+    {
+      "feature": "Average Packet Size",
+      "feature_index": 12,
+      "class_label": "BENIGN",
+      "class_index": 0,
+      "class_mean_abs_shap": 0.03553005661486646
+    }
+  ],
+  "feature_value_representation": "Existing model-input representation used for SHAP explanations",
+  "independent_test_accessed": false,
+  "shap_recalculated": false,
+  "artifacts_persisted": false
+}

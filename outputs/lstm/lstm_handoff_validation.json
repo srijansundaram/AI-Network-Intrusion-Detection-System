@@ -1,0 +1,766 @@
+{
+  "report_name": "LSTM Handoff Cross-Artifact Validation",
+  "report_version": "1.0",
+  "section": "7.10.3",
+  "created_at_utc": "2026-10-12T18:27:51.650192+00:00",
+  "status": "PASSED",
+  "selected_experiment": "LSTM-3",
+  "metadata_path": "outputs/lstm_model_development/final_model/lstm_handoff_metadata.json",
+  "manifest_path": "outputs/lstm_model_development/final_model/lstm_handoff_manifest.json",
+  "checks_total": 147,
+  "checks_passed": 147,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "check": "Required artifact exists \u2014 Handoff metadata",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/lstm_handoff_metadata.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Handoff manifest",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/lstm_handoff_manifest.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Consumer contract",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/lstm_consumer_contract.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Final checkpoint",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_model.pt"
+    },
+    {
+      "check": "Required artifact exists \u2014 Final configuration",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_training_config.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Final training status",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_training_status.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Final training history",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_training_history.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Original final-model manifest",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_artifact_manifest.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Reload-validation report",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_model_reload_validation.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Strategy-selection report",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/strategy_comparison/validation_strategy_selection.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Independent Test evaluation",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_evaluation.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Independent Test error analysis",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_error_analysis.json"
+    },
+    {
+      "check": "Required artifact exists \u2014 Independent Test predictions",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_predictions.npy"
+    },
+    {
+      "check": "Required artifact exists \u2014 Independent Test targets",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_targets.npy"
+    },
+    {
+      "check": "Required artifact exists \u2014 Independent Test confusion matrix",
+      "status": "PASSED",
+      "details": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/independent_test_confusion_matrix.npy"
+    },
+    {
+      "check": "Manifest count matches its entries",
+      "status": "PASSED",
+      "details": "declared=58, actual=58"
+    },
+    {
+      "check": "Manifest paths are unique",
+      "status": "PASSED",
+      "details": "58 entries"
+    },
+    {
+      "check": "Manifest size \u2014 final_model_checkpoint",
+      "status": "PASSED",
+      "details": "recorded=316513, actual=316513"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 final_model_checkpoint",
+      "status": "PASSED",
+      "details": "final_model.pt"
+    },
+    {
+      "check": "Manifest size \u2014 final_training_configuration",
+      "status": "PASSED",
+      "details": "recorded=2291, actual=2291"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 final_training_configuration",
+      "status": "PASSED",
+      "details": "final_training_config.json"
+    },
+    {
+      "check": "Manifest size \u2014 final_training_history",
+      "status": "PASSED",
+      "details": "recorded=1360, actual=1360"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 final_training_history",
+      "status": "PASSED",
+      "details": "final_training_history.json"
+    },
+    {
+      "check": "Manifest size \u2014 final_training_status",
+      "status": "PASSED",
+      "details": "recorded=411, actual=411"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 final_training_status",
+      "status": "PASSED",
+      "details": "final_training_status.json"
+    },
+    {
+      "check": "Manifest size \u2014 original_final_model_manifest",
+      "status": "PASSED",
+      "details": "recorded=1427, actual=1427"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 original_final_model_manifest",
+      "status": "PASSED",
+      "details": "final_artifact_manifest.json"
+    },
+    {
+      "check": "Manifest size \u2014 consumer_input_output_contract",
+      "status": "PASSED",
+      "details": "recorded=4007, actual=4007"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 consumer_input_output_contract",
+      "status": "PASSED",
+      "details": "lstm_consumer_contract.json"
+    },
+    {
+      "check": "Manifest size \u2014 final_model_reload_validation",
+      "status": "PASSED",
+      "details": "recorded=2393, actual=2393"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 final_model_reload_validation",
+      "status": "PASSED",
+      "details": "final_model_reload_validation.json"
+    },
+    {
+      "check": "Manifest size \u2014 validation_strategy_selection",
+      "status": "PASSED",
+      "details": "recorded=2460, actual=2460"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 validation_strategy_selection",
+      "status": "PASSED",
+      "details": "validation_strategy_selection.json"
+    },
+    {
+      "check": "Manifest size \u2014 independent_test_evaluation",
+      "status": "PASSED",
+      "details": "recorded=4236, actual=4236"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 independent_test_evaluation",
+      "status": "PASSED",
+      "details": "independent_test_evaluation.json"
+    },
+    {
+      "check": "Manifest size \u2014 independent_test_error_analysis",
+      "status": "PASSED",
+      "details": "recorded=7748, actual=7748"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 independent_test_error_analysis",
+      "status": "PASSED",
+      "details": "independent_test_error_analysis.json"
+    },
+    {
+      "check": "Manifest size \u2014 independent_test_predictions",
+      "status": "PASSED",
+      "details": "recorded=4524136, actual=4524136"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 independent_test_predictions",
+      "status": "PASSED",
+      "details": "independent_test_predictions.npy"
+    },
+    {
+      "check": "Manifest size \u2014 independent_test_targets",
+      "status": "PASSED",
+      "details": "recorded=4524136, actual=4524136"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 independent_test_targets",
+      "status": "PASSED",
+      "details": "independent_test_targets.npy"
+    },
+    {
+      "check": "Manifest size \u2014 independent_test_confusion_matrix",
+      "status": "PASSED",
+      "details": "recorded=776, actual=776"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 independent_test_confusion_matrix",
+      "status": "PASSED",
+      "details": "independent_test_confusion_matrix.npy"
+    },
+    {
+      "check": "Manifest size \u2014 common_architecture_configuration",
+      "status": "PASSED",
+      "details": "recorded=1884, actual=1884"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 common_architecture_configuration",
+      "status": "PASSED",
+      "details": "n07_common_lstm_architecture_training_config.json"
+    },
+    {
+      "check": "Manifest size \u2014 loss_sampling_reproducibility_configuration",
+      "status": "PASSED",
+      "details": "recorded=3799, actual=3799"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 loss_sampling_reproducibility_configuration",
+      "status": "PASSED",
+      "details": "n07_loss_sampling_reproducibility_config.json"
+    },
+    {
+      "check": "Manifest size \u2014 strategy_comparison_report",
+      "status": "PASSED",
+      "details": "recorded=6454, actual=6454"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 strategy_comparison_report",
+      "status": "PASSED",
+      "details": "strategy_comparison.json"
+    },
+    {
+      "check": "Manifest size \u2014 strategy_comparison_verification",
+      "status": "PASSED",
+      "details": "recorded=968, actual=968"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 strategy_comparison_verification",
+      "status": "PASSED",
+      "details": "strategy_comparison_verification.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-0_baseline_artifact_verification",
+      "status": "PASSED",
+      "details": "recorded=1660, actual=1660"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-0_baseline_artifact_verification",
+      "status": "PASSED",
+      "details": "baseline_artifact_verification.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-0_baseline_integrity_validation",
+      "status": "PASSED",
+      "details": "recorded=4311, actual=4311"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-0_baseline_integrity_validation",
+      "status": "PASSED",
+      "details": "baseline_integrity_validation.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-0_experiment_metadata",
+      "status": "PASSED",
+      "details": "recorded=4939, actual=4939"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-0_experiment_metadata",
+      "status": "PASSED",
+      "details": "experiment_metadata.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-0_training_artifact_manifest",
+      "status": "PASSED",
+      "details": "recorded=4936, actual=4936"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-0_training_artifact_manifest",
+      "status": "PASSED",
+      "details": "training_artifact_manifest.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-0_training_history",
+      "status": "PASSED",
+      "details": "recorded=2479, actual=2479"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-0_training_history",
+      "status": "PASSED",
+      "details": "training_history.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-0_training_pilot_report",
+      "status": "PASSED",
+      "details": "recorded=573, actual=573"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-0_training_pilot_report",
+      "status": "PASSED",
+      "details": "training_pilot_report.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-0_training_run_status",
+      "status": "PASSED",
+      "details": "recorded=456, actual=456"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-0_training_run_status",
+      "status": "PASSED",
+      "details": "training_run_status.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-0_validation_detailed_metrics",
+      "status": "PASSED",
+      "details": "recorded=4073, actual=4073"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-0_validation_detailed_metrics",
+      "status": "PASSED",
+      "details": "validation_detailed_metrics.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-0_validation_metrics",
+      "status": "PASSED",
+      "details": "recorded=841, actual=841"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-0_validation_metrics",
+      "status": "PASSED",
+      "details": "validation_metrics.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-1_class_weight_strategy",
+      "status": "PASSED",
+      "details": "recorded=3309, actual=3309"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-1_class_weight_strategy",
+      "status": "PASSED",
+      "details": "class_weight_strategy.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-1_experiment_metadata",
+      "status": "PASSED",
+      "details": "recorded=2853, actual=2853"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-1_experiment_metadata",
+      "status": "PASSED",
+      "details": "experiment_metadata.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-1_lstm1_artifact_verification",
+      "status": "PASSED",
+      "details": "recorded=1689, actual=1689"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-1_lstm1_artifact_verification",
+      "status": "PASSED",
+      "details": "lstm1_artifact_verification.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-1_lstm1_integrity_validation",
+      "status": "PASSED",
+      "details": "recorded=5333, actual=5333"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-1_lstm1_integrity_validation",
+      "status": "PASSED",
+      "details": "lstm1_integrity_validation.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-1_training_artifact_manifest",
+      "status": "PASSED",
+      "details": "recorded=5826, actual=5826"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-1_training_artifact_manifest",
+      "status": "PASSED",
+      "details": "training_artifact_manifest.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-1_training_history",
+      "status": "PASSED",
+      "details": "recorded=2477, actual=2477"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-1_training_history",
+      "status": "PASSED",
+      "details": "training_history.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-1_training_run_status",
+      "status": "PASSED",
+      "details": "recorded=619, actual=619"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-1_training_run_status",
+      "status": "PASSED",
+      "details": "training_run_status.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-1_validation_detailed_metrics",
+      "status": "PASSED",
+      "details": "recorded=4503, actual=4503"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-1_validation_detailed_metrics",
+      "status": "PASSED",
+      "details": "validation_detailed_metrics.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-1_validation_metrics",
+      "status": "PASSED",
+      "details": "recorded=1206, actual=1206"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-1_validation_metrics",
+      "status": "PASSED",
+      "details": "validation_metrics.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-2_class_aware_sampling_strategy",
+      "status": "PASSED",
+      "details": "recorded=4875, actual=4875"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-2_class_aware_sampling_strategy",
+      "status": "PASSED",
+      "details": "class_aware_sampling_strategy.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-2_experiment_metadata",
+      "status": "PASSED",
+      "details": "recorded=3197, actual=3197"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-2_experiment_metadata",
+      "status": "PASSED",
+      "details": "experiment_metadata.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-2_lstm2_artifact_verification",
+      "status": "PASSED",
+      "details": "recorded=1804, actual=1804"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-2_lstm2_artifact_verification",
+      "status": "PASSED",
+      "details": "lstm2_artifact_verification.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-2_lstm2_integrity_validation",
+      "status": "PASSED",
+      "details": "recorded=3000, actual=3000"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-2_lstm2_integrity_validation",
+      "status": "PASSED",
+      "details": "lstm2_integrity_validation.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-2_training_artifact_manifest",
+      "status": "PASSED",
+      "details": "recorded=6320, actual=6320"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-2_training_artifact_manifest",
+      "status": "PASSED",
+      "details": "training_artifact_manifest.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-2_training_history",
+      "status": "PASSED",
+      "details": "recorded=2102, actual=2102"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-2_training_history",
+      "status": "PASSED",
+      "details": "training_history.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-2_training_run_status",
+      "status": "PASSED",
+      "details": "recorded=292, actual=292"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-2_training_run_status",
+      "status": "PASSED",
+      "details": "training_run_status.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-2_validation_detailed_metrics",
+      "status": "PASSED",
+      "details": "recorded=4665, actual=4665"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-2_validation_detailed_metrics",
+      "status": "PASSED",
+      "details": "validation_detailed_metrics.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-2_validation_metrics",
+      "status": "PASSED",
+      "details": "recorded=763, actual=763"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-2_validation_metrics",
+      "status": "PASSED",
+      "details": "validation_metrics.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-3_controlled_sequence_oversampling_rules",
+      "status": "PASSED",
+      "details": "recorded=5212, actual=5212"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-3_controlled_sequence_oversampling_rules",
+      "status": "PASSED",
+      "details": "controlled_sequence_oversampling_rules.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-3_experiment_metadata",
+      "status": "PASSED",
+      "details": "recorded=1680, actual=1680"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-3_experiment_metadata",
+      "status": "PASSED",
+      "details": "experiment_metadata.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-3_lstm3_artifact_verification",
+      "status": "PASSED",
+      "details": "recorded=1842, actual=1842"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-3_lstm3_artifact_verification",
+      "status": "PASSED",
+      "details": "lstm3_artifact_verification.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-3_lstm3_integrity_validation",
+      "status": "PASSED",
+      "details": "recorded=3322, actual=3322"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-3_lstm3_integrity_validation",
+      "status": "PASSED",
+      "details": "lstm3_integrity_validation.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-3_training_artifact_manifest",
+      "status": "PASSED",
+      "details": "recorded=6669, actual=6669"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-3_training_artifact_manifest",
+      "status": "PASSED",
+      "details": "training_artifact_manifest.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-3_training_history",
+      "status": "PASSED",
+      "details": "recorded=2493, actual=2493"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-3_training_history",
+      "status": "PASSED",
+      "details": "training_history.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-3_training_run_status",
+      "status": "PASSED",
+      "details": "recorded=292, actual=292"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-3_training_run_status",
+      "status": "PASSED",
+      "details": "training_run_status.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-3_validation_detailed_metrics",
+      "status": "PASSED",
+      "details": "recorded=7984, actual=7984"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-3_validation_detailed_metrics",
+      "status": "PASSED",
+      "details": "validation_detailed_metrics.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-3_validation_metrics",
+      "status": "PASSED",
+      "details": "recorded=888, actual=888"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-3_validation_metrics",
+      "status": "PASSED",
+      "details": "validation_metrics.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-4_lstm4_execution_decision",
+      "status": "PASSED",
+      "details": "recorded=1858, actual=1858"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-4_lstm4_execution_decision",
+      "status": "PASSED",
+      "details": "lstm4_execution_decision.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-4_lstm4_feasibility_safety_gate",
+      "status": "PASSED",
+      "details": "recorded=4963, actual=4963"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-4_lstm4_feasibility_safety_gate",
+      "status": "PASSED",
+      "details": "lstm4_feasibility_safety_gate.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-4_lstm4_integrity_validation",
+      "status": "PASSED",
+      "details": "recorded=2165, actual=2165"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-4_lstm4_integrity_validation",
+      "status": "PASSED",
+      "details": "lstm4_integrity_validation.json"
+    },
+    {
+      "check": "Manifest size \u2014 LSTM-4_lstm4_metrics_artifact_status",
+      "status": "PASSED",
+      "details": "recorded=1971, actual=1971"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 LSTM-4_lstm4_metrics_artifact_status",
+      "status": "PASSED",
+      "details": "lstm4_metrics_artifact_status.json"
+    },
+    {
+      "check": "Manifest size \u2014 lstm_handoff_metadata",
+      "status": "PASSED",
+      "details": "recorded=5223, actual=5223"
+    },
+    {
+      "check": "Manifest SHA-256 \u2014 lstm_handoff_metadata",
+      "status": "PASSED",
+      "details": "lstm_handoff_metadata.json"
+    },
+    {
+      "check": "Selected strategy agrees across reports",
+      "status": "PASSED",
+      "details": "selected strategy=LSTM-3"
+    },
+    {
+      "check": "Validation selection score agrees",
+      "status": "PASSED",
+      "details": "Validation macro-F1=0.858241"
+    },
+    {
+      "check": "Final refit status and epoch count",
+      "status": "PASSED",
+      "details": "final refit completed for four epochs"
+    },
+    {
+      "check": "Independent Test was not used for selection",
+      "status": "PASSED",
+      "details": "Test data remains reporting-only"
+    },
+    {
+      "check": "Input tensor dimensions agree",
+      "status": "PASSED",
+      "details": "input=(batch, 10, 32)"
+    },
+    {
+      "check": "Output dimensions and logits semantics agree",
+      "status": "PASSED",
+      "details": "output=(batch, 9)"
+    },
+    {
+      "check": "Class mapping is consistent",
+      "status": "PASSED",
+      "details": "class IDs 0\u20138 match the nine-class taxonomy"
+    },
+    {
+      "check": "Feature order agrees between metadata and contract",
+      "status": "PASSED",
+      "details": "32 ordered input features"
+    },
+    {
+      "check": "Test prediction and target arrays align",
+      "status": "PASSED",
+      "details": "predictions=565,501, targets=565,501, expected=565,501"
+    },
+    {
+      "check": "Saved confusion matrix matches predictions",
+      "status": "PASSED",
+      "details": "matrix shape=(9, 9)"
+    },
+    {
+      "check": "Independent Test metrics match saved report",
+      "status": "PASSED",
+      "details": "macro-F1=0.913734"
+    },
+    {
+      "check": "Error-analysis report matches Test sequence count",
+      "status": "PASSED",
+      "details": "Test sequences=565,501"
+    },
+    {
+      "check": "Final model reload validation passed",
+      "status": "PASSED",
+      "details": "PASSED"
+    },
+    {
+      "check": "Original final-model manifest remains valid",
+      "status": "PASSED",
+      "details": "4 original artifacts checked"
+    }
+  ],
+  "failures": [],
+  "recomputed_independent_test_metrics": {
+    "accuracy": 0.9983660506347469,
+    "macro_precision": 0.9413955867811024,
+    "macro_recall": 0.90680258350013,
+    "macro_f1": 0.9137342508128012,
+    "weighted_f1": 0.9983998348481631
+  },
+  "boundaries": {
+    "model_retrained": false,
+    "inference_rerun": false,
+    "independent_test_used_for_selection": false,
+    "existing_artifacts_modified": false,
+    "previous_experiment_artifacts_modified": false
+  },
+  "next_step": "Proceed to 7.10.4 final readiness gate."
+}

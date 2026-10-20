@@ -1,0 +1,396 @@
+{
+  "artifact_id": "n08_final_strategy_comparison_v1",
+  "candidate_metrics": [
+    {
+      "accuracy": 0.9972407281818061,
+      "balanced_accuracy": 0.8533069337190127,
+      "macro_f1": 0.8834704173472481,
+      "macro_f1_rank": 1,
+      "macro_precision": 0.9481670020622244,
+      "macro_recall": 0.8533069337190127,
+      "model_or_strategy": "RF baseline",
+      "weighted_f1": 0.9972431417152955
+    },
+    {
+      "accuracy": 0.9980474550427078,
+      "balanced_accuracy": 0.8356047705136073,
+      "macro_f1": 0.8540626295153503,
+      "macro_f1_rank": 3,
+      "macro_precision": 0.9461452552412671,
+      "macro_recall": 0.8356047705136073,
+      "model_or_strategy": "LSTM baseline",
+      "weighted_f1": 0.9980449642792577
+    },
+    {
+      "accuracy": 0.9979565874567271,
+      "balanced_accuracy": 0.831162590196958,
+      "macro_f1": 0.866248018349461,
+      "macro_f1_rank": 2,
+      "macro_precision": 0.9504300366481372,
+      "macro_recall": 0.831162590196958,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "weighted_f1": 0.997961101960074
+    }
+  ],
+  "class_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "class_names_in_order": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ],
+  "classwise_comparison": [
+    {
+      "class_id": 0,
+      "class_name": "BENIGN",
+      "f1_score": 0.9983294308296439,
+      "false_negative": 475,
+      "false_positive": 760,
+      "model_or_strategy": "RF baseline",
+      "precision": 0.9979447072154298,
+      "recall": 0.9987144511924481,
+      "support": 369492
+    },
+    {
+      "class_id": 1,
+      "class_name": "DDoS",
+      "f1_score": 0.9997800317731884,
+      "false_negative": 5,
+      "false_positive": 4,
+      "model_or_strategy": "RF baseline",
+      "precision": 0.9998044679082955,
+      "recall": 0.9997555968325349,
+      "support": 20458
+    },
+    {
+      "class_id": 2,
+      "class_name": "Port Scan",
+      "f1_score": 0.9952546662448591,
+      "false_negative": 93,
+      "false_positive": 147,
+      "model_or_strategy": "RF baseline",
+      "precision": 0.9941931661070511,
+      "recall": 0.9963184355330351,
+      "support": 25261
+    },
+    {
+      "class_id": 3,
+      "class_name": "Brute Force",
+      "f1_score": 0.9861751152073733,
+      "false_negative": 43,
+      "false_positive": 8,
+      "model_or_strategy": "RF baseline",
+      "precision": 0.9956212370005474,
+      "recall": 0.976906552094522,
+      "support": 1862
+    },
+    {
+      "class_id": 4,
+      "class_name": "Bot",
+      "f1_score": 0.5788617886178862,
+      "false_negative": 119,
+      "false_positive": 140,
+      "model_or_strategy": "RF baseline",
+      "precision": 0.559748427672956,
+      "recall": 0.5993265993265994,
+      "support": 297
+    },
+    {
+      "class_id": 5,
+      "class_name": "Web Attack",
+      "f1_score": 0.990344827586207,
+      "false_negative": 4,
+      "false_positive": 3,
+      "model_or_strategy": "RF baseline",
+      "precision": 0.9917127071823204,
+      "recall": 0.9889807162534435,
+      "support": 363
+    },
+    {
+      "class_id": 6,
+      "class_name": "Infiltration",
+      "f1_score": 0.5555555555555556,
+      "false_negative": 8,
+      "false_positive": 0,
+      "model_or_strategy": "RF baseline",
+      "precision": 1.0,
+      "recall": 0.38461538461538464,
+      "support": 13
+    },
+    {
+      "class_id": 7,
+      "class_name": "DoS",
+      "f1_score": 0.9897894831676627,
+      "false_negative": 497,
+      "false_positive": 183,
+      "model_or_strategy": "RF baseline",
+      "precision": 0.9944783054734174,
+      "recall": 0.9851446676231468,
+      "support": 33456
+    },
+    {
+      "class_id": 8,
+      "class_name": "Heartbleed",
+      "f1_score": 0.8571428571428571,
+      "false_negative": 1,
+      "false_positive": 0,
+      "model_or_strategy": "RF baseline",
+      "precision": 1.0,
+      "recall": 0.75,
+      "support": 4
+    },
+    {
+      "class_id": 0,
+      "class_name": "BENIGN",
+      "f1_score": 0.9988250836518783,
+      "false_negative": 538,
+      "false_positive": 330,
+      "model_or_strategy": "LSTM baseline",
+      "precision": 0.9991063788303853,
+      "recall": 0.9985439468242885,
+      "support": 369492
+    },
+    {
+      "class_id": 1,
+      "class_name": "DDoS",
+      "f1_score": 0.9996089358165908,
+      "false_negative": 9,
+      "false_positive": 7,
+      "model_or_strategy": "LSTM baseline",
+      "precision": 0.9996578021118498,
+      "recall": 0.9995600742985629,
+      "support": 20458
+    },
+    {
+      "class_id": 2,
+      "class_name": "Port Scan",
+      "f1_score": 0.9967017557719274,
+      "false_negative": 28,
+      "false_positive": 139,
+      "model_or_strategy": "LSTM baseline",
+      "precision": 0.9945215197855904,
+      "recall": 0.9988915719884407,
+      "support": 25261
+    },
+    {
+      "class_id": 3,
+      "class_name": "Brute Force",
+      "f1_score": 0.9433768895721241,
+      "false_negative": 21,
+      "false_positive": 200,
+      "model_or_strategy": "LSTM baseline",
+      "precision": 0.9020088192062714,
+      "recall": 0.9887218045112782,
+      "support": 1862
+    },
+    {
+      "class_id": 4,
+      "class_name": "Bot",
+      "f1_score": 0.6816608996539792,
+      "false_negative": 100,
+      "false_positive": 84,
+      "model_or_strategy": "LSTM baseline",
+      "precision": 0.701067615658363,
+      "recall": 0.6632996632996633,
+      "support": 297
+    },
+    {
+      "class_id": 5,
+      "class_name": "Web Attack",
+      "f1_score": 0.9463806970509383,
+      "false_negative": 10,
+      "false_positive": 30,
+      "model_or_strategy": "LSTM baseline",
+      "precision": 0.9216710182767625,
+      "recall": 0.9724517906336089,
+      "support": 363
+    },
+    {
+      "class_id": 6,
+      "class_name": "Infiltration",
+      "f1_score": 0.2666666666666667,
+      "false_negative": 11,
+      "false_positive": 0,
+      "model_or_strategy": "LSTM baseline",
+      "precision": 1.0,
+      "recall": 0.15384615384615385,
+      "support": 13
+    },
+    {
+      "class_id": 7,
+      "class_name": "DoS",
+      "f1_score": 0.9961998803111909,
+      "false_negative": 163,
+      "false_positive": 91,
+      "model_or_strategy": "LSTM baseline",
+      "precision": 0.9972741433021807,
+      "recall": 0.9951279292204687,
+      "support": 33456
+    },
+    {
+      "class_id": 8,
+      "class_name": "Heartbleed",
+      "f1_score": 0.8571428571428571,
+      "false_negative": 1,
+      "false_positive": 0,
+      "model_or_strategy": "LSTM baseline",
+      "precision": 1.0,
+      "recall": 0.75,
+      "support": 4
+    },
+    {
+      "class_id": 0,
+      "class_name": "BENIGN",
+      "f1_score": 0.9987619358182117,
+      "false_negative": 421,
+      "false_positive": 494,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "precision": 0.9986632933313491,
+      "recall": 0.9988605977937276,
+      "support": 369492
+    },
+    {
+      "class_id": 1,
+      "class_name": "DDoS",
+      "f1_score": 0.999951116977074,
+      "false_negative": 2,
+      "false_positive": 0,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "precision": 1.0,
+      "recall": 0.999902238733014,
+      "support": 20458
+    },
+    {
+      "class_id": 2,
+      "class_name": "Port Scan",
+      "f1_score": 0.9965441655640909,
+      "false_negative": 29,
+      "false_positive": 146,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "precision": 0.9942469855780597,
+      "recall": 0.9988519852737421,
+      "support": 25261
+    },
+    {
+      "class_id": 3,
+      "class_name": "Brute Force",
+      "f1_score": 0.9943563558183285,
+      "false_negative": 12,
+      "false_positive": 9,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "precision": 0.9951586874663798,
+      "recall": 0.9935553168635876,
+      "support": 1862
+    },
+    {
+      "class_id": 4,
+      "class_name": "Bot",
+      "f1_score": 0.5996758508914101,
+      "false_negative": 112,
+      "false_positive": 135,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "precision": 0.578125,
+      "recall": 0.622895622895623,
+      "support": 297
+    },
+    {
+      "class_id": 5,
+      "class_name": "Web Attack",
+      "f1_score": 0.9917355371900827,
+      "false_negative": 3,
+      "false_positive": 3,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "precision": 0.9917355371900827,
+      "recall": 0.9917355371900827,
+      "support": 363
+    },
+    {
+      "class_id": 6,
+      "class_name": "Infiltration",
+      "f1_score": 0.5555555555555556,
+      "false_negative": 8,
+      "false_positive": 0,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "precision": 1.0,
+      "recall": 0.38461538461538464,
+      "support": 13
+    },
+    {
+      "class_id": 7,
+      "class_name": "DoS",
+      "f1_score": 0.9929849806637289,
+      "false_negative": 333,
+      "false_positive": 135,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "precision": 0.9959408262673642,
+      "recall": 0.9900466284074605,
+      "support": 33456
+    },
+    {
+      "class_id": 8,
+      "class_name": "Heartbleed",
+      "f1_score": 0.6666666666666666,
+      "false_negative": 2,
+      "false_positive": 0,
+      "model_or_strategy": "Frozen RF 75% + LSTM 25% ensemble",
+      "precision": 1.0,
+      "recall": 0.5,
+      "support": 4
+    }
+  ],
+  "evaluation_partition": "Validation",
+  "execution_constraints": {
+    "frozen_configuration_modified": false,
+    "models_fitted_or_retrained": false,
+    "predictions_generated": false,
+    "probability_calibration_performed": false,
+    "test_arrays_loaded": false,
+    "upstream_artifacts_modified": false
+  },
+  "frozen_configuration": {
+    "candidate_id": "rf_0.75_lstm_0.25",
+    "lstm_weight": 0.25,
+    "probability_status": "uncalibrated",
+    "rf_weight": 0.75,
+    "strategy": "weighted_soft_voting"
+  },
+  "interpretation": {
+    "ensemble_macro_f1_delta_vs_lstm": 0.012185388834110689,
+    "ensemble_macro_f1_delta_vs_rf": -0.017222398997787103,
+    "frozen_candidate_macro_f1_rank": 2,
+    "frozen_project_candidate": "Frozen RF 75% + LSTM 25% ensemble",
+    "highest_macro_f1_candidate": "RF baseline",
+    "interpretation": "The frozen ensemble remains the project architecture. It is not the highest Validation macro-F1 candidate; RF has the highest macro F1 among these three candidates. This comparison documents the evidence and does not change the frozen strategy.",
+    "primary_metric": "macro_f1",
+    "validation_macro_f1_order": [
+      "RF baseline",
+      "Frozen RF 75% + LSTM 25% ensemble",
+      "LSTM baseline"
+    ]
+  },
+  "primary_metric": "macro_f1",
+  "source_artifact_sha256": {
+    "classwise_analysis": "3a01b95f42976f1468d14333e2e0f14704ca291a61b9a4dfa6aa62b37b8de016",
+    "classwise_report": "14f6d10f8530e01661b4c267dcb6bf79e6f325dd6c6a2f7c1bb7c97e29615a6a",
+    "freeze_config": "34ec70715572dcf4ab92a5bc6f56333cb9e312e443ef742b0ab09d3ef250ef9e",
+    "freeze_report": "67406412b5e4df4097ff13004122ed22e2546d50f9dd2be0a06077d6084f5067",
+    "unified_audit": "f9f9f906eca67eca7235f166c5e04a77f9bbb47e8df0fadb992a6fbe55d57f1e",
+    "unified_results": "317a28bc54f932bd6036da5a754ce9618b28e3e000bb249e078747e65b62758f"
+  },
+  "validation_observations": 451206
+}

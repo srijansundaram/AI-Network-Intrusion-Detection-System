@@ -1,0 +1,30 @@
+{
+  "report_name": "Final LSTM Artifact Manifest",
+  "section": "7.9.3",
+  "created_at_utc": "2026-10-12T17:58:37.672019+00:00",
+  "status": "COMPLETED",
+  "selected_experiment": "LSTM-3",
+  "artifacts": {
+    "final_model.pt": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_model.pt",
+      "size_bytes": 316513,
+      "sha256": "5342a301822fe59ba4453ea6ee89793d2e678129dbd71cb5d4532ec54a26e1f3"
+    },
+    "final_training_config.json": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_training_config.json",
+      "size_bytes": 2291,
+      "sha256": "106743283975d1705f26494761226ced33422e418ec598707136b355460878ab"
+    },
+    "final_training_history.json": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_training_history.json",
+      "size_bytes": 1360,
+      "sha256": "9104eca59acae33efd4626c13cee661a31a3a3cc8c76afb77dac6da33e8fd034"
+    },
+    "final_training_status.json": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/lstm_model_development/final_model/final_training_status.json",
+      "size_bytes": 411,
+      "sha256": "846534ee707e16f90b1db00ad9e23d3a573c9f41a40b3544515c22194d56ca07"
+    }
+  },
+  "independent_test_accessed": false
+}

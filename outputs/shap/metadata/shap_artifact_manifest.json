@@ -1,0 +1,373 @@
+{
+  "manifest_version": "1.0",
+  "manifest_type": "SHAP Explainability Artifact Manifest",
+  "notebook": "N06",
+  "created_utc": "2026-10-10T18:43:49.061947+00:00",
+  "handoff_status": "ready_for_frontend_integration",
+  "artifact_root": ".",
+  "metadata_file": "shap_explanation_metadata.json",
+  "manifest_excludes_itself": true,
+  "model_contract": {
+    "model_type": "RandomForestClassifier",
+    "strategy": "RF-3 — Controlled Random Oversampling",
+    "feature_count": 32,
+    "feature_order": [
+      "ECE Flag Count",
+      "FIN Flag Count",
+      "Fwd PSH Flags",
+      "URG Flag Count",
+      "Down/Up Ratio",
+      "PSH Flag Count",
+      "ACK Flag Count",
+      "act_data_pkt_fwd",
+      "Fwd Header Length",
+      "Avg Fwd Segment Size",
+      "Fwd Packet Length Min",
+      "Bwd Header Length",
+      "Average Packet Size",
+      "Bwd Packet Length Min",
+      "Fwd Packet Length Std",
+      "Bwd Packet Length Std",
+      "Active Std",
+      "Bwd IAT Min",
+      "Idle Std",
+      "Flow IAT Min",
+      "Fwd IAT Min",
+      "Bwd Packets/s",
+      "Active Max",
+      "Flow Bytes/s",
+      "Flow Duration",
+      "Bwd IAT Mean",
+      "Bwd IAT Std",
+      "Fwd IAT Mean",
+      "Flow IAT Std",
+      "min_seg_size_forward",
+      "Fwd IAT Std",
+      "Destination Port"
+    ],
+    "class_count": 9,
+    "class_labels": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ]
+  },
+  "frontend_guidance": {
+    "path_resolution": "Resolve each artifact path relative to the SHAP artifact root.",
+    "global_importance": "Use global_shap_feature_importance.csv and global_shap_importance_bar.png.",
+    "native_rf_comparison": "Use global_importance_comparison.csv when presenting SHAP importance alongside native Random Forest importance.",
+    "class_wise_importance": "Use class_wise_shap_importance.csv and the persisted class-wise heatmap.",
+    "dependence_analysis": "Use shap_dependence_records.csv and the PNGs under dependence_plots/.",
+    "local_explanations": "Use shap_local_explanation_cases.csv, shap_local_contribution_records.csv, and shap_local_case_summary.csv. Match each case ID to its corresponding PNG under local_explanation_plots/.",
+    "plain_english": "Generate user-facing wording from the structured records in the frontend layer; do not treat SHAP contributions as causal claims."
+  },
+  "safety_and_provenance": {
+    "background_partition": "original_n04_training",
+    "explanation_partition": "original_n04_validation",
+    "independent_test_accessed": false,
+    "model_retrained": false,
+    "shap_recalculated_during_persistence": false
+  },
+  "artifacts": [
+    {
+      "path": "class_wise_shap_importance.csv",
+      "filename": "class_wise_shap_importance.csv",
+      "artifact_type": "tabular_data",
+      "format": "csv",
+      "size_bytes": 6725
+    },
+    {
+      "path": "class_wise_shap_importance_heatmap.png",
+      "filename": "class_wise_shap_importance_heatmap.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 208188
+    },
+    {
+      "path": "class_wise_shap_importance_summary.json",
+      "filename": "class_wise_shap_importance_summary.json",
+      "artifact_type": "metadata_or_summary",
+      "format": "json",
+      "size_bytes": 3279
+    },
+    {
+      "path": "class_wise_shap_summary.json",
+      "filename": "class_wise_shap_summary.json",
+      "artifact_type": "metadata_or_summary",
+      "format": "json",
+      "size_bytes": 2383
+    },
+    {
+      "path": "dependence_plots/dependence_1_destination_port_benign.png",
+      "filename": "dependence_1_destination_port_benign.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 85723
+    },
+    {
+      "path": "dependence_plots/dependence_2_bwd_packet_length_std_benign.png",
+      "filename": "dependence_2_bwd_packet_length_std_benign.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 88839
+    },
+    {
+      "path": "dependence_plots/dependence_3_average_packet_size_benign.png",
+      "filename": "dependence_3_average_packet_size_benign.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 112315
+    },
+    {
+      "path": "global_importance_comparison.csv",
+      "filename": "global_importance_comparison.csv",
+      "artifact_type": "tabular_data",
+      "format": "csv",
+      "size_bytes": 2842
+    },
+    {
+      "path": "global_shap_beeswarm_class_0.png",
+      "filename": "global_shap_beeswarm_class_0.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 318904
+    },
+    {
+      "path": "global_shap_beeswarm_class_1.png",
+      "filename": "global_shap_beeswarm_class_1.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 278467
+    },
+    {
+      "path": "global_shap_beeswarm_class_2.png",
+      "filename": "global_shap_beeswarm_class_2.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 288259
+    },
+    {
+      "path": "global_shap_beeswarm_class_3.png",
+      "filename": "global_shap_beeswarm_class_3.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 231595
+    },
+    {
+      "path": "global_shap_beeswarm_class_4.png",
+      "filename": "global_shap_beeswarm_class_4.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 317132
+    },
+    {
+      "path": "global_shap_beeswarm_class_5.png",
+      "filename": "global_shap_beeswarm_class_5.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 245771
+    },
+    {
+      "path": "global_shap_beeswarm_class_6.png",
+      "filename": "global_shap_beeswarm_class_6.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 300003
+    },
+    {
+      "path": "global_shap_beeswarm_class_7.png",
+      "filename": "global_shap_beeswarm_class_7.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 302847
+    },
+    {
+      "path": "global_shap_beeswarm_class_8.png",
+      "filename": "global_shap_beeswarm_class_8.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 271467
+    },
+    {
+      "path": "global_shap_feature_importance.csv",
+      "filename": "global_shap_feature_importance.csv",
+      "artifact_type": "tabular_data",
+      "format": "csv",
+      "size_bytes": 3279
+    },
+    {
+      "path": "global_shap_importance_bar.png",
+      "filename": "global_shap_importance_bar.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 189930
+    },
+    {
+      "path": "global_shap_importance_summary.json",
+      "filename": "global_shap_importance_summary.json",
+      "artifact_type": "metadata_or_summary",
+      "format": "json",
+      "size_bytes": 557
+    },
+    {
+      "path": "global_shap_summary_beeswarm.png",
+      "filename": "global_shap_summary_beeswarm.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 1389522
+    },
+    {
+      "path": "local_explanation_plots/local_explanation_VAL_0048.png",
+      "filename": "local_explanation_VAL_0048.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 96849
+    },
+    {
+      "path": "local_explanation_plots/local_explanation_VAL_0056.png",
+      "filename": "local_explanation_VAL_0056.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 97931
+    },
+    {
+      "path": "local_explanation_plots/local_explanation_VAL_0315.png",
+      "filename": "local_explanation_VAL_0315.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 100621
+    },
+    {
+      "path": "local_explanation_plots/local_explanation_VAL_0422.png",
+      "filename": "local_explanation_VAL_0422.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 102224
+    },
+    {
+      "path": "local_explanation_plots/local_explanation_VAL_0470.png",
+      "filename": "local_explanation_VAL_0470.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 101887
+    },
+    {
+      "path": "shap_beeswarm_class_0_0.png",
+      "filename": "shap_beeswarm_class_0_0.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 396273
+    },
+    {
+      "path": "shap_beeswarm_class_1_1.png",
+      "filename": "shap_beeswarm_class_1_1.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 344558
+    },
+    {
+      "path": "shap_beeswarm_class_2_2.png",
+      "filename": "shap_beeswarm_class_2_2.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 355687
+    },
+    {
+      "path": "shap_beeswarm_class_3_3.png",
+      "filename": "shap_beeswarm_class_3_3.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 288631
+    },
+    {
+      "path": "shap_beeswarm_class_4_4.png",
+      "filename": "shap_beeswarm_class_4_4.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 390911
+    },
+    {
+      "path": "shap_beeswarm_class_5_5.png",
+      "filename": "shap_beeswarm_class_5_5.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 304248
+    },
+    {
+      "path": "shap_beeswarm_class_6_6.png",
+      "filename": "shap_beeswarm_class_6_6.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 372207
+    },
+    {
+      "path": "shap_beeswarm_class_7_7.png",
+      "filename": "shap_beeswarm_class_7_7.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 375527
+    },
+    {
+      "path": "shap_beeswarm_class_8_8.png",
+      "filename": "shap_beeswarm_class_8_8.png",
+      "artifact_type": "visualization",
+      "format": "png",
+      "size_bytes": 333846
+    },
+    {
+      "path": "shap_dependence_records.csv",
+      "filename": "shap_dependence_records.csv",
+      "artifact_type": "tabular_data",
+      "format": "csv",
+      "size_bytes": 96349
+    },
+    {
+      "path": "shap_dependence_summary.json",
+      "filename": "shap_dependence_summary.json",
+      "artifact_type": "metadata_or_summary",
+      "format": "json",
+      "size_bytes": 1056
+    },
+    {
+      "path": "shap_explanation_metadata.json",
+      "filename": "shap_explanation_metadata.json",
+      "artifact_type": "metadata_or_summary",
+      "format": "json",
+      "size_bytes": 3316
+    },
+    {
+      "path": "shap_local_case_summary.csv",
+      "filename": "shap_local_case_summary.csv",
+      "artifact_type": "tabular_data",
+      "format": "csv",
+      "size_bytes": 1078
+    },
+    {
+      "path": "shap_local_contribution_records.csv",
+      "filename": "shap_local_contribution_records.csv",
+      "artifact_type": "tabular_data",
+      "format": "csv",
+      "size_bytes": 24954
+    },
+    {
+      "path": "shap_local_explanation_cases.csv",
+      "filename": "shap_local_explanation_cases.csv",
+      "artifact_type": "tabular_data",
+      "format": "csv",
+      "size_bytes": 504
+    },
+    {
+      "path": "shap_local_explanation_summary.json",
+      "filename": "shap_local_explanation_summary.json",
+      "artifact_type": "metadata_or_summary",
+      "format": "json",
+      "size_bytes": 458
+    }
+  ]
+}
