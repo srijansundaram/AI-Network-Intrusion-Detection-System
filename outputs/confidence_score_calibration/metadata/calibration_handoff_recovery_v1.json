@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "stage": "9.1.3",
+  "created_at_utc": "2026-10-20T06:28:46.733663+00:00",
+  "source_documents": {
+    "calibration_handoff_manifest": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/calibration_handoff_manifest_v1.json",
+      "size_bytes": 7223,
+      "top_level_keys": 12,
+      "read_status": "READABLE"
+    },
+    "calibration_handoff_report": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/calibration_handoff_manifest_v1_report.json",
+      "size_bytes": 5565,
+      "top_level_keys": 16,
+      "read_status": "READABLE"
+    },
+    "uncalibrated_probability_contract": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/uncalibrated_probability_output_contract_v1.json",
+      "size_bytes": 4908,
+      "top_level_keys": 10,
+      "read_status": "READABLE"
+    },
+    "probability_contract_report": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/uncalibrated_probability_output_contract_v1_report.json",
+      "size_bytes": 4200,
+      "top_level_keys": 18,
+      "read_status": "READABLE"
+    },
+    "frozen_ensemble_configuration": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze_weighted_voting_v2.json",
+      "size_bytes": 4943,
+      "top_level_keys": 17,
+      "read_status": "READABLE"
+    },
+    "ensemble_feature_contract": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_feature_contract.json",
+      "size_bytes": 8201,
+      "top_level_keys": 17,
+      "read_status": "READABLE"
+    }
+  },
+  "documents_expected": 6,
+  "documents_loaded": 6,
+  "json_readability_status": "PASSED",
+  "contract_semantics_validated": false,
+  "note": "This report confirms JSON readability and records document structure. It does not establish that contract claims, artifact hashes, class ordering, or observation alignment are correct."
+}

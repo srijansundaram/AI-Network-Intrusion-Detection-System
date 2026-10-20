@@ -1,0 +1,340 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_name": "final_calibration_summary",
+  "section": "9.7.1",
+  "title": "Final Calibration Results Summary",
+  "created_utc": "2026-10-20T08:43:10.808933+00:00",
+  "calibration": {
+    "method": "multiclass_temperature_scaling",
+    "fitted_temperature": 0.7703281965251618,
+    "evaluation_partition": "Validation",
+    "evaluation_observations": 451206,
+    "class_count": 9,
+    "class_order": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "probability_shape": [
+      451206,
+      9
+    ]
+  },
+  "metrics": {
+    "distribution": {
+      "uncalibrated": "uncalibrated",
+      "calibrated": "calibrated_temperature_scaling",
+      "change_calibrated_minus_uncalibrated": null,
+      "interpretation": "Non-numeric metric; not compared"
+    },
+    "observations": {
+      "uncalibrated": 451206.0,
+      "calibrated": 451206.0,
+      "change_calibrated_minus_uncalibrated": 0.0,
+      "interpretation": "Descriptive metric; direction not classified"
+    },
+    "accuracy": {
+      "uncalibrated": 0.9979565874567271,
+      "calibrated": 0.9979565874567271,
+      "change_calibrated_minus_uncalibrated": 0.0,
+      "interpretation": "Unchanged"
+    },
+    "error_count": {
+      "uncalibrated": 922.0,
+      "calibrated": 922.0,
+      "change_calibrated_minus_uncalibrated": 0.0,
+      "interpretation": "Descriptive metric; direction not classified"
+    },
+    "error_rate": {
+      "uncalibrated": 0.0020434125432729176,
+      "calibrated": 0.0020434125432729176,
+      "change_calibrated_minus_uncalibrated": 0.0,
+      "interpretation": "Descriptive metric; direction not classified"
+    },
+    "log_loss": {
+      "uncalibrated": 0.0059162972121729746,
+      "calibrated": 0.0060730195648554365,
+      "change_calibrated_minus_uncalibrated": 0.000156722352682462,
+      "interpretation": "Worsened"
+    },
+    "multiclass_brier_score": {
+      "uncalibrated": 0.003048456836689096,
+      "calibrated": 0.0030531339929877398,
+      "change_calibrated_minus_uncalibrated": 4.677156298643539e-06,
+      "interpretation": "Worsened"
+    },
+    "ece": {
+      "uncalibrated": 0.0007908556676215073,
+      "calibrated": 0.0006829075423823564,
+      "change_calibrated_minus_uncalibrated": -0.00010794812523915083,
+      "interpretation": "Improved"
+    },
+    "mce": {
+      "uncalibrated": 0.5724433064460754,
+      "calibrated": 0.5536626279354095,
+      "change_calibrated_minus_uncalibrated": -0.018780678510665894,
+      "interpretation": "Improved"
+    },
+    "mean_max_confidence": {
+      "uncalibrated": 0.9976335167884827,
+      "calibrated": 0.9983057975769043,
+      "change_calibrated_minus_uncalibrated": 0.0006722807884216309,
+      "interpretation": "Descriptive metric; direction not classified"
+    },
+    "mean_confidence_on_correct": {
+      "uncalibrated": 0.9981898665428162,
+      "calibrated": 0.998791515827179,
+      "change_calibrated_minus_uncalibrated": 0.000601649284362793,
+      "interpretation": "Descriptive metric; direction not classified"
+    },
+    "mean_confidence_on_errors": {
+      "uncalibrated": 0.7258270978927612,
+      "calibrated": 0.7611167430877686,
+      "change_calibrated_minus_uncalibrated": 0.035289645195007324,
+      "interpretation": "Descriptive metric; direction not classified"
+    },
+    "reliability_bins": {
+      "uncalibrated": [
+        {
+          "bin_index": 5,
+          "lower_bound": 0.3333333333333333,
+          "upper_bound": 0.4,
+          "observations": 2,
+          "mean_confidence": 0.372945636510849,
+          "observed_accuracy": 0.5,
+          "absolute_calibration_gap": 0.127054363489151
+        },
+        {
+          "bin_index": 6,
+          "lower_bound": 0.4,
+          "upper_bound": 0.4666666666666667,
+          "observations": 1,
+          "mean_confidence": 0.42755669355392456,
+          "observed_accuracy": 1.0,
+          "absolute_calibration_gap": 0.5724433064460754
+        },
+        {
+          "bin_index": 7,
+          "lower_bound": 0.4666666666666667,
+          "upper_bound": 0.5333333333333333,
+          "observations": 292,
+          "mean_confidence": 0.5223713517189026,
+          "observed_accuracy": 0.7705479452054794,
+          "absolute_calibration_gap": 0.24817659348657684
+        },
+        {
+          "bin_index": 8,
+          "lower_bound": 0.5333333333333333,
+          "upper_bound": 0.6,
+          "observations": 290,
+          "mean_confidence": 0.5680802464485168,
+          "observed_accuracy": 0.46206896551724136,
+          "absolute_calibration_gap": 0.10601128093127549
+        },
+        {
+          "bin_index": 9,
+          "lower_bound": 0.6,
+          "upper_bound": 0.6666666666666666,
+          "observations": 280,
+          "mean_confidence": 0.6328564882278442,
+          "observed_accuracy": 0.5714285714285714,
+          "absolute_calibration_gap": 0.06142791679927284
+        },
+        {
+          "bin_index": 10,
+          "lower_bound": 0.6666666666666666,
+          "upper_bound": 0.7333333333333333,
+          "observations": 412,
+          "mean_confidence": 0.6988131403923035,
+          "observed_accuracy": 0.6286407766990292,
+          "absolute_calibration_gap": 0.07017236369327429
+        },
+        {
+          "bin_index": 11,
+          "lower_bound": 0.7333333333333333,
+          "upper_bound": 0.8,
+          "observations": 718,
+          "mean_confidence": 0.7585449814796448,
+          "observed_accuracy": 0.7186629526462396,
+          "absolute_calibration_gap": 0.03988202883340519
+        },
+        {
+          "bin_index": 12,
+          "lower_bound": 0.8,
+          "upper_bound": 0.8666666666666667,
+          "observations": 579,
+          "mean_confidence": 0.8375815153121948,
+          "observed_accuracy": 0.9343696027633851,
+          "absolute_calibration_gap": 0.09678808745119027
+        },
+        {
+          "bin_index": 13,
+          "lower_bound": 0.8666666666666667,
+          "upper_bound": 0.9333333333333333,
+          "observations": 1128,
+          "mean_confidence": 0.9046525359153748,
+          "observed_accuracy": 0.974290780141844,
+          "absolute_calibration_gap": 0.06963824422646925
+        },
+        {
+          "bin_index": 14,
+          "lower_bound": 0.9333333333333333,
+          "upper_bound": 1.0,
+          "observations": 447504,
+          "mean_confidence": 0.9995542764663696,
+          "observed_accuracy": 0.9996513997640245,
+          "absolute_calibration_gap": 9.712329765487748e-05
+        }
+      ],
+      "calibrated": [
+        {
+          "bin_index": 5,
+          "lower_bound": 0.3333333333333333,
+          "upper_bound": 0.4,
+          "observations": 2,
+          "mean_confidence": 0.38420480489730835,
+          "observed_accuracy": 0.5,
+          "absolute_calibration_gap": 0.11579519510269165
+        },
+        {
+          "bin_index": 6,
+          "lower_bound": 0.4,
+          "upper_bound": 0.4666666666666667,
+          "observations": 1,
+          "mean_confidence": 0.44633737206459045,
+          "observed_accuracy": 1.0,
+          "absolute_calibration_gap": 0.5536626279354095
+        },
+        {
+          "bin_index": 7,
+          "lower_bound": 0.4666666666666667,
+          "upper_bound": 0.5333333333333333,
+          "observations": 137,
+          "mean_confidence": 0.5170843601226807,
+          "observed_accuracy": 0.6496350364963503,
+          "absolute_calibration_gap": 0.13255067637366968
+        },
+        {
+          "bin_index": 8,
+          "lower_bound": 0.5333333333333333,
+          "upper_bound": 0.6,
+          "observations": 341,
+          "mean_confidence": 0.5611315369606018,
+          "observed_accuracy": 0.6392961876832844,
+          "absolute_calibration_gap": 0.07816465072268264
+        },
+        {
+          "bin_index": 9,
+          "lower_bound": 0.6,
+          "upper_bound": 0.6666666666666666,
+          "observations": 240,
+          "mean_confidence": 0.6324732303619385,
+          "observed_accuracy": 0.5125,
+          "absolute_calibration_gap": 0.11997323036193852
+        },
+        {
+          "bin_index": 10,
+          "lower_bound": 0.6666666666666666,
+          "upper_bound": 0.7333333333333333,
+          "observations": 261,
+          "mean_confidence": 0.7058625817298889,
+          "observed_accuracy": 0.6283524904214559,
+          "absolute_calibration_gap": 0.077510091308433
+        },
+        {
+          "bin_index": 11,
+          "lower_bound": 0.7333333333333333,
+          "upper_bound": 0.8,
+          "observations": 439,
+          "mean_confidence": 0.7718686461448669,
+          "observed_accuracy": 0.5444191343963554,
+          "absolute_calibration_gap": 0.22744951174851158
+        },
+        {
+          "bin_index": 12,
+          "lower_bound": 0.8,
+          "upper_bound": 0.8666666666666667,
+          "observations": 611,
+          "mean_confidence": 0.8245494365692139,
+          "observed_accuracy": 0.8101472995090017,
+          "absolute_calibration_gap": 0.014402137060212206
+        },
+        {
+          "bin_index": 13,
+          "lower_bound": 0.8666666666666667,
+          "upper_bound": 0.9333333333333333,
+          "observations": 735,
+          "mean_confidence": 0.9052554368972778,
+          "observed_accuracy": 0.9455782312925171,
+          "absolute_calibration_gap": 0.040322794395239225
+        },
+        {
+          "bin_index": 14,
+          "lower_bound": 0.9333333333333333,
+          "upper_bound": 1.0,
+          "observations": 448439,
+          "mean_confidence": 0.9997663497924805,
+          "observed_accuracy": 0.9995986076144135,
+          "absolute_calibration_gap": 0.00016774217806692082
+        }
+      ],
+      "change_calibrated_minus_uncalibrated": null,
+      "interpretation": "Non-numeric metric; not compared"
+    }
+  },
+  "evaluation_interpretation": {
+    "accuracy": "Classification accuracy is reported as measured; temperature scaling is not assumed to improve it.",
+    "calibration_quality": "Interpret ECE and MCE using the saved evaluation definitions.",
+    "probabilistic_error": "Log loss and multiclass Brier score must be considered alongside calibration-error metrics.",
+    "overall_conclusion": "Calibration results are mixed unless the persisted metric comparisons support a stronger conclusion. No blanket claim of improved reliability is made."
+  },
+  "artifact_paths": {
+    "selected_calibrator": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_calibrator_v1.joblib",
+    "calibrator_configuration": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_calibrator_configuration_v1.json",
+    "temperature_metadata": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_temperature_v1.json",
+    "uncalibrated_probabilities": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/probabilities/validation_uncalibrated_probabilities_v1.npy",
+    "calibrated_probabilities": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/probabilities/validation_calibrated_probabilities_v1.npy",
+    "evaluation_report": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_evaluation_report_v1.json",
+    "evaluation_comparison": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_evaluation_comparison_v1.csv",
+    "probability_output_contract": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibrated_probability_output_contract_v1.json",
+    "artifact_manifest": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_artifact_manifest_v1.json",
+    "readiness_report": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/section_9_6_6_readiness_report_v1.json"
+  },
+  "artifact_sha256": {
+    "selected_calibrator": "d89fba1e8d045cdd4f40f20fe1c9f7d73ada548f3060ae11717dc4aff69c9fc8",
+    "calibrator_configuration": "37870e8ff872ccbd68a42cd504f455e198369a138daffcca25e2c2a70ac49b97",
+    "temperature_metadata": "fc2ce8fb1ff7bca316c9bd6d3b7066882af8f9c57b20a7748bb039a5855c1b73",
+    "uncalibrated_probabilities": "c2613f6559dec4ac52511c155ac06e14952f8812c3a63132a4f09ca6e26ee0ce",
+    "calibrated_probabilities": "14c08d1c26260c370705ac87171e9c3b0c03017521cfee85c2ade87443521c88",
+    "evaluation_report": "8f72d80e3c1743c60de5f90376438d9f89148a3a310ece8039188107b6d8e17a",
+    "evaluation_comparison": "432f2668edd7432a48f541bbdc40b78d8399457f4f098c007d767e2a57fa95da",
+    "probability_output_contract": "8ed137fea970b64ccb8f7fa2ef90d0609c521936da8a3752be0bebdcd223f2f0",
+    "artifact_manifest": "71acfa2597726b8f583288b5bb960f5ab3882e6a33cea790581a439147ba97c2",
+    "readiness_report": "588d27e86e3bb850084f614b6d58ff1d1662cd6b60b220ff18c71435f4099afb"
+  },
+  "upstream_readiness": {
+    "section_9_6_status": "OPERATIONALLY_READY_WITH_DOCUMENTED_PROVENANCE_LIMITATION",
+    "operational_artifacts_ready": true
+  },
+  "provenance_and_limitations": {
+    "oof_provenance_verified": false,
+    "research_grade_leakage_free_approval": false,
+    "validation_labels_used_for_calibrator_fitting": false,
+    "ensemble_retrained": false,
+    "upstream_artifacts_modified": false,
+    "limitation": "OOF provenance remains unverified. The persisted Validation metrics are reported descriptively and do not establish research-grade leakage-free calibration."
+  },
+  "safeguards": {
+    "calibrator_refitted": false,
+    "ensemble_retrained": false,
+    "upstream_artifacts_modified": false,
+    "validation_labels_used_for_fitting": false,
+    "probability_outputs_regenerated": false
+  }
+}

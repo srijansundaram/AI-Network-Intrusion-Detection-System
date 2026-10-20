@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "artifact_name": "selected_temperature",
+  "method": "multiclass_temperature_scaling",
+  "temperature": 0.7703281965251618,
+  "parameterization": "T = exp(log_temperature)",
+  "class_count": 9,
+  "class_order": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ],
+  "ensemble_weights": {
+    "random_forest": 0.75,
+    "lstm": 0.25
+  },
+  "fitting_source": "OOF ensemble probabilities and aligned OOF targets",
+  "fitting_observations": 1814009,
+  "oof_nll_before": 0.020937109854289898,
+  "oof_nll_after": 0.020453518727340362,
+  "validation_labels_used_for_fitting": false,
+  "created_utc": "2026-10-20T06:41:47.711941+00:00"
+}

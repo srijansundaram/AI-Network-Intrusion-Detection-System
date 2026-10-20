@@ -1,0 +1,81 @@
+{
+  "section": "9.4.5",
+  "title": "Baseline-versus-Calibrated Comparison and Persistence",
+  "created_utc": "2026-10-20T06:31:41.739173+00:00",
+  "evaluation_protocol": {
+    "validation_observations": 451206,
+    "class_count": 9,
+    "same_validation_targets_used": true,
+    "same_observation_indices_used": true,
+    "predicted_classes_preserved": true,
+    "metric_definitions_inherited_from": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibrated_probability_metrics_v1.json",
+    "all_metrics_lower_is_better": true
+  },
+  "metrics": [
+    {
+      "metric": "log_loss",
+      "uncalibrated": 0.0059290684631539,
+      "calibrated": 0.0061033391221704,
+      "change_calibrated_minus_uncalibrated": 0.00017427065901650003,
+      "relative_change_percent": 2.939258672749391,
+      "interpretation": "Worsened",
+      "direction_preference": "Lower is better"
+    },
+    {
+      "metric": "brier_score",
+      "uncalibrated": 0.0030484568378051,
+      "calibrated": 0.0030531339588017,
+      "change_calibrated_minus_uncalibrated": 4.6771209965996985e-06,
+      "relative_change_percent": 0.15342585594773395,
+      "interpretation": "Worsened",
+      "direction_preference": "Lower is better"
+    },
+    {
+      "metric": "ece",
+      "uncalibrated": 0.0007908055027826,
+      "calibrated": 0.0006827535223951,
+      "change_calibrated_minus_uncalibrated": -0.00010805198038749998,
+      "relative_change_percent": -13.663534207500895,
+      "interpretation": "Improved",
+      "direction_preference": "Lower is better"
+    },
+    {
+      "metric": "mce",
+      "uncalibrated": 0.5724433107229723,
+      "calibrated": 0.5536626406503785,
+      "change_calibrated_minus_uncalibrated": -0.018780670072593764,
+      "relative_change_percent": -3.280791254050039,
+      "interpretation": "Improved",
+      "direction_preference": "Lower is better"
+    }
+  ],
+  "summary": {
+    "overall_interpretation": "MIXED_RESULTS",
+    "improved_metrics": [
+      "ece",
+      "mce"
+    ],
+    "worsened_metrics": [
+      "log_loss",
+      "brier_score"
+    ],
+    "unchanged_metrics": [],
+    "classification_performance_inference": "Not evaluated in this subsection. Calibration metric changes do not establish changes in accuracy, macro F1, or other classification metrics."
+  },
+  "calibrator": {
+    "method": "multiclass_temperature_scaling",
+    "status": "PROVISIONAL",
+    "final_calibrator_approved": false,
+    "oof_provenance_verified": false,
+    "reason": "OOF provenance remains unresolved. Section 9.4 results are therefore reported as provisional evaluation results."
+  },
+  "integrity": {
+    "source_metrics_report": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibrated_probability_metrics_v1.json",
+    "source_comparison_csv": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_metric_comparison_v1.csv",
+    "source_json_csv_consistency": "PASS",
+    "calibrator_fitted_in_this_section": false,
+    "ensemble_retrained": false,
+    "upstream_artifacts_modified": false,
+    "validation_labels_used_for_fitting": false
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "schema_version": "1.0",
+  "stage": "9.1.5",
+  "created_at_utc": "2026-10-20T06:28:55.439021+00:00",
+  "project_root": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System",
+  "gate_status": "READY_FOR_BASELINE_EVALUATION",
+  "ready_for_section_9_2": true,
+  "expected_class_order": [
+    "BENIGN",
+    "DDoS",
+    "Port Scan",
+    "Brute Force",
+    "Bot",
+    "Web Attack",
+    "Infiltration",
+    "DoS",
+    "Heartbleed"
+  ],
+  "expected_class_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "class_order_status": "PASSED_REPRESENTATION_AWARE_CLASS_ORDER",
+  "class_order_declarations": [
+    {
+      "document": "calibration_handoff_manifest",
+      "field_path": "probability_output.class_names",
+      "representation": "class_names",
+      "declared_value": [
+        "BENIGN",
+        "DDoS",
+        "Port Scan",
+        "Brute Force",
+        "Bot",
+        "Web Attack",
+        "Infiltration",
+        "DoS",
+        "Heartbleed"
+      ],
+      "matches_expected_order": true,
+      "status": "MATCH"
+    },
+    {
+      "document": "uncalibrated_probability_contract",
+      "field_path": "output_schema.class_names",
+      "representation": "class_names",
+      "declared_value": [
+        "BENIGN",
+        "DDoS",
+        "Port Scan",
+        "Brute Force",
+        "Bot",
+        "Web Attack",
+        "Infiltration",
+        "DoS",
+        "Heartbleed"
+      ],
+      "matches_expected_order": true,
+      "status": "MATCH"
+    },
+    {
+      "document": "probability_contract_report",
+      "field_path": "class_names",
+      "representation": "class_names",
+      "declared_value": [
+        "BENIGN",
+        "DDoS",
+        "Port Scan",
+        "Brute Force",
+        "Bot",
+        "Web Attack",
+        "Infiltration",
+        "DoS",
+        "Heartbleed"
+      ],
+      "matches_expected_order": true,
+      "status": "MATCH"
+    },
+    {
+      "document": "frozen_ensemble_configuration",
+      "field_path": "inference_configuration.class_order",
+      "representation": "integer_class_ids",
+      "declared_value": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "matches_expected_order": true,
+      "status": "ID_SEQUENCE_MATCH"
+    },
+    {
+      "document": "ensemble_feature_contract",
+      "field_path": "class_order",
+      "representation": "integer_class_ids",
+      "declared_value": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "matches_expected_order": true,
+      "status": "ID_SEQUENCE_MATCH"
+    },
+    {
+      "document": "ensemble_feature_contract",
+      "field_path": "feature_blocks[0].class_order",
+      "representation": "integer_class_ids",
+      "declared_value": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "matches_expected_order": true,
+      "status": "ID_SEQUENCE_MATCH"
+    },
+    {
+      "document": "ensemble_feature_contract",
+      "field_path": "feature_blocks[1].class_order",
+      "representation": "integer_class_ids",
+      "declared_value": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "matches_expected_order": true,
+      "status": "ID_SEQUENCE_MATCH"
+    }
+  ],
+  "frozen_ensemble_weights_validated": true,
+  "frozen_weight_fields": {
+    "inference_configuration.rf_weight": 0.75,
+    "inference_configuration.lstm_weight": 0.25
+  },
+  "missing_artifacts": [],
+  "json_errors": {},
+  "array_errors": {},
+  "array_shapes": {
+    "oof_features": [
+      1814009,
+      18
+    ],
+    "oof_targets": [
+      1814009
+    ],
+    "oof_observation_indices": [
+      1814009
+    ],
+    "oof_fold_ids": [
+      1814009
+    ],
+    "validation_features": [
+      451206,
+      18
+    ],
+    "validation_targets": [
+      451206
+    ],
+    "validation_observation_indices": [
+      451206
+    ]
+  },
+  "structural_checks": {
+    "oof_features_are_2d": true,
+    "oof_feature_width_is_18": true,
+    "oof_targets_are_1d": true,
+    "oof_indices_are_1d": true,
+    "oof_fold_ids_are_1d": true,
+    "oof_row_counts_align": true,
+    "validation_features_are_2d": true,
+    "validation_feature_width_is_18": true,
+    "validation_targets_are_1d": true,
+    "validation_indices_are_1d": true,
+    "validation_row_counts_align": true
+  },
+  "label_index_checks": {
+    "oof_targets_is_1d": true,
+    "oof_targets_finite": true,
+    "oof_targets_integer_encoded": true,
+    "oof_targets_within_class_range": true,
+    "oof_observation_indices_is_1d": true,
+    "oof_observation_indices_finite": true,
+    "oof_observation_indices_integer_encoded": true,
+    "oof_observation_indices_unique": true,
+    "oof_fold_ids_is_1d": true,
+    "oof_fold_ids_finite": true,
+    "oof_fold_ids_integer_encoded": true,
+    "validation_targets_is_1d": true,
+    "validation_targets_finite": true,
+    "validation_targets_integer_encoded": true,
+    "validation_targets_within_class_range": true,
+    "validation_observation_indices_is_1d": true,
+    "validation_observation_indices_finite": true,
+    "validation_observation_indices_integer_encoded": true,
+    "validation_observation_indices_unique": true
+  },
+  "label_index_errors": {},
+  "failed_shape_checks": [],
+  "failed_label_index_checks": [],
+  "trusted_hash_verification_status": "NOT_ESTABLISHED_BY_HASH_CALCULATION",
+  "calculated_hashes": [
+    {
+      "artifact": "calibration_handoff_manifest",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/calibration_handoff_manifest_v1.json",
+      "sha256": "eb6a89b0e81b16ac68ab1a6c570de6429dd8e784c63e95f25205a09ac5a9047a",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "calibration_handoff_report",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/calibration_handoff_manifest_v1_report.json",
+      "sha256": "1ba3960b5c29c813f2b8bba61d00fd719661869c31ac992402841b06c536ca3b",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "uncalibrated_probability_contract",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/uncalibrated_probability_output_contract_v1.json",
+      "sha256": "ebf47736660dff50ca12640f42b3fba8ea5bd1d07ecf6dacc11ed98270ed9b65",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "probability_contract_report",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/uncalibrated_probability_output_contract_v1_report.json",
+      "sha256": "4e86449ac51216c18014dcbd43bae553a76bde74da7ed251ba16bc2e2ccf6fce",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "frozen_ensemble_configuration",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/voting/final_configuration_freeze_weighted_voting_v2.json",
+      "sha256": "34ec70715572dcf4ab92a5bc6f56333cb9e312e443ef742b0ab09d3ef250ef9e",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "ensemble_feature_contract",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_feature_contract.json",
+      "sha256": "967d217240a93510a256400852c2481475d8e095a529e8d8c1850909263a5103",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "oof_features",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_features.npy",
+      "sha256": "bbe1f0ede035892f914a8c83fc135923965df4a467b573580a55bca5b7acbabb",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "oof_targets",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_targets.npy",
+      "sha256": "0ae035fb5bddc8d1d991de062839b9f70b85605d88b272747b09892a082d5e77",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "oof_observation_indices",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_observation_indices.npy",
+      "sha256": "ef5297b88cbed6d997dff43be4aae4d6b384cbc8e1c3c762aec1dc4778b4d2a8",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "oof_fold_ids",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_fold_ids.npy",
+      "sha256": "8bbc0d8fdc0ae93f3b8b4c1a0eacd88dd0555ffddbe4db60dcfa8d696e1f4269",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "validation_features",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_features.npy",
+      "sha256": "f2316f121ecf77bab74c6f1db8202ba10b9238265ec79ebfe6162bda825cc671",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "validation_targets",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_targets.npy",
+      "sha256": "300bab17fdf0597461dfdedd8b6954f6acd3d1b89ceef452d5325a898dd8773d",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    },
+    {
+      "artifact": "validation_observation_indices",
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_observation_indices.npy",
+      "sha256": "40a30921651062908c7aa2cd3bb20dd31fd5edfb6ff3d34459ab1f93196b76b4",
+      "status": "CALCULATED_NOT_TRUSTED_REFERENCE_VERIFIED"
+    }
+  ],
+  "limitations": [
+    "SHA-256 calculation alone does not verify an artifact against a trusted reference hash.",
+    "Array shapes and metadata checks do not establish probability-value validity or observation provenance.",
+    "The full probability matrices were not loaded into memory.",
+    "No calibrator was fitted and no upstream artifact was modified."
+  ]
+}

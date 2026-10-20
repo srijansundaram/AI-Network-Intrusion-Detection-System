@@ -1,0 +1,88 @@
+{
+  "summary_name": "nids_calibration_artifact_manifest_summary",
+  "schema_version": "1.0.0",
+  "created_utc": "2026-10-20T07:48:34.782281+00:00",
+  "manifest_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_artifact_manifest_v1.json",
+  "manifest_sha256": "71acfa2597726b8f583288b5bb960f5ab3882e6a33cea790581a439147ba97c2",
+  "inventory_csv_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_artifact_inventory_v1.csv",
+  "manifest_hash_sidecar_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_artifact_manifest_v1.sha256",
+  "artifact_counts": {
+    "expected": 29,
+    "existing": 29,
+    "missing": 0
+  },
+  "section_status": {
+    "9.5.1": {
+      "expected_artifacts": 3,
+      "existing_artifacts": 3,
+      "missing_artifacts": [],
+      "status": "PASS"
+    },
+    "9.5.2": {
+      "expected_artifacts": 3,
+      "existing_artifacts": 3,
+      "missing_artifacts": [],
+      "status": "PASS"
+    },
+    "9.5.3": {
+      "expected_artifacts": 4,
+      "existing_artifacts": 4,
+      "missing_artifacts": [],
+      "status": "PASS"
+    },
+    "9.5.4": {
+      "expected_artifacts": 5,
+      "existing_artifacts": 5,
+      "missing_artifacts": [],
+      "status": "PASS"
+    },
+    "9.6.1": {
+      "expected_artifacts": 4,
+      "existing_artifacts": 4,
+      "missing_artifacts": [],
+      "status": "PASS"
+    },
+    "9.6.2": {
+      "expected_artifacts": 7,
+      "existing_artifacts": 7,
+      "missing_artifacts": [],
+      "status": "PASS"
+    },
+    "9.6.3": {
+      "expected_artifacts": 2,
+      "existing_artifacts": 2,
+      "missing_artifacts": [],
+      "status": "PASS"
+    },
+    "9.6.4": {
+      "expected_artifacts": 1,
+      "existing_artifacts": 1,
+      "missing_artifacts": [],
+      "status": "PASS"
+    }
+  },
+  "calibration": {
+    "method": "multiclass_temperature_scaling",
+    "temperature": 0.7703281965251618,
+    "class_count": 9,
+    "class_order": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ]
+  },
+  "provenance": {
+    "oof_provenance_verified": false,
+    "research_grade_leakage_free_approval": false,
+    "ensemble_retrained": false,
+    "upstream_artifacts_modified": false
+  },
+  "status": "COMPLETE",
+  "metadata_warnings": []
+}

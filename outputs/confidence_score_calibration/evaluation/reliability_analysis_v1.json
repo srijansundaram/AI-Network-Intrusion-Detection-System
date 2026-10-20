@@ -1,0 +1,109 @@
+{
+  "report_name": "reliability_analysis_v1",
+  "created_utc": "2026-10-20T06:29:33.877411+00:00",
+  "status": "PASS",
+  "purpose": "Assess top-label calibration of the frozen weighted ensemble before fitting a calibration method.",
+  "method": {
+    "ensemble": "Frozen weighted soft voting",
+    "random_forest_weight": 0.75,
+    "lstm_weight": 0.25,
+    "class_order": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "confidence_definition": "Maximum predicted class probability for each observation.",
+    "correctness_definition": "Whether the argmax-predicted class equals the ground-truth label.",
+    "binning_strategy": "Equal-width confidence bins over [0, 1]",
+    "number_of_bins": 15,
+    "bin_edges": [
+      0.0,
+      0.06666666666666667,
+      0.13333333333333333,
+      0.2,
+      0.26666666666666666,
+      0.3333333333333333,
+      0.4,
+      0.4666666666666667,
+      0.5333333333333333,
+      0.6,
+      0.6666666666666666,
+      0.7333333333333333,
+      0.8,
+      0.8666666666666667,
+      0.9333333333333333,
+      1.0
+    ],
+    "ece_definition": "Observation-weighted sum of absolute differences between bin accuracy and mean bin confidence.",
+    "mce_definition": "Maximum absolute difference between bin accuracy and mean bin confidence across non-empty bins.",
+    "empty_bins": "Retained in reliability tables but excluded from ECE and MCE."
+  },
+  "datasets": {
+    "oof": {
+      "dataset": "OOF",
+      "observations": 1814009,
+      "ece": 0.006019549517247437,
+      "mce": 0.2961782441116613,
+      "mean_confidence": 0.9887662335891721,
+      "argmax_accuracy": 0.9945116038564307,
+      "mean_absolute_bin_gap": 0.10239815605884632,
+      "nonempty_bins": 11,
+      "configured_bins": 15
+    },
+    "validation": {
+      "dataset": "Validation",
+      "observations": 451206,
+      "ece": 0.0007908055017889816,
+      "mce": 0.5724433107229723,
+      "mean_confidence": 0.9976333708813717,
+      "argmax_accuracy": 0.9979565874567271,
+      "mean_absolute_bin_gap": 0.13916913209550075,
+      "nonempty_bins": 10,
+      "configured_bins": 15
+    }
+  },
+  "source_artifacts": {
+    "OOF features": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_features.npy",
+      "size_bytes": 130608776
+    },
+    "OOF targets": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_targets.npy",
+      "size_bytes": 14512200
+    },
+    "OOF observation indices": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_oof_observation_indices.npy",
+      "size_bytes": 14512200
+    },
+    "Validation features": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_features.npy",
+      "size_bytes": 32486960
+    },
+    "Validation targets": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_targets.npy",
+      "size_bytes": 3609776
+    },
+    "Validation observation indices": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_observation_indices.npy",
+      "size_bytes": 3609776
+    }
+  },
+  "output_artifacts": {
+    "oof_reliability_table": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/reliability_bins_oof_v1.csv",
+    "validation_reliability_table": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/evaluation/reliability_bins_validation_v1.csv",
+    "oof_reliability_diagram": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/visualizations/reliability_diagram_oof_v1.png",
+    "validation_reliability_diagram": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/visualizations/reliability_diagram_validation_v1.png"
+  },
+  "interpretation_notes": [
+    "ECE and MCE depend on the selected binning strategy; comparisons should use the same bin configuration.",
+    "This is top-label calibration analysis, not a complete class-conditional calibration assessment.",
+    "OOF and Validation metrics are reported separately and should not be interpreted as interchangeable.",
+    "This subsection is diagnostic only and does not fit a calibrator or modify the ensemble."
+  ]
+}
