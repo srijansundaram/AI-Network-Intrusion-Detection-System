@@ -1,0 +1,66 @@
+{
+  "report_name": "calibrated_probability_generation_v1",
+  "subsection": "9.4.2",
+  "created_utc": "2026-10-20T06:31:27.055248+00:00",
+  "status": "GENERATED_PROVISIONAL",
+  "calibration_method": "multiclass_temperature_scaling",
+  "temperature": 0.7703283156294617,
+  "calibrator": {
+    "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/temperature_scaler_provisional_v1.joblib",
+    "sha256": "0fa649fb2be358490c4055c75b229911ce86939894813843b57f291c769cd47a",
+    "metadata_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/temperature_scaler_provisional_v1.json",
+    "oof_provenance_verified": false,
+    "final_calibrator_approved": false
+  },
+  "ensemble_contract": {
+    "class_count": 9,
+    "class_order": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "random_forest_weight": 0.75,
+    "lstm_weight": 0.25
+  },
+  "validation_inputs": {
+    "uncalibrated_probabilities_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/predictions/validation_uncalibrated_probabilities_v1.npy",
+    "uncalibrated_probabilities_sha256": "044a9d1d84630890cbd393024ea5ae3c843a5a18a574a3b6c73058d2fd389ed0",
+    "targets_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/predictions/validation_targets_v1.npy",
+    "targets_sha256": "300bab17fdf0597461dfdedd8b6954f6acd3d1b89ceef452d5325a898dd8773d",
+    "observation_indices_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/predictions/validation_observation_indices_v1.npy",
+    "observation_indices_sha256": "40a30921651062908c7aa2cd3bb20dd31fd5edfb6ff3d34459ab1f93196b76b4",
+    "row_count": 451206
+  },
+  "calibrated_output": {
+    "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/predictions/validation_calibrated_probabilities_provisional_v1.npy",
+    "sha256": "7b5c936600a5c10d70feccd570e9afa23f17239ea914cdfc8bb753a64578d100",
+    "shape": [
+      451206,
+      9
+    ],
+    "dtype": "float64",
+    "all_finite": true,
+    "values_within_zero_and_one": true,
+    "row_normalization_passed": true,
+    "row_sum_min": 0.9999999999999994,
+    "row_sum_max": 1.0000000000000004
+  },
+  "validation_integrity": {
+    "probability_target_row_counts_match": true,
+    "probability_observation_index_row_counts_match": true,
+    "observation_indices_unique": true,
+    "validation_labels_used_for_fitting": false
+  },
+  "upstream_artifacts_modified": false,
+  "ensemble_retrained": false,
+  "limitations": [
+    "The calibrator remains provisional because its OOF provenance has not been verified.",
+    "This subsection validates generation and output structure; it does not establish improved calibration quality."
+  ]
+}

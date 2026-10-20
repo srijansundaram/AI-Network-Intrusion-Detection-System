@@ -1,0 +1,67 @@
+{
+  "report_name": "validation_inference_v1",
+  "subsection": "9.4.1",
+  "created_utc": "2026-10-20T06:31:20.910690+00:00",
+  "status": "VALIDATION_INFERENCE_READY_PROVISIONAL",
+  "calibrator": {
+    "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/temperature_scaler_provisional_v1.joblib",
+    "sha256": "0fa649fb2be358490c4055c75b229911ce86939894813843b57f291c769cd47a",
+    "metadata_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/temperature_scaler_provisional_v1.json",
+    "method": "multiclass_temperature_scaling",
+    "temperature": 0.7703283156294617,
+    "class_count": 9,
+    "class_order": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "ensemble_weights": {
+      "random_forest": 0.75,
+      "lstm": 0.25
+    },
+    "oof_provenance_verified": false,
+    "final_calibrator_approved": false
+  },
+  "validation_data": {
+    "source_features": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_features.npy",
+    "source_targets": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_targets.npy",
+    "source_observation_indices": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/ensemble_model_development/ensemble_integration_v1/aligned_data/ensemble_validation_observation_indices.npy",
+    "row_count": 451206,
+    "feature_column_count": 18,
+    "class_count": 9,
+    "observation_indices_unique": true,
+    "feature_target_index_row_counts_aligned": true
+  },
+  "uncalibrated_probabilities": {
+    "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/predictions/validation_uncalibrated_probabilities_v1.npy",
+    "sha256": "044a9d1d84630890cbd393024ea5ae3c843a5a18a574a3b6c73058d2fd389ed0",
+    "shape": [
+      451206,
+      9
+    ],
+    "rows_normalized": true,
+    "values_finite": true,
+    "values_within_zero_and_one": true
+  },
+  "persisted_validation_targets": {
+    "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/predictions/validation_targets_v1.npy",
+    "sha256": "300bab17fdf0597461dfdedd8b6954f6acd3d1b89ceef452d5325a898dd8773d"
+  },
+  "persisted_validation_observation_indices": {
+    "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/predictions/validation_observation_indices_v1.npy",
+    "sha256": "40a30921651062908c7aa2cd3bb20dd31fd5edfb6ff3d34459ab1f93196b76b4"
+  },
+  "upstream_artifacts_modified": false,
+  "ensemble_retrained": false,
+  "validation_labels_used_for_calibrator_fitting": false,
+  "limitations": [
+    "The calibrator was fitted in Section 9.3.7 using OOF probabilities, but the saved metadata records OOF provenance as unverified.",
+    "This subsection prepares uncalibrated Validation probabilities only. Calibrated probabilities and comparative metrics are generated in later subsections."
+  ]
+}

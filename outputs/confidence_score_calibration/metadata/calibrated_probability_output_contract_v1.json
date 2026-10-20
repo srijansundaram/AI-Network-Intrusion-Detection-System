@@ -1,0 +1,145 @@
+{
+  "schema_name": "nids_calibrated_probability_output_contract",
+  "schema_version": "1.0.0",
+  "created_utc": "2026-10-20T07:35:25.745594+00:00",
+  "status": "DOCUMENTED_OPERATIONAL_CONTRACT",
+  "project": "AI-Powered Network Intrusion Detection System",
+  "calibrator": {
+    "method": "multiclass_temperature_scaling",
+    "artifact_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_calibrator_v1.joblib",
+    "configuration_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_calibrator_configuration_v1.json",
+    "temperature_metadata_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_temperature_v1.json",
+    "fitted_temperature": 0.7703281965251618,
+    "fitting_status": "FITTED_AND_PERSISTED",
+    "fitting_data_description": "OOF ensemble probabilities and aligned OOF labels, as recorded by the existing calibration workflow."
+  },
+  "input_contract": {
+    "description": "Nine-class ensemble probability vectors before calibration.",
+    "shape": [
+      "n_observations",
+      9
+    ],
+    "class_count": 9,
+    "class_order": [
+      "BENIGN",
+      "DDoS",
+      "Port Scan",
+      "Brute Force",
+      "Bot",
+      "Web Attack",
+      "Infiltration",
+      "DoS",
+      "Heartbleed"
+    ],
+    "dtype": "floating_point",
+    "requirements": [
+      "All values must be finite.",
+      "All values must be within [0, 1], subject to numerical tolerance.",
+      "Each row must sum to 1 within numerical tolerance.",
+      "Columns must follow the documented class order.",
+      "Rows must correspond to the intended observations."
+    ],
+    "source": "Frozen RF-LSTM weighted-voting ensemble output; RF weight 0.75 and LSTM weight 0.25."
+  },
+  "calibration_operation": {
+    "method": "multiclass_temperature_scaling",
+    "formula": "P_calibrated = softmax(log(P_input_clipped) / T)",
+    "temperature": 0.7703281965251618,
+    "temperature_must_be_positive": true,
+    "note": "The persisted implementation must be used for inference. The formula describes the probability-to-logit form of temperature scaling; numerical clipping is required before taking logarithms."
+  },
+  "output_contract": {
+    "calibrated_probabilities": {
+      "shape": [
+        "n_observations",
+        9
+      ],
+      "class_order": [
+        "BENIGN",
+        "DDoS",
+        "Port Scan",
+        "Brute Force",
+        "Bot",
+        "Web Attack",
+        "Infiltration",
+        "DoS",
+        "Heartbleed"
+      ],
+      "semantics": "Normalized post-temperature-scaling class probability scores. They are model outputs, not guarantees of the true probability of an event."
+    },
+    "predicted_class": {
+      "shape": [
+        "n_observations"
+      ],
+      "derivation": "argmax(calibrated_probabilities, axis=1)",
+      "representation": "integer class ID mapped through class_order"
+    },
+    "confidence_score": {
+      "shape": [
+        "n_observations"
+      ],
+      "derivation": "max(calibrated_probabilities, axis=1)",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "semantics": "Maximum calibrated class probability for each observation."
+    }
+  },
+  "validation_evidence": {
+    "validation_observations": 451206,
+    "class_count": 9,
+    "probability_shapes_validated": true,
+    "probability_range_and_normalization_validated": true,
+    "predicted_class_integrity_validated": true,
+    "confidence_score_integrity_validated": true,
+    "evaluation_report_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_evaluation_report_v1.json",
+    "evaluation_comparison_path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_evaluation_comparison_v1.csv"
+  },
+  "artifacts": {
+    "calibrator": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_calibrator_v1.joblib",
+      "sha256": "d89fba1e8d045cdd4f40f20fe1c9f7d73ada548f3060ae11717dc4aff69c9fc8"
+    },
+    "configuration": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_calibrator_configuration_v1.json",
+      "sha256": "37870e8ff872ccbd68a42cd504f455e198369a138daffcca25e2c2a70ac49b97"
+    },
+    "temperature_metadata": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/calibrators/selected_temperature_v1.json",
+      "sha256": "fc2ce8fb1ff7bca316c9bd6d3b7066882af8f9c57b20a7748bb039a5855c1b73"
+    },
+    "uncalibrated_validation_probabilities": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/probabilities/validation_uncalibrated_probabilities_v1.npy",
+      "sha256": "c2613f6559dec4ac52511c155ac06e14952f8812c3a63132a4f09ca6e26ee0ce"
+    },
+    "calibrated_validation_probabilities": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/probabilities/validation_calibrated_probabilities_v1.npy",
+      "sha256": "14c08d1c26260c370705ac87171e9c3b0c03017521cfee85c2ade87443521c88"
+    },
+    "calibrated_predicted_classes": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/probabilities/validation_calibrated_predicted_classes_v1.npy",
+      "sha256": "8218cf1e9ad9c08256889a7138c4f2666dfec16b1430aa920e439aac8cbe7f81"
+    },
+    "calibrated_confidence_scores": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/probabilities/validation_calibrated_confidence_scores_v1.npy",
+      "sha256": "1f72297b3306a687946403a6081b1994f79c11433253301cfb76e70e65b8fd18"
+    },
+    "evaluation_report": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_evaluation_report_v1.json",
+      "sha256": "8f72d80e3c1743c60de5f90376438d9f89148a3a310ece8039188107b6d8e17a"
+    },
+    "evaluation_comparison": {
+      "path": "/content/drive/MyDrive/AI-Network-Intrusion-Detection-System/outputs/confidence_score_calibration/metadata/calibration_evaluation_comparison_v1.csv",
+      "sha256": "432f2668edd7432a48f541bbdc40b78d8399457f4f098c007d767e2a57fa95da"
+    }
+  },
+  "provenance_and_limitations": {
+    "oof_provenance_verified": false,
+    "research_grade_leakage_free_approval": false,
+    "validation_labels_used_for_calibrator_fitting": false,
+    "ensemble_retrained": false,
+    "upstream_artifacts_modified": false,
+    "limitation": "OOF provenance remains unverified. The persisted calibrator is operationally available, but this contract does not claim research-grade leakage-free approval."
+  }
+}
